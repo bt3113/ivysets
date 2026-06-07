@@ -1,43 +1,43 @@
 updated_at_london,category,metric,symbol,value,raw_value,unit,signal,score,source,source_url,cadence
-2026-06-07T19:41:47+01:00,Summary,Overall Sentiment Score,,-25.67,-25.668588,-100 to 100,Risk-off,-25.67,IvySets,,hourly
-2026-06-07T19:41:05+01:00,Market,Fear & Greed,,—,,0-100,Unavailable,,CNN,https://production.dataviz.cnn.io/index/fearandgreed/graphdata,hourly
-2026-06-07T19:41:05+01:00,Volatility,VIX Level,,21.51,21.51,index,Normal,25,Yahoo Finance,https://finance.yahoo.com/quote/%5EVIX,hourly
-2026-06-07T19:41:05+01:00,Volatility,VIX Change,,34.02,34.018692,%,Positive,-100,Yahoo Finance,https://finance.yahoo.com/quote/%5EVIX,hourly
-2026-06-07T19:41:05+01:00,Market,S&P 500 Change,,-2.59,-2.589953,%,Negative,-31.08,Yahoo Finance,https://finance.yahoo.com/quote/%5EGSPC,hourly
-2026-06-07T19:41:05+01:00,Market,Nasdaq Change,,-4.68,-4.683223,%,Negative,-56.2,Yahoo Finance,https://finance.yahoo.com/quote/%5EIXIC,hourly
-2026-06-07T19:41:05+01:00,Market,Russell 2000 Change,,-2.94,-2.940356,%,Negative,-35.28,Yahoo Finance,https://finance.yahoo.com/quote/%5ERUT,hourly
-2026-06-07T19:41:05+01:00,Macro,Gold Change,,-2.76,-2.757791,%,Negative,-33.09,Yahoo Finance,https://finance.yahoo.com/quote/GC%3DF,hourly
-2026-06-07T19:41:05+01:00,Macro,Oil Change,,-3.43,-3.4343,%,Negative,-41.21,Yahoo Finance,https://finance.yahoo.com/quote/CL%3DF,hourly
-2026-06-07T19:41:05+01:00,Macro,US Dollar Index,,100.07,100.071,index,Dollar softness,20,Yahoo Finance,https://finance.yahoo.com/quote/DX-Y.NYB,hourly
-2026-06-07T19:41:05+01:00,Rates,US 10Y Yield,,0.45,0.4536,%,Contained,10,Yahoo Finance,https://finance.yahoo.com/quote/%5ETNX,hourly
-2026-06-07T19:41:25+01:00,Credit,High Yield Spread,,—,,%,Unavailable,,FRED,https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2,daily
-2026-06-07T19:41:45+01:00,Financial Conditions,NFCI,,—,,index,Unavailable,,FRED,https://fred.stlouisfed.org/graph/fredgraph.csv?id=NFCI,weekly
-2026-06-07T19:41:45+01:00,Crypto,Crypto Fear & Greed,BTC-USD,12.00,12.0,0-100,Extreme Fear,-76.0,Alternative.me,https://api.alternative.me/fng/?limit=1,daily
-2026-06-07T19:41:46+01:00,Options,Total Put/Call Ratio,,—,,ratio,Unavailable,,Cboe,https://www.cboe.com/us/options/market_statistics/daily/,daily
-2026-06-07T19:41:46+01:00,Options,Equity Put/Call Ratio,,—,,ratio,Unavailable,,Cboe,https://www.cboe.com/us/options/market_statistics/daily/,daily
-2026-06-07T19:41:46+01:00,Options,Index Put/Call Ratio,,—,,ratio,Unavailable,,Cboe,https://www.cboe.com/us/options/market_statistics/daily/,daily
-2026-06-07T19:41:46+01:00,Survey,AAII Bullish,,—,,%,Unavailable,,AAII,https://www.aaii.com/sentimentsurvey,weekly
-2026-06-07T19:41:46+01:00,Survey,AAII Bearish,,—,,%,Unavailable,,AAII,https://www.aaii.com/sentimentsurvey,weekly
-2026-06-07T19:41:46+01:00,Survey,AAII Bull-Bear Spread,,—,,pts,Unavailable,,AAII,https://www.aaii.com/sentimentsurvey,weekly
-2026-06-07T19:41:46+01:00,Positioning,NAAIM Exposure,,500.00,500.0,index,Managers risk-on,30,NAAIM,https://www.naaim.org/programs/naaim-exposure-index/,weekly
-2026-06-07T19:41:46+01:00,Watchlist,Price Change,SPY,-2.50,-2.502379,%,Negative,-30.03,Yahoo Finance,https://finance.yahoo.com/quote/SPY,hourly
-2026-06-07T19:41:46+01:00,Watchlist,News Sentiment,SPY,-1.67,-1.666667,-100 to 100,Neutral news tone; 20 headlines,-1.67,Yahoo Finance RSS,https://feeds.finance.yahoo.com/rss/2.0/headline?s=SPY&region=US&lang=en-US,hourly
-2026-06-07T19:41:46+01:00,Watchlist,Stocktwits Bullish,SPY,—,,%,Unavailable; 0 messages,,Stocktwits,https://stocktwits.com/symbol/SPY,hourly
-2026-06-07T19:41:46+01:00,Watchlist,Price Change,QQQ,-4.50,-4.503528,%,Negative,-54.04,Yahoo Finance,https://finance.yahoo.com/quote/QQQ,hourly
-2026-06-07T19:41:46+01:00,Watchlist,News Sentiment,QQQ,-6.67,-6.666667,-100 to 100,Neutral news tone; 20 headlines,-6.67,Yahoo Finance RSS,https://feeds.finance.yahoo.com/rss/2.0/headline?s=QQQ&region=US&lang=en-US,hourly
-2026-06-07T19:41:46+01:00,Watchlist,Stocktwits Bullish,QQQ,—,,%,Unavailable; 0 messages,,Stocktwits,https://stocktwits.com/symbol/QQQ,hourly
-2026-06-07T19:41:46+01:00,Watchlist,Price Change,NVDA,-2.86,-2.860661,%,Negative,-34.33,Yahoo Finance,https://finance.yahoo.com/quote/NVDA,hourly
-2026-06-07T19:41:46+01:00,Watchlist,News Sentiment,NVDA,10.00,10.0,-100 to 100,Neutral news tone; 20 headlines,10.0,Yahoo Finance RSS,https://feeds.finance.yahoo.com/rss/2.0/headline?s=NVDA&region=US&lang=en-US,hourly
-2026-06-07T19:41:46+01:00,Watchlist,Stocktwits Bullish,NVDA,—,,%,Unavailable; 0 messages,,Stocktwits,https://stocktwits.com/symbol/NVDA,hourly
-2026-06-07T19:41:46+01:00,Watchlist,Price Change,AAPL,-1.51,-1.51253,%,Negative,-18.15,Yahoo Finance,https://finance.yahoo.com/quote/AAPL,hourly
-2026-06-07T19:41:46+01:00,Watchlist,News Sentiment,AAPL,5.00,5.0,-100 to 100,Neutral news tone; 20 headlines,5.0,Yahoo Finance RSS,https://feeds.finance.yahoo.com/rss/2.0/headline?s=AAPL&region=US&lang=en-US,hourly
-2026-06-07T19:41:46+01:00,Watchlist,Stocktwits Bullish,AAPL,—,,%,Unavailable; 0 messages,,Stocktwits,https://stocktwits.com/symbol/AAPL,hourly
-2026-06-07T19:41:46+01:00,Watchlist,Price Change,MSFT,-7.46,-7.456023,%,Negative,-89.47,Yahoo Finance,https://finance.yahoo.com/quote/MSFT,hourly
-2026-06-07T19:41:46+01:00,Watchlist,News Sentiment,MSFT,15.00,15.0,-100 to 100,Neutral news tone; 20 headlines,15.0,Yahoo Finance RSS,https://feeds.finance.yahoo.com/rss/2.0/headline?s=MSFT&region=US&lang=en-US,hourly
-2026-06-07T19:41:46+01:00,Watchlist,Stocktwits Bullish,MSFT,—,,%,Unavailable; 0 messages,,Stocktwits,https://stocktwits.com/symbol/MSFT,hourly
-2026-06-07T19:41:46+01:00,Watchlist,Price Change,TSLA,-10.28,-10.277886,%,Negative,-100,Yahoo Finance,https://finance.yahoo.com/quote/TSLA,hourly
-2026-06-07T19:41:46+01:00,Watchlist,News Sentiment,TSLA,0.00,0.0,-100 to 100,Neutral news tone; 20 headlines,0.0,Yahoo Finance RSS,https://feeds.finance.yahoo.com/rss/2.0/headline?s=TSLA&region=US&lang=en-US,hourly
-2026-06-07T19:41:47+01:00,Watchlist,Stocktwits Bullish,TSLA,—,,%,Unavailable; 0 messages,,Stocktwits,https://stocktwits.com/symbol/TSLA,hourly
-2026-06-07T19:41:47+01:00,Watchlist,Price Change,BTC-USD,-2.89,-2.894658,%,Negative,-34.74,Yahoo Finance,https://finance.yahoo.com/quote/BTC-USD,hourly
-2026-06-07T19:41:47+01:00,Watchlist,News Sentiment,BTC-USD,-10.00,-10.0,-100 to 100,Neutral news tone; 20 headlines,-10.0,Yahoo Finance RSS,https://feeds.finance.yahoo.com/rss/2.0/headline?s=BTC-USD&region=US&lang=en-US,hourly
-2026-06-07T19:41:47+01:00,Watchlist,Stocktwits Bullish,BTC-USD,—,,%,Unavailable; 0 messages,,Stocktwits,https://stocktwits.com/symbol/BTC.X,hourly
+2026-06-07T19:43:28+01:00,Summary,Overall Sentiment Score,,-25.66,-25.662235,-100 to 100,Risk-off,-25.66,IvySets,,hourly
+2026-06-07T19:42:44+01:00,Market,Fear & Greed,,—,,0-100,Unavailable,,CNN,https://production.dataviz.cnn.io/index/fearandgreed/graphdata,hourly
+2026-06-07T19:42:45+01:00,Volatility,VIX Level,,21.51,21.51,index,Normal,25,Yahoo Finance,https://finance.yahoo.com/quote/%5EVIX,hourly
+2026-06-07T19:42:45+01:00,Volatility,VIX Change,,34.02,34.018692,%,Positive,-100,Yahoo Finance,https://finance.yahoo.com/quote/%5EVIX,hourly
+2026-06-07T19:42:45+01:00,Market,S&P 500 Change,,-2.59,-2.589953,%,Negative,-31.08,Yahoo Finance,https://finance.yahoo.com/quote/%5EGSPC,hourly
+2026-06-07T19:42:45+01:00,Market,Nasdaq Change,,-4.68,-4.683223,%,Negative,-56.2,Yahoo Finance,https://finance.yahoo.com/quote/%5EIXIC,hourly
+2026-06-07T19:42:45+01:00,Market,Russell 2000 Change,,-2.94,-2.940356,%,Negative,-35.28,Yahoo Finance,https://finance.yahoo.com/quote/%5ERUT,hourly
+2026-06-07T19:42:45+01:00,Macro,Gold Change,,-2.76,-2.757791,%,Negative,-33.09,Yahoo Finance,https://finance.yahoo.com/quote/GC%3DF,hourly
+2026-06-07T19:42:45+01:00,Macro,Oil Change,,-3.43,-3.4343,%,Negative,-41.21,Yahoo Finance,https://finance.yahoo.com/quote/CL%3DF,hourly
+2026-06-07T19:42:45+01:00,Macro,US Dollar Index,,100.07,100.071,index,Dollar softness,20,Yahoo Finance,https://finance.yahoo.com/quote/DX-Y.NYB,hourly
+2026-06-07T19:42:45+01:00,Rates,US 10Y Yield,,0.45,0.4536,%,Contained,10,Yahoo Finance,https://finance.yahoo.com/quote/%5ETNX,hourly
+2026-06-07T19:43:05+01:00,Credit,High Yield Spread,,—,,%,Unavailable,,FRED,https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2,daily
+2026-06-07T19:43:25+01:00,Financial Conditions,NFCI,,—,,index,Unavailable,,FRED,https://fred.stlouisfed.org/graph/fredgraph.csv?id=NFCI,weekly
+2026-06-07T19:43:26+01:00,Crypto,Crypto Fear & Greed,BTC-USD,12.00,12.0,0-100,Extreme Fear,-76.0,Alternative.me,https://api.alternative.me/fng/?limit=1,daily
+2026-06-07T19:43:26+01:00,Options,Total Put/Call Ratio,,—,,ratio,Unavailable,,Cboe,https://www.cboe.com/us/options/market_statistics/daily/,daily
+2026-06-07T19:43:26+01:00,Options,Equity Put/Call Ratio,,—,,ratio,Unavailable,,Cboe,https://www.cboe.com/us/options/market_statistics/daily/,daily
+2026-06-07T19:43:26+01:00,Options,Index Put/Call Ratio,,—,,ratio,Unavailable,,Cboe,https://www.cboe.com/us/options/market_statistics/daily/,daily
+2026-06-07T19:43:26+01:00,Survey,AAII Bullish,,—,,%,Unavailable,,AAII,https://www.aaii.com/sentimentsurvey,weekly
+2026-06-07T19:43:26+01:00,Survey,AAII Bearish,,—,,%,Unavailable,,AAII,https://www.aaii.com/sentimentsurvey,weekly
+2026-06-07T19:43:26+01:00,Survey,AAII Bull-Bear Spread,,—,,pts,Unavailable,,AAII,https://www.aaii.com/sentimentsurvey,weekly
+2026-06-07T19:43:26+01:00,Positioning,NAAIM Exposure,,500.00,500.0,index,Managers risk-on,30,NAAIM,https://www.naaim.org/programs/naaim-exposure-index/,weekly
+2026-06-07T19:43:26+01:00,Watchlist,Price Change,SPY,-2.50,-2.502379,%,Negative,-30.03,Yahoo Finance,https://finance.yahoo.com/quote/SPY,hourly
+2026-06-07T19:43:27+01:00,Watchlist,News Sentiment,SPY,-1.67,-1.666667,-100 to 100,Neutral news tone; 20 headlines,-1.67,Yahoo Finance RSS,https://feeds.finance.yahoo.com/rss/2.0/headline?s=SPY&region=US&lang=en-US,hourly
+2026-06-07T19:43:27+01:00,Watchlist,Stocktwits Bullish,SPY,—,,%,Unavailable; 0 messages,,Stocktwits,https://stocktwits.com/symbol/SPY,hourly
+2026-06-07T19:43:27+01:00,Watchlist,Price Change,QQQ,-4.50,-4.503528,%,Negative,-54.04,Yahoo Finance,https://finance.yahoo.com/quote/QQQ,hourly
+2026-06-07T19:43:27+01:00,Watchlist,News Sentiment,QQQ,-6.67,-6.666667,-100 to 100,Neutral news tone; 20 headlines,-6.67,Yahoo Finance RSS,https://feeds.finance.yahoo.com/rss/2.0/headline?s=QQQ&region=US&lang=en-US,hourly
+2026-06-07T19:43:27+01:00,Watchlist,Stocktwits Bullish,QQQ,—,,%,Unavailable; 0 messages,,Stocktwits,https://stocktwits.com/symbol/QQQ,hourly
+2026-06-07T19:43:27+01:00,Watchlist,Price Change,NVDA,-2.86,-2.860661,%,Negative,-34.33,Yahoo Finance,https://finance.yahoo.com/quote/NVDA,hourly
+2026-06-07T19:43:27+01:00,Watchlist,News Sentiment,NVDA,10.00,10.0,-100 to 100,Neutral news tone; 20 headlines,10.0,Yahoo Finance RSS,https://feeds.finance.yahoo.com/rss/2.0/headline?s=NVDA&region=US&lang=en-US,hourly
+2026-06-07T19:43:27+01:00,Watchlist,Stocktwits Bullish,NVDA,—,,%,Unavailable; 0 messages,,Stocktwits,https://stocktwits.com/symbol/NVDA,hourly
+2026-06-07T19:43:27+01:00,Watchlist,Price Change,AAPL,-1.51,-1.51253,%,Negative,-18.15,Yahoo Finance,https://finance.yahoo.com/quote/AAPL,hourly
+2026-06-07T19:43:27+01:00,Watchlist,News Sentiment,AAPL,5.00,5.0,-100 to 100,Neutral news tone; 20 headlines,5.0,Yahoo Finance RSS,https://feeds.finance.yahoo.com/rss/2.0/headline?s=AAPL&region=US&lang=en-US,hourly
+2026-06-07T19:43:27+01:00,Watchlist,Stocktwits Bullish,AAPL,—,,%,Unavailable; 0 messages,,Stocktwits,https://stocktwits.com/symbol/AAPL,hourly
+2026-06-07T19:43:27+01:00,Watchlist,Price Change,MSFT,-7.46,-7.456023,%,Negative,-89.47,Yahoo Finance,https://finance.yahoo.com/quote/MSFT,hourly
+2026-06-07T19:43:27+01:00,Watchlist,News Sentiment,MSFT,15.00,15.0,-100 to 100,Neutral news tone; 20 headlines,15.0,Yahoo Finance RSS,https://feeds.finance.yahoo.com/rss/2.0/headline?s=MSFT&region=US&lang=en-US,hourly
+2026-06-07T19:43:27+01:00,Watchlist,Stocktwits Bullish,MSFT,—,,%,Unavailable; 0 messages,,Stocktwits,https://stocktwits.com/symbol/MSFT,hourly
+2026-06-07T19:43:27+01:00,Watchlist,Price Change,TSLA,-10.28,-10.277886,%,Negative,-100,Yahoo Finance,https://finance.yahoo.com/quote/TSLA,hourly
+2026-06-07T19:43:27+01:00,Watchlist,News Sentiment,TSLA,0.00,0.0,-100 to 100,Neutral news tone; 20 headlines,0.0,Yahoo Finance RSS,https://feeds.finance.yahoo.com/rss/2.0/headline?s=TSLA&region=US&lang=en-US,hourly
+2026-06-07T19:43:27+01:00,Watchlist,Stocktwits Bullish,TSLA,—,,%,Unavailable; 0 messages,,Stocktwits,https://stocktwits.com/symbol/TSLA,hourly
+2026-06-07T19:43:28+01:00,Watchlist,Price Change,BTC-USD,-2.87,-2.86529,%,Negative,-34.38,Yahoo Finance,https://finance.yahoo.com/quote/BTC-USD,hourly
+2026-06-07T19:43:28+01:00,Watchlist,News Sentiment,BTC-USD,-10.00,-10.0,-100 to 100,Neutral news tone; 20 headlines,-10.0,Yahoo Finance RSS,https://feeds.finance.yahoo.com/rss/2.0/headline?s=BTC-USD&region=US&lang=en-US,hourly
+2026-06-07T19:43:28+01:00,Watchlist,Stocktwits Bullish,BTC-USD,—,,%,Unavailable; 0 messages,,Stocktwits,https://stocktwits.com/symbol/BTC.X,hourly
