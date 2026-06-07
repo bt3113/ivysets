@@ -2,8 +2,8 @@
   "summary": {
     "name": "IvySets Market Sentiment",
     "timezone": "Europe/London",
-    "updated_at_london": "2026-06-07T19:43:28+01:00",
-    "overall_score": -25.66,
+    "updated_at_london": "2026-06-07T19:51:08+01:00",
+    "overall_score": -25.7,
     "overall_label": "Risk-off",
     "watchlist": [
       "SPY",
@@ -18,21 +18,21 @@
   },
   "metrics": [
     {
-      "updated_at_london": "2026-06-07T19:43:28+01:00",
+      "updated_at_london": "2026-06-07T19:51:08+01:00",
       "category": "Summary",
       "metric": "Overall Sentiment Score",
       "symbol": "",
-      "value": "-25.66",
-      "raw_value": -25.662235,
+      "value": "-25.70",
+      "raw_value": -25.700882,
       "unit": "-100 to 100",
       "signal": "Risk-off",
-      "score": -25.66,
+      "score": -25.7,
       "source": "IvySets",
       "source_url": "",
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:42:44+01:00",
+      "updated_at_london": "2026-06-07T19:50:26+01:00",
       "category": "Market",
       "metric": "Fear & Greed",
       "symbol": "",
@@ -46,7 +46,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:42:45+01:00",
+      "updated_at_london": "2026-06-07T19:50:26+01:00",
       "category": "Volatility",
       "metric": "VIX Level",
       "symbol": "",
@@ -60,7 +60,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:42:45+01:00",
+      "updated_at_london": "2026-06-07T19:50:26+01:00",
       "category": "Volatility",
       "metric": "VIX Change",
       "symbol": "",
@@ -74,7 +74,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:42:45+01:00",
+      "updated_at_london": "2026-06-07T19:50:26+01:00",
       "category": "Market",
       "metric": "S&P 500 Change",
       "symbol": "",
@@ -88,7 +88,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:42:45+01:00",
+      "updated_at_london": "2026-06-07T19:50:26+01:00",
       "category": "Market",
       "metric": "Nasdaq Change",
       "symbol": "",
@@ -102,7 +102,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:42:45+01:00",
+      "updated_at_london": "2026-06-07T19:50:26+01:00",
       "category": "Market",
       "metric": "Russell 2000 Change",
       "symbol": "",
@@ -116,7 +116,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:42:45+01:00",
+      "updated_at_london": "2026-06-07T19:50:26+01:00",
       "category": "Macro",
       "metric": "Gold Change",
       "symbol": "",
@@ -130,7 +130,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:42:45+01:00",
+      "updated_at_london": "2026-06-07T19:50:26+01:00",
       "category": "Macro",
       "metric": "Oil Change",
       "symbol": "",
@@ -144,7 +144,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:42:45+01:00",
+      "updated_at_london": "2026-06-07T19:50:26+01:00",
       "category": "Macro",
       "metric": "US Dollar Index",
       "symbol": "",
@@ -158,7 +158,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:42:45+01:00",
+      "updated_at_london": "2026-06-07T19:50:26+01:00",
       "category": "Rates",
       "metric": "US 10Y Yield",
       "symbol": "",
@@ -172,7 +172,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:05+01:00",
+      "updated_at_london": "2026-06-07T19:50:46+01:00",
       "category": "Credit",
       "metric": "High Yield Spread",
       "symbol": "",
@@ -186,7 +186,7 @@
       "cadence": "daily"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:25+01:00",
+      "updated_at_london": "2026-06-07T19:51:06+01:00",
       "category": "Financial Conditions",
       "metric": "NFCI",
       "symbol": "",
@@ -200,7 +200,7 @@
       "cadence": "weekly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:26+01:00",
+      "updated_at_london": "2026-06-07T19:51:06+01:00",
       "category": "Crypto",
       "metric": "Crypto Fear & Greed",
       "symbol": "BTC-USD",
@@ -214,7 +214,7 @@
       "cadence": "daily"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:26+01:00",
+      "updated_at_london": "2026-06-07T19:51:06+01:00",
       "category": "Options",
       "metric": "Total Put/Call Ratio",
       "symbol": "",
@@ -228,7 +228,7 @@
       "cadence": "daily"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:26+01:00",
+      "updated_at_london": "2026-06-07T19:51:06+01:00",
       "category": "Options",
       "metric": "Equity Put/Call Ratio",
       "symbol": "",
@@ -242,7 +242,7 @@
       "cadence": "daily"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:26+01:00",
+      "updated_at_london": "2026-06-07T19:51:06+01:00",
       "category": "Options",
       "metric": "Index Put/Call Ratio",
       "symbol": "",
@@ -256,7 +256,7 @@
       "cadence": "daily"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:26+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Survey",
       "metric": "AAII Bullish",
       "symbol": "",
@@ -270,7 +270,7 @@
       "cadence": "weekly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:26+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Survey",
       "metric": "AAII Bearish",
       "symbol": "",
@@ -284,7 +284,7 @@
       "cadence": "weekly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:26+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Survey",
       "metric": "AAII Bull-Bear Spread",
       "symbol": "",
@@ -298,7 +298,7 @@
       "cadence": "weekly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:26+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Positioning",
       "metric": "NAAIM Exposure",
       "symbol": "",
@@ -312,7 +312,7 @@
       "cadence": "weekly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:26+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Watchlist",
       "metric": "Price Change",
       "symbol": "SPY",
@@ -326,7 +326,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Watchlist",
       "metric": "News Sentiment",
       "symbol": "SPY",
@@ -340,7 +340,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Watchlist",
       "metric": "Stocktwits Bullish",
       "symbol": "SPY",
@@ -354,7 +354,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Watchlist",
       "metric": "Price Change",
       "symbol": "QQQ",
@@ -368,7 +368,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Watchlist",
       "metric": "News Sentiment",
       "symbol": "QQQ",
@@ -382,7 +382,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Watchlist",
       "metric": "Stocktwits Bullish",
       "symbol": "QQQ",
@@ -396,7 +396,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Watchlist",
       "metric": "Price Change",
       "symbol": "NVDA",
@@ -410,7 +410,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Watchlist",
       "metric": "News Sentiment",
       "symbol": "NVDA",
@@ -424,7 +424,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Watchlist",
       "metric": "Stocktwits Bullish",
       "symbol": "NVDA",
@@ -438,7 +438,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Watchlist",
       "metric": "Price Change",
       "symbol": "AAPL",
@@ -452,7 +452,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Watchlist",
       "metric": "News Sentiment",
       "symbol": "AAPL",
@@ -466,7 +466,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:07+01:00",
       "category": "Watchlist",
       "metric": "Stocktwits Bullish",
       "symbol": "AAPL",
@@ -480,7 +480,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:08+01:00",
       "category": "Watchlist",
       "metric": "Price Change",
       "symbol": "MSFT",
@@ -494,7 +494,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:08+01:00",
       "category": "Watchlist",
       "metric": "News Sentiment",
       "symbol": "MSFT",
@@ -508,7 +508,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:08+01:00",
       "category": "Watchlist",
       "metric": "Stocktwits Bullish",
       "symbol": "MSFT",
@@ -522,7 +522,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:08+01:00",
       "category": "Watchlist",
       "metric": "Price Change",
       "symbol": "TSLA",
@@ -536,7 +536,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:08+01:00",
       "category": "Watchlist",
       "metric": "News Sentiment",
       "symbol": "TSLA",
@@ -550,7 +550,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:27+01:00",
+      "updated_at_london": "2026-06-07T19:51:08+01:00",
       "category": "Watchlist",
       "metric": "Stocktwits Bullish",
       "symbol": "TSLA",
@@ -564,21 +564,21 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:28+01:00",
+      "updated_at_london": "2026-06-07T19:51:08+01:00",
       "category": "Watchlist",
       "metric": "Price Change",
       "symbol": "BTC-USD",
-      "value": "-2.87",
-      "raw_value": -2.86529,
+      "value": "-3.05",
+      "raw_value": -3.047296,
       "unit": "%",
       "signal": "Negative",
-      "score": -34.38,
+      "score": -36.57,
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/BTC-USD",
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:28+01:00",
+      "updated_at_london": "2026-06-07T19:51:08+01:00",
       "category": "Watchlist",
       "metric": "News Sentiment",
       "symbol": "BTC-USD",
@@ -592,7 +592,7 @@
       "cadence": "hourly"
     },
     {
-      "updated_at_london": "2026-06-07T19:43:28+01:00",
+      "updated_at_london": "2026-06-07T19:51:08+01:00",
       "category": "Watchlist",
       "metric": "Stocktwits Bullish",
       "symbol": "BTC-USD",
