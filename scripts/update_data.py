@@ -3,9 +3,7 @@ from __future__ import annotations
 import csv
 import json
 import math
-import re
 import statistics
-import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -16,90 +14,144 @@ from dateutil import tz
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 TIMEZONE = "Europe/London"
-WATCHLIST = ["SPY", "QQQ", "NVDA", "AAPL", "MSFT", "TSLA", "BTC-USD"]
 TRADING_DAYS = 252
+STOCKS = {
+    "AAPL": "0000320193",
+    "MSFT": "0000789019",
+    "NVDA": "0001045810",
+    "AMZN": "0001018724",
+    "GOOGL": "0001652044",
+    "META": "0001326801",
+    "TSLA": "0001318605",
+    "AVGO": "0001730168",
+    "JPM": "0000019617",
+    "LLY": "0000059478",
+}
 
 SESSION = requests.Session()
 SESSION.headers.update(
     {
-        "User-Agent": "Mozilla/5.0 IvySets/2.0",
-        "Accept": "application/json,text/csv,text/html,application/xml;q=0.9,*/*;q=0.8",
+        "User-Agent": "IvySets stock factor dashboard contact: tekwanib1@gmail.com",
+        "Accept": "application/json,text/csv,text/html,*/*;q=0.8",
     }
 )
 
-METHODOLOGY = [
+LITERATURE = [
     {
-        "id": "MKT_TREND",
-        "module": "Market Trend",
-        "formula": "SPY close vs 50DMA/200DMA; 63D and 252D total return.",
-        "rationale": "Trend and time-series momentum are used as empirical regime filters; the dashboard uses them as trade-permission gates, not forecasts.",
-        "primary_source": "Yahoo Finance chart API",
-        "evidence_reference": "Hurst, Ooi, Pedersen, A Century of Evidence on Trend-Following Investing; Moskowitz, Ooi, Pedersen, Time Series Momentum.",
-        "failure_rule": "If history is insufficient or the source fails, the module is marked Unavailable and excluded from the regime score.",
+        "topic": "Value / book-to-market / size",
+        "study": "Fama and French (1992, 1993): size and book-to-market help explain the cross-section of average stock returns.",
+        "dashboard_use": "P/E, P/B, P/S, P/FCF and market-cap context are used as valuation and size descriptors, not standalone predictions.",
     },
     {
-        "id": "VOL_RISK",
-        "module": "Volatility / Risk Budget",
-        "formula": "20D annualized realized volatility = stdev(log returns, 20) * sqrt(252); VIX percentile vs 1Y history; SPY drawdown vs 63D high.",
-        "rationale": "Volatility determines risk budget. Higher realized or implied volatility reduces permitted position size.",
-        "primary_source": "Yahoo Finance chart API, Cboe VIX via Yahoo symbol ^VIX",
-        "evidence_reference": "Cboe VIX methodology; volatility-managed portfolio literature.",
-        "failure_rule": "If volatility cannot be computed, the module is marked Unavailable and no synthetic volatility is inserted.",
+        "topic": "Profitability and investment",
+        "study": "Fama and French (2015): the five-factor model adds profitability and investment to market, size and value factors.",
+        "dashboard_use": "Margins, ROA, ROE, FCF margin and asset growth are treated as quality/investment factors.",
     },
     {
-        "id": "CREDIT_STRESS",
-        "module": "Credit Stress",
-        "formula": "High Yield OAS current level, 3Y z-score, and 20-observation change.",
-        "rationale": "Widening high-yield spreads indicate deteriorating credit risk appetite and reduce equity risk permission.",
-        "primary_source": "FRED BAMLH0A0HYM2",
-        "evidence_reference": "ICE BofA US High Yield Option-Adjusted Spread definition via FRED.",
-        "failure_rule": "If FRED data is unavailable, credit stress is marked Unavailable and not estimated.",
+        "topic": "Momentum",
+        "study": "Jegadeesh and Titman (1993): stocks with strong intermediate-term returns historically continued to outperform over subsequent horizons.",
+        "dashboard_use": "20D, 63D, 126D and 252D returns plus relative strength versus SPY are used for momentum ranking.",
     },
     {
-        "id": "FIN_CONDITIONS",
-        "module": "Financial Conditions",
-        "formula": "NFCI level and 4-week change.",
-        "rationale": "Positive NFCI values indicate tighter-than-average financial conditions; tightening conditions reduce risk permission.",
-        "primary_source": "FRED NFCI",
-        "evidence_reference": "Chicago Fed National Financial Conditions Index documentation.",
-        "failure_rule": "If NFCI data is unavailable, the module is marked Unavailable.",
+        "topic": "Four-factor model",
+        "study": "Carhart (1997): adds a momentum factor to explain persistence in mutual fund performance.",
+        "dashboard_use": "Momentum is separated from fundamental quality rather than mixed into valuation.",
     },
     {
-        "id": "OPTIONS_CROWDING",
-        "module": "Options Crowding",
-        "formula": "Total, equity, and index put/call ratios with trailing percentile rank.",
-        "rationale": "Put/call extremes identify defensive hedging or speculative crowding; used as context, not a direct signal.",
-        "primary_source": "Cboe daily options statistics CSV",
-        "evidence_reference": "Cboe daily market statistics; AAII sentiment indicator guidance.",
-        "failure_rule": "If Cboe CSV parsing fails, options data is marked Unavailable.",
+        "topic": "Accounting strength",
+        "study": "Piotroski (2000): accounting-based signals can separate stronger from weaker value stocks.",
+        "dashboard_use": "ROA, operating cash flow, accrual-style CFO/net income, leverage and margin factors are shown explicitly.",
     },
     {
-        "id": "RETAIL_SENTIMENT",
-        "module": "Retail Sentiment Context",
-        "formula": "AAII bullish percentage minus bearish percentage, validation required.",
-        "rationale": "AAII survey is used only as contrarian context and never as a standalone trading trigger.",
-        "primary_source": "AAII Investor Sentiment Survey",
-        "evidence_reference": "AAII survey documentation and caveat that sentiment should not be used in isolation.",
-        "failure_rule": "If bullish/neutral/bearish percentages cannot be validated, the module is marked Unavailable.",
+        "topic": "Accruals",
+        "study": "Sloan (1996): earnings components related to accruals have different persistence and implications for future returns.",
+        "dashboard_use": "Operating cash flow versus net income and FCF margin are included as earnings-quality checks.",
     },
     {
-        "id": "VALUATION_CONTEXT",
-        "module": "Long-Term Valuation",
-        "formula": "Shiller CAPE current value and percentile when source history is available.",
-        "rationale": "CAPE is long-horizon allocation context, not a short-term trade timer.",
-        "primary_source": "Multpl Shiller PE table",
-        "evidence_reference": "Cyclically adjusted price-to-earnings ratio / Shiller CAPE literature.",
-        "failure_rule": "If CAPE cannot be parsed and validated, valuation is marked Unavailable.",
+        "topic": "Gross profitability",
+        "study": "Novy-Marx (2013): gross profitability contains information related to expected returns.",
+        "dashboard_use": "Gross margin and gross profit are included in the quality score.",
     },
     {
-        "id": "WATCHLIST_READINESS",
-        "module": "Watchlist Trade Readiness",
-        "formula": "Ticker trend vs 50DMA/200DMA, 63D return, relative strength vs SPY, 20D realized volatility, 63D drawdown, and volatility-adjusted size.",
-        "rationale": "Ranks symbols by observable trend, relative strength, volatility, and damage control.",
-        "primary_source": "Yahoo Finance chart API",
-        "evidence_reference": "Momentum, relative strength, trend-following, and volatility risk-budgeting literature.",
-        "failure_rule": "If a ticker has insufficient history, its status is Unavailable and size is 0x.",
+        "topic": "Distress / credit risk",
+        "study": "Campbell, Hilscher and Szilagyi (2008): financial distress risk is related to future equity returns and poor firm fundamentals.",
+        "dashboard_use": "Debt/equity, liabilities/assets, cash/assets and interest coverage are used as balance-sheet risk descriptors.",
     },
+    {
+        "topic": "Volatility and beta",
+        "study": "Ang, Hodrick, Xing and Zhang (2006): idiosyncratic volatility is related to cross-sectional returns, with important risk implications.",
+        "dashboard_use": "20D/60D volatility, beta, correlation, downside deviation, ATR and drawdown are used for risk ranking and forecast range width.",
+    },
+    {
+        "topic": "Prediction limits",
+        "study": "Market-efficiency/random-walk literature implies exact short-horizon prices are not scientifically knowable from public data alone.",
+        "dashboard_use": "The website shows a one-week statistical center and 68% range from recent drift and volatility, not a guaranteed target price.",
+    },
+]
+
+FACTOR_CATALOG = [
+    ("price", "Current price", "Market", "Latest adjusted market price from daily data."),
+    ("market_cap", "Market cap", "Market", "Price multiplied by shares outstanding where SEC shares are available."),
+    ("enterprise_value", "Enterprise value", "Market", "Market cap plus debt minus cash."),
+    ("avg_dollar_volume_20d", "20D avg dollar volume", "Liquidity", "Average 20-day dollar volume."),
+    ("return_1d", "1D return", "Momentum", "One trading-day total return."),
+    ("return_5d", "5D return", "Momentum", "Five trading-day total return."),
+    ("return_20d", "20D return", "Momentum", "Twenty trading-day total return."),
+    ("return_63d", "63D return", "Momentum", "Approximate 3-month return."),
+    ("return_126d", "126D return", "Momentum", "Approximate 6-month return."),
+    ("return_252d", "252D return", "Momentum", "Approximate 12-month return."),
+    ("relative_strength_63d", "63D relative strength vs SPY", "Momentum", "Ticker 63D return minus SPY 63D return."),
+    ("sma_50", "50DMA", "Trend", "50-day simple moving average."),
+    ("sma_200", "200DMA", "Trend", "200-day simple moving average."),
+    ("price_vs_50dma", "Price vs 50DMA", "Trend", "Distance from 50DMA."),
+    ("price_vs_200dma", "Price vs 200DMA", "Trend", "Distance from 200DMA."),
+    ("distance_52w_high", "Distance from 52W high", "Risk", "Current price relative to one-year high."),
+    ("distance_52w_low", "Distance from 52W low", "Risk", "Current price relative to one-year low."),
+    ("rsi_14", "RSI 14", "Momentum", "14-day relative strength index."),
+    ("realized_vol_20d", "20D realized volatility", "Risk", "Annualized realized volatility from 20 daily log returns."),
+    ("realized_vol_60d", "60D realized volatility", "Risk", "Annualized realized volatility from 60 daily log returns."),
+    ("beta_1y", "1Y beta vs SPY", "Risk", "Covariance with SPY divided by SPY variance over one year."),
+    ("correlation_spy_1y", "1Y correlation vs SPY", "Risk", "Correlation of daily returns with SPY."),
+    ("max_drawdown_1y", "1Y max drawdown", "Risk", "Largest peak-to-trough loss over one year."),
+    ("downside_vol_60d", "60D downside volatility", "Risk", "Annualized volatility of negative daily returns."),
+    ("atr_14_pct", "ATR 14 as % price", "Risk", "Average true range over 14 days divided by price."),
+    ("forecast_center_1w", "1W statistical center", "Forecast", "Current price projected by 20D average daily log return over five days."),
+    ("forecast_low_1w", "1W 68% low", "Forecast", "Center minus one recent-volatility standard deviation over five days."),
+    ("forecast_high_1w", "1W 68% high", "Forecast", "Center plus one recent-volatility standard deviation over five days."),
+    ("revenue", "Revenue", "Fundamental", "Latest annual revenue from SEC companyfacts."),
+    ("revenue_growth_yoy", "Revenue growth YoY", "Growth", "Latest annual revenue growth versus prior year."),
+    ("gross_profit", "Gross profit", "Fundamental", "Latest annual gross profit."),
+    ("gross_margin", "Gross margin", "Quality", "Gross profit divided by revenue."),
+    ("operating_income", "Operating income", "Fundamental", "Latest annual operating income."),
+    ("operating_margin", "Operating margin", "Quality", "Operating income divided by revenue."),
+    ("net_income", "Net income", "Fundamental", "Latest annual net income."),
+    ("net_margin", "Net margin", "Quality", "Net income divided by revenue."),
+    ("eps_diluted", "Diluted EPS", "Fundamental", "Latest annual diluted earnings per share."),
+    ("eps_growth_yoy", "EPS growth YoY", "Growth", "Latest annual diluted EPS growth versus prior year."),
+    ("operating_cash_flow", "Operating cash flow", "Quality", "Latest annual operating cash flow."),
+    ("capex", "Capital expenditure", "Investment", "Latest annual property/equipment purchases."),
+    ("free_cash_flow", "Free cash flow", "Quality", "Operating cash flow minus capex cash outflow."),
+    ("fcf_margin", "FCF margin", "Quality", "Free cash flow divided by revenue."),
+    ("cfo_to_net_income", "CFO / net income", "Quality", "Operating cash flow divided by net income."),
+    ("total_assets", "Total assets", "Balance sheet", "Latest annual total assets."),
+    ("total_liabilities", "Total liabilities", "Balance sheet", "Latest annual total liabilities."),
+    ("shareholders_equity", "Shareholders equity", "Balance sheet", "Latest annual shareholders equity."),
+    ("cash", "Cash and equivalents", "Balance sheet", "Latest annual cash and equivalents."),
+    ("total_debt", "Total debt", "Balance sheet", "Short-term plus long-term debt when available."),
+    ("debt_to_equity", "Debt / equity", "Balance sheet", "Total debt divided by shareholders equity."),
+    ("cash_to_assets", "Cash / assets", "Balance sheet", "Cash divided by assets."),
+    ("liabilities_to_assets", "Liabilities / assets", "Balance sheet", "Liabilities divided by assets."),
+    ("roa", "ROA", "Quality", "Net income divided by assets."),
+    ("roe", "ROE", "Quality", "Net income divided by equity."),
+    ("pe", "P/E", "Valuation", "Market price divided by diluted EPS."),
+    ("ps", "P/S", "Valuation", "Market cap divided by revenue."),
+    ("pb", "P/B", "Valuation", "Market cap divided by equity."),
+    ("p_fcf", "P/FCF", "Valuation", "Market cap divided by free cash flow."),
+    ("ev_sales", "EV/Sales", "Valuation", "Enterprise value divided by revenue."),
+    ("ev_ebitda", "EV/EBITDA", "Valuation", "Enterprise value divided by estimated EBITDA."),
+    ("rd_to_sales", "R&D / sales", "Investment", "Research and development divided by revenue."),
+    ("sga_to_sales", "SG&A / sales", "Efficiency", "Selling/general/admin expense divided by revenue."),
+    ("share_change_yoy", "Diluted share change YoY", "Capital allocation", "Change in diluted weighted-average shares."),
 ]
 
 
@@ -107,607 +159,449 @@ def now() -> str:
     return datetime.now(tz.gettz(TIMEZONE)).isoformat(timespec="seconds")
 
 
-def num(value: Any) -> float | None:
-    if value is None or isinstance(value, bool):
+def n(x: Any) -> float | None:
+    if x is None or isinstance(x, bool):
         return None
-    if isinstance(value, (int, float)):
-        value = float(value)
-        return None if math.isnan(value) or math.isinf(value) else value
+    if isinstance(x, (int, float)):
+        v = float(x)
+        return None if math.isnan(v) or math.isinf(v) else v
     try:
-        cleaned = str(value).strip().replace(",", "").replace("%", "")
-        if cleaned in {"", ".", "-", "—", "N/A"}:
+        s = str(x).replace(",", "").replace("%", "").strip()
+        if s in {"", "-", ".", "—", "N/A"}:
             return None
-        parsed = float(cleaned)
-        return None if math.isnan(parsed) or math.isinf(parsed) else parsed
+        v = float(s)
+        return None if math.isnan(v) or math.isinf(v) else v
     except Exception:
         return None
 
 
-def pct(value: float | None, decimals: int = 1) -> str:
-    return "Unavailable" if value is None else f"{value * 100:.{decimals}f}%"
+def safe_div(a: float | None, b: float | None) -> float | None:
+    if a is None or b in (None, 0):
+        return None
+    return a / b
 
 
-def fmt(value: float | None, decimals: int = 2) -> str:
+def get_json(url: str) -> Any | None:
+    try:
+        r = SESSION.get(url, timeout=35)
+        r.raise_for_status()
+        return r.json()
+    except Exception:
+        return None
+
+
+def yahoo(symbol: str) -> dict[str, list[float]]:
+    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{requests.utils.quote(symbol, safe='')}?range=2y&interval=1d"
+    data = get_json(url)
+    result = (((data or {}).get("chart") or {}).get("result") or [None])[0]
+    if not result:
+        return {"close": [], "high": [], "low": [], "volume": []}
+    q = (result.get("indicators", {}).get("quote") or [{}])[0]
+    closes, highs, lows, volumes = [], [], [], []
+    for c, h, l, v in zip(q.get("close", []), q.get("high", []), q.get("low", []), q.get("volume", [])):
+        c, h, l, v = n(c), n(h), n(l), n(v)
+        if c is not None and h is not None and l is not None:
+            closes.append(c); highs.append(h); lows.append(l); volumes.append(v or 0)
+    return {"close": closes, "high": highs, "low": lows, "volume": volumes}
+
+
+def ret(values: list[float], days: int) -> float | None:
+    if len(values) <= days or values[-days - 1] == 0:
+        return None
+    return values[-1] / values[-days - 1] - 1
+
+
+def sma(values: list[float], days: int) -> float | None:
+    return None if len(values) < days else sum(values[-days:]) / days
+
+
+def log_returns(values: list[float], days: int | None = None) -> list[float]:
+    vals = values[-(days + 1):] if days else values
+    return [math.log(vals[i] / vals[i - 1]) for i in range(1, len(vals)) if vals[i - 1] > 0 and vals[i] > 0]
+
+
+def realized_vol(values: list[float], days: int) -> float | None:
+    r = log_returns(values, days)
+    return None if len(r) < max(8, days // 3) else statistics.stdev(r) * math.sqrt(TRADING_DAYS)
+
+
+def rsi(values: list[float], days: int = 14) -> float | None:
+    if len(values) <= days:
+        return None
+    gains, losses = [], []
+    for i in range(len(values) - days, len(values)):
+        diff = values[i] - values[i - 1]
+        gains.append(max(diff, 0)); losses.append(abs(min(diff, 0)))
+    avg_gain, avg_loss = sum(gains) / days, sum(losses) / days
+    if avg_loss == 0:
+        return 100.0
+    rs = avg_gain / avg_loss
+    return 100 - 100 / (1 + rs)
+
+
+def atr_pct(high: list[float], low: list[float], close: list[float], days: int = 14) -> float | None:
+    if len(close) <= days:
+        return None
+    trs = []
+    for i in range(len(close) - days, len(close)):
+        trs.append(max(high[i] - low[i], abs(high[i] - close[i - 1]), abs(low[i] - close[i - 1])))
+    return safe_div(sum(trs) / len(trs), close[-1])
+
+
+def max_drawdown(values: list[float], days: int = 252) -> float | None:
+    if len(values) < 2:
+        return None
+    vals = values[-days:]
+    peak = vals[0]
+    worst = 0.0
+    for v in vals:
+        peak = max(peak, v)
+        worst = min(worst, v / peak - 1)
+    return worst
+
+
+def downside_vol(values: list[float], days: int = 60) -> float | None:
+    r = [x for x in log_returns(values, days) if x < 0]
+    return None if len(r) < 5 else statistics.stdev(r) * math.sqrt(TRADING_DAYS)
+
+
+def beta_corr(stock: list[float], spy: list[float], days: int = 252) -> tuple[float | None, float | None]:
+    sr, mr = log_returns(stock, days), log_returns(spy, days)
+    length = min(len(sr), len(mr))
+    if length < 60:
+        return None, None
+    sr, mr = sr[-length:], mr[-length:]
+    mean_s, mean_m = statistics.mean(sr), statistics.mean(mr)
+    cov = sum((a - mean_s) * (b - mean_m) for a, b in zip(sr, mr)) / (length - 1)
+    var_m = statistics.variance(mr)
+    beta = None if var_m == 0 else cov / var_m
+    sd_s, sd_m = statistics.stdev(sr), statistics.stdev(mr)
+    corr = None if sd_s == 0 or sd_m == 0 else cov / (sd_s * sd_m)
+    return beta, corr
+
+
+def forecast_1w(values: list[float]) -> tuple[float | None, float | None, float | None]:
+    if len(values) < 25:
+        return None, None, None
+    price = values[-1]
+    r = log_returns(values, 20)
+    if len(r) < 10:
+        return None, None, None
+    mu = statistics.mean(r)
+    sd = statistics.stdev(r)
+    center_log = math.log(price) + 5 * mu
+    band = sd * math.sqrt(5)
+    return math.exp(center_log), math.exp(center_log - band), math.exp(center_log + band)
+
+
+def sec_companyfacts(cik: str) -> dict[str, Any]:
+    data = get_json(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json")
+    return data or {}
+
+
+def fact_items(facts: dict[str, Any], tag: str, unit_priority: tuple[str, ...]) -> list[dict[str, Any]]:
+    fact = ((facts.get("facts") or {}).get("us-gaap") or {}).get(tag) or {}
+    units = fact.get("units") or {}
+    for unit in unit_priority:
+        if unit in units:
+            return units[unit]
+    return []
+
+
+def annual_values(facts: dict[str, Any], tags: list[str], units: tuple[str, ...] = ("USD", "shares", "USD/shares")) -> list[tuple[int, float]]:
+    out: list[tuple[int, float]] = []
+    for tag in tags:
+        for item in fact_items(facts, tag, units):
+            val = n(item.get("val"))
+            fy = item.get("fy")
+            if val is None or fy is None:
+                continue
+            if item.get("form") in {"10-K", "10-K/A"} and item.get("fp") == "FY":
+                out.append((int(fy), val))
+    dedup = {}
+    for fy, val in out:
+        dedup[fy] = val
+    return sorted(dedup.items())
+
+
+def latest_annual(facts: dict[str, Any], tags: list[str], units: tuple[str, ...] = ("USD", "shares", "USD/shares")) -> tuple[float | None, float | None]:
+    vals = annual_values(facts, tags, units)
+    if not vals:
+        return None, None
+    latest = vals[-1][1]
+    prev = vals[-2][1] if len(vals) > 1 else None
+    return latest, prev
+
+
+def growth(current: float | None, previous: float | None) -> float | None:
+    if current is None or previous in (None, 0):
+        return None
+    return current / abs(previous) - 1
+
+
+def total_debt(facts: dict[str, Any]) -> float | None:
+    current, _ = latest_annual(facts, ["ShortTermBorrowings", "ShortTermDebt", "LongTermDebtCurrent"])
+    long, _ = latest_annual(facts, ["LongTermDebtNoncurrent", "LongTermDebt"])
+    vals = [v for v in [current, long] if v is not None]
+    return sum(vals) if vals else None
+
+
+def fundamentals(symbol: str, cik: str) -> dict[str, float | None]:
+    facts = sec_companyfacts(cik)
+    revenue, revenue_prev = latest_annual(facts, ["Revenues", "SalesRevenueNet", "RevenueFromContractWithCustomerExcludingAssessedTax"])
+    gross_profit, _ = latest_annual(facts, ["GrossProfit"])
+    operating_income, _ = latest_annual(facts, ["OperatingIncomeLoss"])
+    net_income, net_income_prev = latest_annual(facts, ["NetIncomeLoss", "ProfitLoss"])
+    eps, eps_prev = latest_annual(facts, ["EarningsPerShareDiluted"], ("USD/shares",))
+    ocf, _ = latest_annual(facts, ["NetCashProvidedByUsedInOperatingActivities"])
+    capex_raw, _ = latest_annual(facts, ["PaymentsToAcquirePropertyPlantAndEquipment", "PaymentsToAcquireProductiveAssets"])
+    capex = None if capex_raw is None else abs(capex_raw)
+    assets, assets_prev = latest_annual(facts, ["Assets"])
+    liabilities, _ = latest_annual(facts, ["Liabilities"])
+    equity, equity_prev = latest_annual(facts, ["StockholdersEquity", "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"])
+    cash, _ = latest_annual(facts, ["CashAndCashEquivalentsAtCarryingValue", "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"])
+    debt = total_debt(facts)
+    shares, shares_prev = latest_annual(facts, ["WeightedAverageNumberOfDilutedSharesOutstanding", "WeightedAverageNumberOfSharesOutstandingDiluted"], ("shares",))
+    shares_out, _ = latest_annual(facts, ["EntityCommonStockSharesOutstanding"], ("shares",))
+    rd, _ = latest_annual(facts, ["ResearchAndDevelopmentExpense"])
+    sga, _ = latest_annual(facts, ["SellingGeneralAndAdministrativeExpense"])
+    dda, _ = latest_annual(facts, ["DepreciationDepletionAndAmortization", "DepreciationDepletionAndAmortizationExpense"])
+    interest, _ = latest_annual(facts, ["InterestExpenseNonOperating", "InterestExpense"])
+    fcf = None if ocf is None or capex is None else ocf - capex
+    ebitda = None if operating_income is None else operating_income + (dda or 0)
+    return {
+        "revenue": revenue,
+        "revenue_growth_yoy": growth(revenue, revenue_prev),
+        "gross_profit": gross_profit,
+        "gross_margin": safe_div(gross_profit, revenue),
+        "operating_income": operating_income,
+        "operating_margin": safe_div(operating_income, revenue),
+        "net_income": net_income,
+        "net_margin": safe_div(net_income, revenue),
+        "eps_diluted": eps,
+        "eps_growth_yoy": growth(eps, eps_prev),
+        "operating_cash_flow": ocf,
+        "capex": capex,
+        "free_cash_flow": fcf,
+        "fcf_margin": safe_div(fcf, revenue),
+        "cfo_to_net_income": safe_div(ocf, net_income),
+        "total_assets": assets,
+        "total_liabilities": liabilities,
+        "shareholders_equity": equity,
+        "cash": cash,
+        "total_debt": debt,
+        "debt_to_equity": safe_div(debt, equity),
+        "cash_to_assets": safe_div(cash, assets),
+        "liabilities_to_assets": safe_div(liabilities, assets),
+        "roa": safe_div(net_income, assets),
+        "roe": safe_div(net_income, equity),
+        "rd_to_sales": safe_div(rd, revenue),
+        "sga_to_sales": safe_div(sga, revenue),
+        "share_change_yoy": growth(shares, shares_prev),
+        "shares": shares_out or shares,
+        "ebitda": ebitda,
+        "interest_coverage": safe_div(operating_income, interest),
+        "asset_growth_yoy": growth(assets, assets_prev),
+        "equity_growth_yoy": growth(equity, equity_prev),
+        "fcf_growth_yoy": None,
+    }
+
+
+def compute_stock(symbol: str, cik: str, spy_close: list[float]) -> dict[str, Any]:
+    h = yahoo(symbol)
+    close, high, low, volume = h["close"], h["high"], h["low"], h["volume"]
+    f = fundamentals(symbol, cik)
+    price = close[-1] if close else None
+    shares = f.get("shares")
+    market_cap = None if price is None or shares is None else price * shares
+    debt, cash = f.get("total_debt"), f.get("cash")
+    enterprise_value = None if market_cap is None else market_cap + (debt or 0) - (cash or 0)
+    fc, fl, fh = forecast_1w(close)
+    beta, corr = beta_corr(close, spy_close)
+    s50, s200 = sma(close, 50), sma(close, 200)
+    high_52 = max(close[-252:]) if len(close) >= 252 else None
+    low_52 = min(close[-252:]) if len(close) >= 252 else None
+    dollar_volume = None
+    if price is not None and len(volume) >= 20:
+        dollar_volume = sum(volume[-20:]) / 20 * price
+    vals = {
+        "price": price,
+        "market_cap": market_cap,
+        "enterprise_value": enterprise_value,
+        "avg_dollar_volume_20d": dollar_volume,
+        "return_1d": ret(close, 1),
+        "return_5d": ret(close, 5),
+        "return_20d": ret(close, 20),
+        "return_63d": ret(close, 63),
+        "return_126d": ret(close, 126),
+        "return_252d": ret(close, 252),
+        "relative_strength_63d": None if ret(close, 63) is None or ret(spy_close, 63) is None else ret(close, 63) - ret(spy_close, 63),
+        "sma_50": s50,
+        "sma_200": s200,
+        "price_vs_50dma": None if price is None or s50 is None else price / s50 - 1,
+        "price_vs_200dma": None if price is None or s200 is None else price / s200 - 1,
+        "distance_52w_high": None if price is None or high_52 in (None, 0) else price / high_52 - 1,
+        "distance_52w_low": None if price is None or low_52 in (None, 0) else price / low_52 - 1,
+        "rsi_14": rsi(close),
+        "realized_vol_20d": realized_vol(close, 20),
+        "realized_vol_60d": realized_vol(close, 60),
+        "beta_1y": beta,
+        "correlation_spy_1y": corr,
+        "max_drawdown_1y": max_drawdown(close),
+        "downside_vol_60d": downside_vol(close),
+        "atr_14_pct": atr_pct(high, low, close),
+        "forecast_center_1w": fc,
+        "forecast_low_1w": fl,
+        "forecast_high_1w": fh,
+        **f,
+    }
+    vals["pe"] = safe_div(price, vals.get("eps_diluted"))
+    vals["ps"] = safe_div(market_cap, vals.get("revenue"))
+    vals["pb"] = safe_div(market_cap, vals.get("shareholders_equity"))
+    vals["p_fcf"] = safe_div(market_cap, vals.get("free_cash_flow"))
+    vals["ev_sales"] = safe_div(enterprise_value, vals.get("revenue"))
+    vals["ev_ebitda"] = safe_div(enterprise_value, vals.get("ebitda"))
+    return {"symbol": symbol, "values": vals}
+
+
+def percentile_scores(stocks: list[dict[str, Any]], keys: list[str], higher_better: bool = True) -> dict[str, float | None]:
+    out = {s["symbol"]: None for s in stocks}
+    pairs = [(s["symbol"], s["values"].get(k)) for s in stocks for k in []]
+    return out
+
+
+def score_metric(stocks: list[dict[str, Any]], key: str, higher_better: bool) -> dict[str, float | None]:
+    vals = [(s["symbol"], s["values"].get(key)) for s in stocks]
+    vals = [(sym, val) for sym, val in vals if val is not None and math.isfinite(val)]
+    if len(vals) < 3:
+        return {s["symbol"]: None for s in stocks}
+    sorted_vals = sorted(v for _, v in vals)
+    res = {}
+    for sym, val in vals:
+        rank = sum(1 for x in sorted_vals if x <= val) / len(sorted_vals)
+        res[sym] = rank * 100 if higher_better else (1 - rank) * 100
+    for s in stocks:
+        res.setdefault(s["symbol"], None)
+    return res
+
+
+def mean_available(values: list[float | None]) -> float | None:
+    vals = [v for v in values if v is not None and math.isfinite(v)]
+    return None if not vals else sum(vals) / len(vals)
+
+
+def add_scores(stocks: list[dict[str, Any]]) -> None:
+    groups = {
+        "value_score": [("pe", False), ("ps", False), ("pb", False), ("p_fcf", False), ("ev_sales", False), ("ev_ebitda", False)],
+        "quality_score": [("gross_margin", True), ("operating_margin", True), ("net_margin", True), ("fcf_margin", True), ("roa", True), ("roe", True), ("cfo_to_net_income", True), ("debt_to_equity", False)],
+        "growth_score": [("revenue_growth_yoy", True), ("eps_growth_yoy", True), ("return_252d", True), ("asset_growth_yoy", False), ("share_change_yoy", False)],
+        "momentum_score": [("return_20d", True), ("return_63d", True), ("return_126d", True), ("return_252d", True), ("relative_strength_63d", True), ("price_vs_50dma", True), ("price_vs_200dma", True)],
+        "risk_score": [("realized_vol_20d", False), ("realized_vol_60d", False), ("beta_1y", False), ("atr_14_pct", False), ("max_drawdown_1y", True), ("downside_vol_60d", False)],
+    }
+    metric_scores = {key: score_metric(stocks, key, hb) for pairs in groups.values() for key, hb in pairs}
+    for s in stocks:
+        sym = s["symbol"]
+        cat_scores = {}
+        for group, pairs in groups.items():
+            cat_scores[group] = mean_available([metric_scores[key].get(sym) for key, _ in pairs])
+        overall = mean_available(list(cat_scores.values()))
+        s["category_scores"] = {k: None if v is None else round(v, 1) for k, v in cat_scores.items()}
+        s["overall_score"] = None if overall is None else round(overall, 1)
+        v = s["values"]
+        neg, pos = [], []
+        if v.get("price_vs_200dma") is not None:
+            (pos if v["price_vs_200dma"] > 0 else neg).append("200DMA trend")
+        if v.get("relative_strength_63d") is not None:
+            (pos if v["relative_strength_63d"] > 0 else neg).append("relative strength")
+        if v.get("revenue_growth_yoy") is not None:
+            (pos if v["revenue_growth_yoy"] > 0 else neg).append("revenue growth")
+        if v.get("fcf_margin") is not None:
+            (pos if v["fcf_margin"] > 0 else neg).append("FCF margin")
+        if v.get("debt_to_equity") is not None and v["debt_to_equity"] > 2:
+            neg.append("balance-sheet leverage")
+        if overall is None:
+            status = "Insufficient data"
+        elif overall >= 70:
+            status = "High research rank"
+        elif overall >= 50:
+            status = "Neutral / watch"
+        else:
+            status = "Weak research rank"
+        s["status"] = status
+        s["positives"] = pos[:4]
+        s["risks"] = neg[:4]
+        if v.get("forecast_center_1w") is None:
+            s["next_week_model"] = "Unavailable"
+        else:
+            s["next_week_model"] = f"{money(v['forecast_center_1w'])} center; {money(v.get('forecast_low_1w'))}–{money(v.get('forecast_high_1w'))} 68% range"
+        s["next_step"] = "Research fundamentals and wait for a defined entry setup; the model range is statistical, not a target price."
+
+
+def money(v: float | None) -> str:
+    if v is None:
+        return "Unavailable"
+    if abs(v) >= 1e12:
+        return f"${v/1e12:.2f}T"
+    if abs(v) >= 1e9:
+        return f"${v/1e9:.2f}B"
+    if abs(v) >= 1e6:
+        return f"${v/1e6:.2f}M"
+    return f"${v:,.2f}"
+
+
+def percent(v: float | None) -> str:
+    return "Unavailable" if v is None else f"{v*100:.1f}%"
+
+
+def ratio(v: float | None) -> str:
+    return "Unavailable" if v is None else f"{v:.2f}"
+
+
+def display_factor(key: str, value: float | None) -> str:
     if value is None:
         return "Unavailable"
-    return f"{value:,.{decimals}f}"
-
-
-def clamp(value: float, low: float = -100.0, high: float = 100.0) -> float:
-    return max(low, min(high, value))
-
-
-def get_text(url: str) -> str | None:
-    try:
-        response = SESSION.get(url, timeout=30)
-        response.raise_for_status()
-        return response.text
-    except Exception:
-        return None
-
-
-def get_json(url: str) -> dict[str, Any] | None:
-    try:
-        response = SESSION.get(url, timeout=30)
-        response.raise_for_status()
-        return response.json()
-    except Exception:
-        return None
-
-
-def percentile_rank(value: float | None, history: list[float]) -> float | None:
-    history = [x for x in history if x is not None and math.isfinite(x)]
-    if value is None or not history:
-        return None
-    below = sum(1 for x in history if x <= value)
-    return below / len(history)
-
-
-def z_score(value: float | None, history: list[float]) -> float | None:
-    history = [x for x in history if x is not None and math.isfinite(x)]
-    if value is None or len(history) < 30:
-        return None
-    sd = statistics.stdev(history)
-    if sd == 0:
-        return None
-    return (value - statistics.mean(history)) / sd
-
-
-def yahoo_history(symbol: str, range_: str = "2y") -> dict[str, Any]:
-    safe = requests.utils.quote(symbol, safe="")
-    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{safe}?range={range_}&interval=1d"
-    data = get_json(url)
-    if not data:
-        return {"symbol": symbol, "url": url, "closes": [], "timestamps": []}
-    try:
-        result = data["chart"]["result"][0]
-        timestamps = result.get("timestamp", [])
-        closes = [num(x) for x in result.get("indicators", {}).get("quote", [{}])[0].get("close", [])]
-        paired = [(t, c) for t, c in zip(timestamps, closes) if c is not None and c > 0]
-        return {"symbol": symbol, "url": url, "timestamps": [p[0] for p in paired], "closes": [p[1] for p in paired]}
-    except Exception:
-        return {"symbol": symbol, "url": url, "closes": [], "timestamps": []}
-
-
-def sma(values: list[float], window: int) -> float | None:
-    return None if len(values) < window else sum(values[-window:]) / window
-
-
-def return_n(values: list[float], window: int) -> float | None:
-    if len(values) <= window or values[-window - 1] == 0:
-        return None
-    return values[-1] / values[-window - 1] - 1
-
-
-def realized_vol(values: list[float], window: int = 20) -> float | None:
-    if len(values) <= window:
-        return None
-    returns = [math.log(values[i] / values[i - 1]) for i in range(len(values) - window, len(values)) if values[i - 1] > 0]
-    if len(returns) < max(10, window // 2):
-        return None
-    return statistics.stdev(returns) * math.sqrt(TRADING_DAYS)
-
-
-def drawdown(values: list[float], window: int = 63) -> float | None:
-    if len(values) < window:
-        return None
-    high = max(values[-window:])
-    return None if high <= 0 else values[-1] / high - 1
-
-
-def module(id_: str, title: str, status: str, score: float | None, decision: str, evidence: list[dict[str, Any]], source: str, source_url: str, formula: str) -> dict[str, Any]:
-    return {
-        "id": id_,
-        "title": title,
-        "status": status,
-        "score": None if score is None else round(score, 2),
-        "decision_impact": decision,
-        "evidence": evidence,
-        "source": source,
-        "source_url": source_url,
-        "formula": formula,
-        "updated_at_london": now(),
-        "available": score is not None,
-    }
-
-
-def metric(label: str, value: float | None, display: str, status: str) -> dict[str, Any]:
-    return {"label": label, "value": None if value is None else round(value, 6), "display": display, "status": status}
-
-
-def market_trend_module(spy: dict[str, Any]) -> tuple[dict[str, Any], dict[str, float | None]]:
-    closes = spy["closes"]
-    close = closes[-1] if closes else None
-    ma50 = sma(closes, 50)
-    ma200 = sma(closes, 200)
-    ret63 = return_n(closes, 63)
-    ret252 = return_n(closes, 252)
-    if None in (close, ma50, ma200, ret63, ret252):
-        mod = module("MKT_TREND", "Market Trend", "Unavailable", None, "No trade permission change; required data unavailable.", [], "Yahoo Finance", "https://finance.yahoo.com/quote/SPY", "SPY close vs 50DMA/200DMA plus 63D/252D momentum.")
-        return mod, {"close": close, "ma50": ma50, "ma200": ma200, "ret63": ret63, "ret252": ret252}
-    points = 0
-    points += 2 if close > ma200 else -2
-    points += 1 if close > ma50 else -1
-    points += 1 if ma50 > ma200 else -1
-    points += 1 if ret63 > 0 else -1
-    points += 1 if ret252 > 0 else -1
-    score = clamp(points / 6 * 100)
-    if score >= 60:
-        status, decision = "Constructive", "Broad trend permits normal long exposure if other risk modules agree."
-    elif score >= 0:
-        status, decision = "Mixed", "Use selective exposure; require stronger ticker-level evidence."
-    else:
-        status, decision = "Broken", "Restrict new long exposure until broad trend repairs."
-    evidence = [
-        metric("SPY close vs 200DMA", close - ma200, f"{fmt(close)} vs {fmt(ma200)}", "pass" if close > ma200 else "fail"),
-        metric("SPY close vs 50DMA", close - ma50, f"{fmt(close)} vs {fmt(ma50)}", "pass" if close > ma50 else "fail"),
-        metric("50DMA vs 200DMA", ma50 - ma200, f"{fmt(ma50)} vs {fmt(ma200)}", "pass" if ma50 > ma200 else "fail"),
-        metric("3M momentum", ret63, pct(ret63), "pass" if ret63 > 0 else "fail"),
-        metric("12M momentum", ret252, pct(ret252), "pass" if ret252 > 0 else "fail"),
-    ]
-    return module("MKT_TREND", "Market Trend", status, score, decision, evidence, "Yahoo Finance", "https://finance.yahoo.com/quote/SPY", "SPY close vs 50DMA/200DMA plus 63D/252D momentum."), {"close": close, "ma50": ma50, "ma200": ma200, "ret63": ret63, "ret252": ret252}
-
-
-def volatility_module(spy: dict[str, Any], vix: dict[str, Any]) -> tuple[dict[str, Any], dict[str, float | None]]:
-    spy_closes = spy["closes"]
-    vix_closes = vix["closes"]
-    rv20 = realized_vol(spy_closes, 20)
-    dd63 = drawdown(spy_closes, 63)
-    vix_now = vix_closes[-1] if vix_closes else None
-    vix_pct = percentile_rank(vix_now, vix_closes[-252:]) if vix_closes else None
-    if rv20 is None or dd63 is None or vix_now is None:
-        return module("VOL_RISK", "Volatility / Risk Budget", "Unavailable", None, "No volatility-based size adjustment; required data unavailable.", [], "Yahoo Finance / Cboe VIX", "https://finance.yahoo.com/quote/%5EVIX", "20D realized volatility, VIX percentile, and SPY 63D drawdown."), {"rv20": rv20, "dd63": dd63, "vix": vix_now, "vix_pct": vix_pct, "multiplier": None}
-    risk_penalty = 0
-    if rv20 > 0.30:
-        risk_penalty += 45
-    elif rv20 > 0.22:
-        risk_penalty += 25
-    elif rv20 > 0.16:
-        risk_penalty += 10
-    if vix_now >= 30 or (vix_pct is not None and vix_pct >= 0.90):
-        risk_penalty += 45
-    elif vix_now >= 22 or (vix_pct is not None and vix_pct >= 0.75):
-        risk_penalty += 25
-    elif vix_now >= 18:
-        risk_penalty += 10
-    if dd63 <= -0.15:
-        risk_penalty += 30
-    elif dd63 <= -0.08:
-        risk_penalty += 15
-    score = clamp(100 - risk_penalty * 1.5)
-    if risk_penalty >= 80:
-        status, multiplier, decision = "Defensive", 0.25, "Use defensive size only; volatility and drawdown are elevated."
-    elif risk_penalty >= 45:
-        status, multiplier, decision = "Reduced", 0.50, "Use half-size entries unless ticker evidence is very strong."
-    else:
-        status, multiplier, decision = "Normal", 1.00, "Volatility permits normal planned position size."
-    evidence = [
-        metric("20D realized volatility", rv20, pct(rv20), "watch" if rv20 > 0.22 else "pass"),
-        metric("VIX level", vix_now, fmt(vix_now), "watch" if vix_now >= 22 else "pass"),
-        metric("VIX 1Y percentile", vix_pct, pct(vix_pct), "watch" if vix_pct is not None and vix_pct >= 0.75 else "pass"),
-        metric("SPY drawdown from 63D high", dd63, pct(dd63), "watch" if dd63 <= -0.08 else "pass"),
-        metric("Volatility size multiplier", multiplier, f"{multiplier:.2f}x", "pass" if multiplier >= 0.75 else "watch"),
-    ]
-    return module("VOL_RISK", "Volatility / Risk Budget", status, score, decision, evidence, "Yahoo Finance / Cboe VIX", "https://finance.yahoo.com/quote/%5EVIX", "20D realized volatility, VIX percentile, and SPY 63D drawdown."), {"rv20": rv20, "dd63": dd63, "vix": vix_now, "vix_pct": vix_pct, "multiplier": multiplier}
-
-
-def fred_series(series: str) -> tuple[list[float], str]:
-    url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series}"
-    text = get_text(url)
-    if not text:
-        return [], url
-    values: list[float] = []
-    try:
-        for row in csv.DictReader(text.splitlines()):
-            value = num(row.get(series))
-            if value is not None:
-                values.append(value)
-    except Exception:
-        return [], url
-    return values, url
-
-
-def credit_module() -> tuple[dict[str, Any], dict[str, float | None]]:
-    values, url = fred_series("BAMLH0A0HYM2")
-    current = values[-1] if values else None
-    trailing = values[-756:] if values else []
-    z = z_score(current, trailing)
-    change20 = current - values[-21] if current is not None and len(values) > 21 else None
-    if current is None:
-        return module("CREDIT_STRESS", "Credit Stress", "Unavailable", None, "Credit module excluded; FRED source unavailable.", [], "FRED", url, "High-yield OAS current level, 3Y z-score, 20-observation change."), {"oas": None, "z": None, "change20": None}
-    stress = 0
-    stress += 50 if current >= 7 else 30 if current >= 5 else 0
-    stress += 35 if z is not None and z >= 2 else 20 if z is not None and z >= 1 else 0
-    stress += 35 if change20 is not None and change20 >= 1 else 20 if change20 is not None and change20 >= 0.5 else 0
-    score = clamp(100 - stress * 1.6)
-    status = "Stress" if stress >= 70 else "Watch" if stress >= 30 else "Benign"
-    decision = "Reduce equity risk and avoid weak-balance-sheet trades." if status == "Stress" else "Monitor credit confirmation before adding risk." if status == "Watch" else "Credit conditions do not restrict equity risk."
-    evidence = [
-        metric("High-yield OAS", current, f"{fmt(current)}%", "watch" if current >= 5 else "pass"),
-        metric("3Y z-score", z, fmt(z), "watch" if z is not None and z >= 1 else "pass"),
-        metric("20-observation change", change20, f"{fmt(change20)} pts", "watch" if change20 is not None and change20 >= 0.5 else "pass"),
-    ]
-    return module("CREDIT_STRESS", "Credit Stress", status, score, decision, evidence, "FRED", url, "High-yield OAS current level, 3Y z-score, 20-observation change."), {"oas": current, "z": z, "change20": change20}
-
-
-def financial_conditions_module() -> tuple[dict[str, Any], dict[str, float | None]]:
-    values, url = fred_series("NFCI")
-    current = values[-1] if values else None
-    change4 = current - values[-5] if current is not None and len(values) > 5 else None
-    if current is None:
-        return module("FIN_CONDITIONS", "Financial Conditions", "Unavailable", None, "Financial conditions excluded; FRED source unavailable.", [], "FRED", url, "NFCI level and 4-week change."), {"nfci": None, "change4": None}
-    pressure = 0
-    pressure += 50 if current > 0.5 else 25 if current > 0 else 0
-    pressure += 35 if change4 is not None and change4 > 0.25 else 20 if change4 is not None and change4 > 0.10 else 0
-    score = clamp(100 - pressure * 1.7)
-    status = "Tight" if pressure >= 60 else "Tightening" if pressure >= 25 else "Loose / Neutral"
-    decision = "Tight conditions reduce risk budget." if status == "Tight" else "Conditions are tightening; keep sizing conservative." if status == "Tightening" else "Financial conditions do not restrict risk."
-    evidence = [
-        metric("NFCI level", current, fmt(current), "watch" if current > 0 else "pass"),
-        metric("4-week change", change4, fmt(change4), "watch" if change4 is not None and change4 > 0.10 else "pass"),
-    ]
-    return module("FIN_CONDITIONS", "Financial Conditions", status, score, decision, evidence, "FRED", url, "NFCI level and 4-week change."), {"nfci": current, "change4": change4}
-
-
-def put_call_module() -> tuple[dict[str, Any], dict[str, float | None]]:
-    url = "https://cdn.cboe.com/resources/options/volume_and_call_put_ratios/totalpc.csv"
-    text = get_text(url)
-    parsed: dict[str, list[float]] = {"total": [], "equity": [], "index": []}
-    if text:
-        try:
-            rows = list(csv.DictReader(text.splitlines()))
-            headers = list(rows[0].keys()) if rows else []
-            mapping: dict[str, str] = {}
-            for header in headers:
-                h = re.sub(r"[^a-z0-9]+", " ", header.lower()).strip()
-                if "ratio" in h and "total" in h:
-                    mapping["total"] = header
-                if "ratio" in h and "equity" in h:
-                    mapping["equity"] = header
-                if "ratio" in h and "index" in h:
-                    mapping["index"] = header
-            for row in rows:
-                for key, header in mapping.items():
-                    value = num(row.get(header))
-                    if value is not None and 0.1 <= value <= 5:
-                        parsed[key].append(value)
-        except Exception:
-            parsed = {"total": [], "equity": [], "index": []}
-    total = parsed["total"][-1] if parsed["total"] else None
-    equity = parsed["equity"][-1] if parsed["equity"] else None
-    index = parsed["index"][-1] if parsed["index"] else None
-    total_pct = percentile_rank(total, parsed["total"][-252:]) if total is not None else None
-    equity_pct = percentile_rank(equity, parsed["equity"][-252:]) if equity is not None else None
-    index_pct = percentile_rank(index, parsed["index"][-252:]) if index is not None else None
-    if total is None and equity is None and index is None:
-        return module("OPTIONS_CROWDING", "Options Crowding", "Unavailable", None, "Options module excluded; Cboe data unavailable.", [], "Cboe", "https://www.cboe.com/us/options/market_statistics/daily/", "Put/call ratios and trailing percentiles."), {"total": None, "equity": None, "index": None}
-    percentiles = [p for p in [total_pct, equity_pct, index_pct] if p is not None]
-    extreme_high = any(p >= 0.90 for p in percentiles)
-    extreme_low = any(p <= 0.10 for p in percentiles)
-    score = 50.0
-    if extreme_high:
-        status, decision, score = "Defensive extreme", "Options flow shows elevated hedging; avoid adding weak longs without confirmation.", 25
-    elif extreme_low:
-        status, decision, score = "Speculative extreme", "Options flow is crowded/speculative; avoid chasing extended moves.", 35
-    else:
-        status, decision, score = "Balanced", "Options crowding does not restrict trade permission.", 70
-    evidence = [
-        metric("Total put/call", total, fmt(total), "watch" if total_pct is not None and (total_pct >= 0.90 or total_pct <= 0.10) else "pass"),
-        metric("Total put/call percentile", total_pct, pct(total_pct), "watch" if total_pct is not None and (total_pct >= 0.90 or total_pct <= 0.10) else "pass"),
-        metric("Equity put/call", equity, fmt(equity), "watch" if equity_pct is not None and (equity_pct >= 0.90 or equity_pct <= 0.10) else "pass"),
-        metric("Index put/call", index, fmt(index), "watch" if index_pct is not None and (index_pct >= 0.90 or index_pct <= 0.10) else "pass"),
-    ]
-    return module("OPTIONS_CROWDING", "Options Crowding", status, score, decision, evidence, "Cboe", "https://www.cboe.com/us/options/market_statistics/daily/", "Put/call ratios and trailing percentiles."), {"total": total, "equity": equity, "index": index, "total_pct": total_pct, "equity_pct": equity_pct, "index_pct": index_pct}
-
-
-def aaii_module() -> tuple[dict[str, Any], dict[str, float | None]]:
-    url = "https://www.aaii.com/sentimentsurvey"
-    text = get_text(url) or ""
-    plain = re.sub(r"<[^>]+>", " ", text)
-    values = {}
-    for label in ["Bullish", "Neutral", "Bearish"]:
-        match = re.search(label + r"[^0-9]{0,120}([0-9]+(?:\.[0-9]+)?)%", plain, re.I | re.S)
-        values[label.lower()] = num(match.group(1)) if match else None
-    bullish, neutral, bearish = values["bullish"], values["neutral"], values["bearish"]
-    valid = None not in (bullish, neutral, bearish) and 90 <= bullish + neutral + bearish <= 110 and bullish > 1 and bearish > 1
-    if not valid:
-        return module("RETAIL_SENTIMENT", "Retail Sentiment Context", "Unavailable", None, "Retail sentiment excluded; AAII values could not be validated.", [], "AAII", url, "AAII bullish minus bearish spread."), {"bullish": bullish, "bearish": bearish, "spread": None}
-    spread = bullish - bearish
-    if spread >= 25:
-        status, score, decision = "Optimistic", 35, "Retail optimism is elevated; use as contrarian caution only."
-    elif spread <= -25:
-        status, score, decision = "Pessimistic", 35, "Retail pessimism is elevated; do not use alone, but watch for oversold setups."
-    else:
-        status, score, decision = "Neutral", 70, "Retail survey context does not restrict risk."
-    evidence = [
-        metric("Bullish", bullish / 100, pct(bullish / 100), "context"),
-        metric("Neutral", neutral / 100, pct(neutral / 100), "context"),
-        metric("Bearish", bearish / 100, pct(bearish / 100), "context"),
-        metric("Bull-bear spread", spread, f"{fmt(spread)} pts", "watch" if abs(spread) >= 25 else "pass"),
-    ]
-    return module("RETAIL_SENTIMENT", "Retail Sentiment Context", status, score, decision, evidence, "AAII", url, "AAII bullish minus bearish spread."), {"bullish": bullish, "bearish": bearish, "spread": spread}
-
-
-def cape_module() -> tuple[dict[str, Any], dict[str, float | None]]:
-    url = "https://www.multpl.com/shiller-pe/table/by-month"
-    text = get_text(url) or ""
-    values = [num(x) for x in re.findall(r">\s*([0-9]{1,2}(?:\.[0-9]+)?)\s*</td>", text)]
-    values = [v for v in values if v is not None and 5 <= v <= 80]
-    current = values[0] if values else None
-    pct_rank = percentile_rank(current, values) if current is not None else None
-    if current is None:
-        return module("VALUATION_CONTEXT", "Long-Term Valuation", "Unavailable", None, "Valuation context excluded; CAPE source unavailable.", [], "Multpl", url, "Shiller CAPE current value and historical percentile."), {"cape": None, "cape_pct": None}
-    if pct_rank is not None and pct_rank >= 0.85:
-        status, score, decision = "Expensive", 30, "Long-term allocation caution; not a short-term trade blocker."
-    elif pct_rank is not None and pct_rank <= 0.25:
-        status, score, decision = "Cheap / Fair", 70, "Long-term valuation is supportive; not a short-term entry trigger."
-    else:
-        status, score, decision = "Fair / Elevated", 55, "Valuation is context only; use trend and risk modules for trade permission."
-    evidence = [
-        metric("Shiller CAPE", current, fmt(current), "context"),
-        metric("CAPE percentile", pct_rank, pct(pct_rank), "watch" if pct_rank is not None and pct_rank >= 0.85 else "context"),
-    ]
-    return module("VALUATION_CONTEXT", "Long-Term Valuation", status, score, decision, evidence, "Multpl", url, "Shiller CAPE current value and historical percentile."), {"cape": current, "cape_pct": pct_rank}
-
-
-def regime_from_modules(modules: list[dict[str, Any]], trend_data: dict[str, float | None], vol_data: dict[str, float | None], credit_data: dict[str, float | None], fin_data: dict[str, float | None]) -> dict[str, Any]:
-    multiplier = 1.0
-    reasons: list[str] = []
-    if trend_data.get("close") is None or trend_data.get("ma200") is None:
-        multiplier = min(multiplier, 0.5)
-        reasons.append("SPY trend unavailable")
-    elif trend_data["close"] < trend_data["ma200"]:
-        multiplier = min(multiplier, 0.25)
-        reasons.append("SPY below 200DMA")
-    elif trend_data.get("ret63") is not None and trend_data["ret63"] < 0:
-        multiplier = min(multiplier, 0.5)
-        reasons.append("SPY 3M momentum negative")
-    vol_mult = vol_data.get("multiplier")
-    if vol_mult is not None:
-        multiplier = min(multiplier, vol_mult)
-        if vol_mult <= 0.5:
-            reasons.append("volatility risk budget reduced")
-    if credit_data.get("z") is not None and credit_data["z"] >= 2:
-        multiplier = min(multiplier, 0.25)
-        reasons.append("high-yield spread z-score stress")
-    elif credit_data.get("change20") is not None and credit_data["change20"] >= 0.5:
-        multiplier = min(multiplier, 0.5)
-        reasons.append("credit spreads widening")
-    if fin_data.get("nfci") is not None and fin_data["nfci"] > 0.5:
-        multiplier = min(multiplier, 0.25)
-        reasons.append("financial conditions tight")
-    elif fin_data.get("change4") is not None and fin_data["change4"] > 0.10:
-        multiplier = min(multiplier, 0.5)
-        reasons.append("financial conditions tightening")
-    if trend_data.get("close") is not None and trend_data.get("ma200") is not None and trend_data["close"] < trend_data["ma200"] and vol_data.get("vix") is not None and vol_data["vix"] >= 30:
-        multiplier = 0.0
-        reasons.append("broad trend broken and VIX stress")
-    if multiplier >= 0.75:
-        code, label, permission = "GREEN", "Risk-on", "New long trades allowed if ticker is Eligible."
-    elif multiplier >= 0.50:
-        code, label, permission = "AMBER", "Selective", "New longs limited to strongest tickers; use half size."
-    elif multiplier > 0:
-        code, label, permission = "RED", "Risk-off", "New longs restricted; planned trades only; use quarter size."
-    else:
-        code, label, permission = "BLACK", "Capital protection", "No new long trades; review existing exposure."
-    if not reasons:
-        reasons = ["broad trend and risk modules permit normal exposure"]
-    available_scores = [m["score"] for m in modules if m.get("score") is not None]
-    evidence_score = sum(available_scores) / len(available_scores) if available_scores else None
-    return {
-        "regime_code": code,
-        "regime_label": label,
-        "trade_permission": permission,
-        "position_size_multiplier": multiplier,
-        "primary_reason": "; ".join(reasons[:4]),
-        "evidence_score": None if evidence_score is None else round(evidence_score, 2),
-    }
-
-
-def ticker_readiness(symbol: str, history: dict[str, Any], spy_ret63: float | None, market_multiplier: float) -> dict[str, Any]:
-    closes = history.get("closes", [])
-    close = closes[-1] if closes else None
-    ma50 = sma(closes, 50)
-    ma200 = sma(closes, 200)
-    ret63 = return_n(closes, 63)
-    rv20 = realized_vol(closes, 20)
-    dd63 = drawdown(closes, 63)
-    rel = None if ret63 is None or spy_ret63 is None else ret63 - spy_ret63
-    target_vol = 0.60 if symbol == "BTC-USD" else 0.25
-    vol_multiplier = 0.0 if rv20 is None or rv20 <= 0 else min(1.0, target_vol / rv20)
-    size = round(market_multiplier * vol_multiplier, 2)
-    reasons: list[str] = []
-    if None in (close, ma50, ma200, ret63, rv20, dd63):
-        return {
-            "symbol": symbol,
-            "status": "Unavailable",
-            "position_size_multiplier": 0.0,
-            "price": None,
-            "trend": "Unavailable",
-            "relative_strength_vs_spy": None,
-            "realized_volatility_20d": rv20,
-            "drawdown_63d": dd63,
-            "return_63d": ret63,
-            "risk_adjusted_momentum": None,
-            "reason": "Insufficient validated price history.",
-            "next_step": "Do not trade from this dashboard until data is available.",
-        }
-    if close > ma50 and close > ma200:
-        trend = "Above 50DMA and 200DMA"
-    elif close > ma200:
-        trend = "Above 200DMA, below 50DMA"
-        reasons.append("below 50DMA")
-    else:
-        trend = "Below 200DMA"
-        reasons.append("below 200DMA")
-    if rel is not None and rel < 0:
-        reasons.append("underperforming SPY over 63D")
-    if ret63 < 0:
-        reasons.append("negative 63D momentum")
-    if rv20 > target_vol * 1.5:
-        reasons.append("elevated volatility")
-    if dd63 < -0.12:
-        reasons.append("drawdown greater than 12%")
-    if market_multiplier == 0:
-        status = "Blocked"
-        next_step = "No new long trade while market regime is capital protection."
-    elif close < ma200 or (ret63 < 0 and rel is not None and rel < 0):
-        status = "Avoid"
-        next_step = "Wait for price to repair trend and relative strength before considering entry."
-        size = min(size, 0.25)
-    elif close < ma50 or (rel is not None and rel < 0) or rv20 > target_vol * 1.5 or dd63 < -0.12:
-        status = "Watch"
-        next_step = "Research only; require technical repair or smaller entry size."
-        size = min(size, 0.50)
-    else:
-        status = "Eligible"
-        next_step = "Eligible for planned setup, subject to personal entry rules and risk limits."
-    if not reasons:
-        reasons.append("trend and relative strength acceptable")
-    risk_adjusted = None if rv20 in (None, 0) or ret63 is None else ret63 / rv20
-    return {
-        "symbol": symbol,
-        "status": status,
-        "position_size_multiplier": size,
-        "price": round(close, 4),
-        "trend": trend,
-        "relative_strength_vs_spy": None if rel is None else round(rel, 6),
-        "realized_volatility_20d": None if rv20 is None else round(rv20, 6),
-        "drawdown_63d": None if dd63 is None else round(dd63, 6),
-        "return_63d": None if ret63 is None else round(ret63, 6),
-        "risk_adjusted_momentum": None if risk_adjusted is None else round(risk_adjusted, 6),
-        "reason": "; ".join(reasons[:5]),
-        "next_step": next_step,
-    }
+    if key in {"price", "forecast_center_1w", "forecast_low_1w", "forecast_high_1w"}:
+        return money(value)
+    if key in {"market_cap", "enterprise_value", "avg_dollar_volume_20d", "revenue", "gross_profit", "operating_income", "net_income", "operating_cash_flow", "capex", "free_cash_flow", "total_assets", "total_liabilities", "shareholders_equity", "cash", "total_debt"}:
+        return money(value)
+    if "return" in key or "growth" in key or "margin" in key or key in {"price_vs_50dma", "price_vs_200dma", "distance_52w_high", "distance_52w_low", "realized_vol_20d", "realized_vol_60d", "correlation_spy_1y", "max_drawdown_1y", "downside_vol_60d", "atr_14_pct", "cash_to_assets", "liabilities_to_assets", "roa", "roe", "rd_to_sales", "sga_to_sales", "share_change_yoy"}:
+        return percent(value)
+    return ratio(value)
 
 
 def write_outputs() -> None:
     DOCS.mkdir(parents=True, exist_ok=True)
-    spy = yahoo_history("SPY")
-    vix = yahoo_history("^VIX")
-    trend_mod, trend_data = market_trend_module(spy)
-    vol_mod, vol_data = volatility_module(spy, vix)
-    credit_mod, credit_data = credit_module()
-    fin_mod, fin_data = financial_conditions_module()
-    options_mod, options_data = put_call_module()
-    aaii_mod, aaii_data = aaii_module()
-    cape_mod, cape_data = cape_module()
-    modules = [trend_mod, vol_mod, credit_mod, fin_mod, options_mod, aaii_mod, cape_mod]
-    regime = regime_from_modules(modules, trend_data, vol_data, credit_data, fin_data)
-    histories = {symbol: yahoo_history(symbol) for symbol in WATCHLIST}
-    watchlist = [ticker_readiness(symbol, histories[symbol], trend_data.get("ret63"), regime["position_size_multiplier"]) for symbol in WATCHLIST]
-    summary = {
-        "name": "IvySets Evidence-Based Market Regime",
-        "timezone": TIMEZONE,
-        "updated_at_london": now(),
-        "watchlist": WATCHLIST,
-        **regime,
-        "eligible_count": sum(1 for row in watchlist if row["status"] == "Eligible"),
-        "watch_count": sum(1 for row in watchlist if row["status"] == "Watch"),
-        "avoid_count": sum(1 for row in watchlist if row["status"] in {"Avoid", "Blocked"}),
-        "unavailable_count": sum(1 for row in watchlist if row["status"] == "Unavailable"),
-        "csv_url": "docs/sentiment.csv",
-    }
+    spy = yahoo("SPY")["close"]
+    stocks = [compute_stock(symbol, cik, spy) for symbol, cik in STOCKS.items()]
+    add_scores(stocks)
+    for s in stocks:
+        factors = []
+        for key, label, category, definition in FACTOR_CATALOG:
+            value = s["values"].get(key)
+            factors.append({"key": key, "label": label, "category": category, "value": value, "display": display_factor(key, value), "definition": definition})
+        s["factors"] = factors
+    stocks.sort(key=lambda x: (-1 if x.get("overall_score") is None else -x["overall_score"]))
     payload = {
-        "summary": summary,
-        "modules": modules,
-        "watchlist": watchlist,
-        "methodology": METHODOLOGY,
-        "source_health": {
-            "market_data": len(spy.get("closes", [])) >= 200,
-            "vix_data": len(vix.get("closes", [])) >= 100,
-            "credit_data": credit_mod["available"],
-            "financial_conditions_data": fin_mod["available"],
-            "options_data": options_mod["available"],
-            "aaii_data": aaii_mod["available"],
-            "cape_data": cape_mod["available"],
+        "summary": {
+            "name": "IvySets Stock Factor Lab",
+            "updated_at_london": now(),
+            "timezone": TIMEZONE,
+            "stock_count": len(stocks),
+            "factor_count": len(FACTOR_CATALOG),
+            "model": "One-week statistical center and 68% range from 20-day drift and realized volatility; not a guaranteed price target.",
         },
+        "stocks": stocks,
+        "factor_catalog": [{"key": k, "label": l, "category": c, "definition": d} for k, l, c, d in FACTOR_CATALOG],
+        "literature": LITERATURE,
     }
     (DOCS / "data.json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    with (DOCS / "sentiment.csv").open("w", newline="", encoding="utf-8") as handle:
-        columns = [
-            "timestamp",
-            "section",
-            "symbol",
-            "metric",
-            "value",
-            "status",
-            "decision_impact",
-            "position_size_multiplier",
-            "source",
-            "source_url",
-            "formula_id",
-        ]
-        writer = csv.DictWriter(handle, fieldnames=columns)
-        writer.writeheader()
-        for mod in modules:
-            writer.writerow(
-                {
-                    "timestamp": summary["updated_at_london"],
-                    "section": "module",
-                    "symbol": "",
-                    "metric": mod["title"],
-                    "value": mod["score"],
-                    "status": mod["status"],
-                    "decision_impact": mod["decision_impact"],
-                    "position_size_multiplier": summary["position_size_multiplier"],
-                    "source": mod["source"],
-                    "source_url": mod["source_url"],
-                    "formula_id": mod["id"],
-                }
-            )
-            for ev in mod.get("evidence", []):
-                writer.writerow(
-                    {
-                        "timestamp": summary["updated_at_london"],
-                        "section": "evidence",
-                        "symbol": "",
-                        "metric": f"{mod['title']} - {ev['label']}",
-                        "value": ev.get("display"),
-                        "status": ev.get("status"),
-                        "decision_impact": mod["decision_impact"],
-                        "position_size_multiplier": summary["position_size_multiplier"],
-                        "source": mod["source"],
-                        "source_url": mod["source_url"],
-                        "formula_id": mod["id"],
-                    }
-                )
-        for row in watchlist:
-            writer.writerow(
-                {
-                    "timestamp": summary["updated_at_london"],
-                    "section": "watchlist",
-                    "symbol": row["symbol"],
-                    "metric": "Trade Readiness",
-                    "value": row["status"],
-                    "status": row["status"],
-                    "decision_impact": f"{row['reason']} | {row['next_step']}",
-                    "position_size_multiplier": row["position_size_multiplier"],
-                    "source": "Yahoo Finance chart API",
-                    "source_url": f"https://finance.yahoo.com/quote/{requests.utils.quote(row['symbol'], safe='')}",
-                    "formula_id": "WATCHLIST_READINESS",
-                }
-            )
+    cols = ["timestamp", "symbol", "overall_score", "status", "category", "factor", "value", "display", "definition"]
+    with (DOCS / "sentiment.csv").open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=cols)
+        w.writeheader()
+        for s in stocks:
+            for fac in s["factors"]:
+                w.writerow({"timestamp": payload["summary"]["updated_at_london"], "symbol": s["symbol"], "overall_score": s.get("overall_score"), "status": s.get("status"), "category": fac["category"], "factor": fac["label"], "value": fac["value"], "display": fac["display"], "definition": fac["definition"]})
 
 
 if __name__ == "__main__":
