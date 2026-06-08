@@ -2,8 +2,8 @@
   "summary": {
     "name": "IvySets Market Sentiment",
     "timezone": "Europe/London",
-    "updated_at_london": "2026-06-08T06:27:34+01:00",
-    "overall_score": -15.59,
+    "updated_at_london": "2026-06-08T11:27:41+01:00",
+    "overall_score": -14.58,
     "overall_label": "Neutral",
     "card_count": 20,
     "positive_cards": 3,
@@ -21,7 +21,7 @@
   },
   "metrics": [
     {
-      "updated_at_london": "2026-06-08T06:27:05+01:00",
+      "updated_at_london": "2026-06-08T11:27:14+01:00",
       "card": 1,
       "category": "Market",
       "metric": "Fear & Greed",
@@ -38,13 +38,13 @@
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:05+01:00",
+      "updated_at_london": "2026-06-08T11:27:14+01:00",
       "card": 2,
       "category": "Volatility",
       "metric": "VIX Level",
       "symbol": "",
-      "value": "21.51",
-      "raw_value": 21.51,
+      "value": "19.60",
+      "raw_value": 19.6,
       "unit": "index",
       "signal": "Risk-on",
       "score": 20.0,
@@ -55,7 +55,7 @@
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:05+01:00",
+      "updated_at_london": "2026-06-08T11:27:14+01:00",
       "card": 3,
       "category": "Options",
       "metric": "Total Put/Call Ratio",
@@ -72,7 +72,7 @@
       "status": "unavailable"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:05+01:00",
+      "updated_at_london": "2026-06-08T11:27:14+01:00",
       "card": 4,
       "category": "Market",
       "metric": "S&P 500 Change",
@@ -89,7 +89,7 @@
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:05+01:00",
+      "updated_at_london": "2026-06-08T11:27:14+01:00",
       "card": 5,
       "category": "Market",
       "metric": "Nasdaq Change",
@@ -106,7 +106,7 @@
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:05+01:00",
+      "updated_at_london": "2026-06-08T11:27:14+01:00",
       "card": 6,
       "category": "Market",
       "metric": "Russell 2000 Change",
@@ -123,7 +123,7 @@
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:05+01:00",
+      "updated_at_london": "2026-06-08T11:27:14+01:00",
       "card": 7,
       "category": "Rates",
       "metric": "US 10Y Yield",
@@ -140,7 +140,7 @@
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:31+01:00",
+      "updated_at_london": "2026-06-08T11:27:39+01:00",
       "card": 8,
       "category": "Credit",
       "metric": "High Yield Spread",
@@ -157,13 +157,13 @@
       "status": "unavailable"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:31+01:00",
+      "updated_at_london": "2026-06-08T11:27:39+01:00",
       "card": 9,
       "category": "Macro",
       "metric": "US Dollar Index",
       "symbol": "",
-      "value": "100.00",
-      "raw_value": 100.003,
+      "value": "100.10",
+      "raw_value": 100.103,
       "unit": "index",
       "signal": "Risk-on",
       "score": 25.0,
@@ -174,16 +174,16 @@
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:31+01:00",
+      "updated_at_london": "2026-06-08T11:27:39+01:00",
       "card": 10,
       "category": "Macro",
       "metric": "Gold Change",
       "symbol": "",
-      "value": "-2.36",
-      "raw_value": -2.355354,
+      "value": "-2.73",
+      "raw_value": -2.73176,
       "unit": "%",
       "signal": "Risk-off",
-      "score": -23.55,
+      "score": -27.32,
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/GC%3DF",
       "cadence": "hourly",
@@ -191,16 +191,16 @@
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:31+01:00",
+      "updated_at_london": "2026-06-08T11:27:39+01:00",
       "card": 11,
       "category": "Macro",
       "metric": "Oil Change",
       "symbol": "",
-      "value": "-1.61",
-      "raw_value": -1.614247,
+      "value": "-1.37",
+      "raw_value": -1.374714,
       "unit": "%",
       "signal": "Neutral",
-      "score": -16.14,
+      "score": -13.75,
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/CL%3DF",
       "cadence": "hourly",
@@ -208,7 +208,7 @@
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:32+01:00",
+      "updated_at_london": "2026-06-08T11:27:40+01:00",
       "card": 12,
       "category": "Survey",
       "metric": "AAII Bull-Bear Spread",
@@ -225,7 +225,7 @@
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:33+01:00",
+      "updated_at_london": "2026-06-08T11:27:40+01:00",
       "card": 13,
       "category": "Watchlist",
       "metric": "SPY Composite Sentiment",
@@ -242,7 +242,7 @@
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:33+01:00",
+      "updated_at_london": "2026-06-08T11:27:40+01:00",
       "card": 14,
       "category": "Watchlist",
       "metric": "QQQ Composite Sentiment",
@@ -259,58 +259,58 @@
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:33+01:00",
+      "updated_at_london": "2026-06-08T11:27:40+01:00",
       "card": 15,
       "category": "Watchlist",
       "metric": "NVDA Composite Sentiment",
       "symbol": "NVDA",
-      "value": "-17.16",
-      "raw_value": -17.163967,
+      "value": "-9.66",
+      "raw_value": -9.663967,
       "unit": "-100 to 100",
       "signal": "Neutral",
-      "score": -17.16,
+      "score": -9.66,
       "source": "Yahoo Finance RSS + Stocktwits",
       "source_url": "https://finance.yahoo.com/quote/NVDA",
       "cadence": "hourly",
-      "detail": "price -2.86%; news +0 from 20 headlines",
+      "detail": "price -2.86%; news +15 from 20 headlines",
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:33+01:00",
+      "updated_at_london": "2026-06-08T11:27:41+01:00",
       "card": 16,
       "category": "Watchlist",
       "metric": "AAPL Composite Sentiment",
       "symbol": "AAPL",
-      "value": "-9.08",
-      "raw_value": -9.075178,
+      "value": "-6.58",
+      "raw_value": -6.575178,
       "unit": "-100 to 100",
       "signal": "Neutral",
-      "score": -9.08,
+      "score": -6.58,
       "source": "Yahoo Finance RSS + Stocktwits",
       "source_url": "https://finance.yahoo.com/quote/AAPL",
       "cadence": "hourly",
-      "detail": "price -1.51%; news +0 from 20 headlines",
+      "detail": "price -1.51%; news +5 from 20 headlines",
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:34+01:00",
+      "updated_at_london": "2026-06-08T11:27:41+01:00",
       "card": 17,
       "category": "Watchlist",
       "metric": "MSFT Composite Sentiment",
       "symbol": "MSFT",
-      "value": "-39.74",
-      "raw_value": -39.736141,
+      "value": "-34.74",
+      "raw_value": -34.736141,
       "unit": "-100 to 100",
       "signal": "Risk-off",
-      "score": -39.74,
+      "score": -34.74,
       "source": "Yahoo Finance RSS + Stocktwits",
       "source_url": "https://finance.yahoo.com/quote/MSFT",
       "cadence": "hourly",
-      "detail": "price -7.46%; news +10 from 20 headlines",
+      "detail": "price -7.46%; news +20 from 20 headlines",
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:34+01:00",
+      "updated_at_london": "2026-06-08T11:27:41+01:00",
       "card": 18,
       "category": "Watchlist",
       "metric": "TSLA Composite Sentiment",
@@ -327,24 +327,24 @@
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:34+01:00",
+      "updated_at_london": "2026-06-08T11:27:41+01:00",
       "card": 19,
       "category": "Watchlist",
       "metric": "BTC-USD Composite Sentiment",
       "symbol": "BTC-USD",
-      "value": "-18.74",
-      "raw_value": -18.741014,
+      "value": "-14.30",
+      "raw_value": -14.303099,
       "unit": "-100 to 100",
       "signal": "Neutral",
-      "score": -18.74,
+      "score": -14.3,
       "source": "Yahoo Finance RSS + Stocktwits",
       "source_url": "https://finance.yahoo.com/quote/BTC-USD",
       "cadence": "hourly",
-      "detail": "price -1.87%; news -15 from 20 headlines",
+      "detail": "price -1.13%; news -15 from 20 headlines",
       "status": "live"
     },
     {
-      "updated_at_london": "2026-06-08T06:27:34+01:00",
+      "updated_at_london": "2026-06-08T11:27:41+01:00",
       "card": 20,
       "category": "Crypto",
       "metric": "Crypto Fear & Greed",

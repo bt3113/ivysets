@@ -1,21 +1,21 @@
 updated_at_london,card,category,metric,symbol,value,raw_value,unit,signal,score,source,source_url,cadence,detail,status
-2026-06-08T06:27:05+01:00,1,Market,Fear & Greed,,42,42.057143,0-100,Neutral,-15.89,CNN,https://production.dataviz.cnn.io/index/fearandgreed/graphdata,hourly,Fear,live
-2026-06-08T06:27:05+01:00,2,Volatility,VIX Level,,21.51,21.51,index,Risk-on,20.0,Yahoo Finance,https://finance.yahoo.com/quote/%5EVIX,hourly,Normal volatility,live
-2026-06-08T06:27:05+01:00,3,Options,Total Put/Call Ratio,,Unavailable,,ratio,Unavailable,,Cboe,https://www.cboe.com/us/options/market_statistics/daily/,daily,Cboe ratio unavailable,unavailable
-2026-06-08T06:27:05+01:00,4,Market,S&P 500 Change,,-2.59,-2.589953,%,Risk-off,-31.08,Yahoo Finance,https://finance.yahoo.com/quote/%5EGSPC,hourly,Daily price change,live
-2026-06-08T06:27:05+01:00,5,Market,Nasdaq Change,,-4.68,-4.683223,%,Risk-off,-56.2,Yahoo Finance,https://finance.yahoo.com/quote/%5EIXIC,hourly,Daily price change,live
-2026-06-08T06:27:05+01:00,6,Market,Russell 2000 Change,,-2.94,-2.940356,%,Risk-off,-35.28,Yahoo Finance,https://finance.yahoo.com/quote/%5ERUT,hourly,Daily price change,live
-2026-06-08T06:27:05+01:00,7,Rates,US 10Y Yield,,0.45,0.4536,%,Neutral,15.0,Yahoo Finance,https://finance.yahoo.com/quote/%5ETNX,hourly,Rate pressure contained,live
-2026-06-08T06:27:31+01:00,8,Credit,High Yield Spread,,Unavailable,,%,Unavailable,,FRED,https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2,daily,Spread unavailable,unavailable
-2026-06-08T06:27:31+01:00,9,Macro,US Dollar Index,,100.00,100.003,index,Risk-on,25.0,Yahoo Finance,https://finance.yahoo.com/quote/DX-Y.NYB,hourly,Dollar softness,live
-2026-06-08T06:27:31+01:00,10,Macro,Gold Change,,-2.36,-2.355354,%,Risk-off,-23.55,Yahoo Finance,https://finance.yahoo.com/quote/GC%3DF,hourly,Daily price change,live
-2026-06-08T06:27:31+01:00,11,Macro,Oil Change,,-1.61,-1.614247,%,Neutral,-16.14,Yahoo Finance,https://finance.yahoo.com/quote/CL%3DF,hourly,Daily price change,live
-2026-06-08T06:27:32+01:00,12,Survey,AAII Bull-Bear Spread,,50.00,50.0,pts,Strong risk-on,100.0,AAII,https://www.aaii.com/sentimentsurvey,weekly,"Bullish 50.0%, bearish 0.0%",live
-2026-06-08T06:27:33+01:00,13,Watchlist,SPY Composite Sentiment,SPY,-15.85,-15.84761,-100 to 100,Neutral,-15.85,Yahoo Finance RSS + Stocktwits,https://finance.yahoo.com/quote/SPY,hourly,price -2.50%; news -2 from 20 headlines,live
-2026-06-08T06:27:33+01:00,14,Watchlist,QQQ Composite Sentiment,QQQ,-32.85,-32.854503,-100 to 100,Risk-off,-32.85,Yahoo Finance RSS + Stocktwits,https://finance.yahoo.com/quote/QQQ,hourly,price -4.50%; news -12 from 20 headlines,live
-2026-06-08T06:27:33+01:00,15,Watchlist,NVDA Composite Sentiment,NVDA,-17.16,-17.163967,-100 to 100,Neutral,-17.16,Yahoo Finance RSS + Stocktwits,https://finance.yahoo.com/quote/NVDA,hourly,price -2.86%; news +0 from 20 headlines,live
-2026-06-08T06:27:33+01:00,16,Watchlist,AAPL Composite Sentiment,AAPL,-9.08,-9.075178,-100 to 100,Neutral,-9.08,Yahoo Finance RSS + Stocktwits,https://finance.yahoo.com/quote/AAPL,hourly,price -1.51%; news +0 from 20 headlines,live
-2026-06-08T06:27:34+01:00,17,Watchlist,MSFT Composite Sentiment,MSFT,-39.74,-39.736141,-100 to 100,Risk-off,-39.74,Yahoo Finance RSS + Stocktwits,https://finance.yahoo.com/quote/MSFT,hourly,price -7.46%; news +10 from 20 headlines,live
-2026-06-08T06:27:34+01:00,18,Watchlist,TSLA Composite Sentiment,TSLA,-45.00,-45.0,-100 to 100,Risk-off,-45.0,Yahoo Finance RSS + Stocktwits,https://finance.yahoo.com/quote/TSLA,hourly,price -10.28%; news +10 from 20 headlines,live
-2026-06-08T06:27:34+01:00,19,Watchlist,BTC-USD Composite Sentiment,BTC-USD,-18.74,-18.741014,-100 to 100,Neutral,-18.74,Yahoo Finance RSS + Stocktwits,https://finance.yahoo.com/quote/BTC-USD,hourly,price -1.87%; news -15 from 20 headlines,live
-2026-06-08T06:27:34+01:00,20,Crypto,Crypto Fear & Greed,BTC-USD,8,8.0,0-100,Strong risk-off,-84.0,Alternative.me,https://api.alternative.me/fng/?limit=1,daily,Extreme Fear,live
+2026-06-08T11:27:14+01:00,1,Market,Fear & Greed,,42,42.057143,0-100,Neutral,-15.89,CNN,https://production.dataviz.cnn.io/index/fearandgreed/graphdata,hourly,Fear,live
+2026-06-08T11:27:14+01:00,2,Volatility,VIX Level,,19.60,19.6,index,Risk-on,20.0,Yahoo Finance,https://finance.yahoo.com/quote/%5EVIX,hourly,Normal volatility,live
+2026-06-08T11:27:14+01:00,3,Options,Total Put/Call Ratio,,Unavailable,,ratio,Unavailable,,Cboe,https://www.cboe.com/us/options/market_statistics/daily/,daily,Cboe ratio unavailable,unavailable
+2026-06-08T11:27:14+01:00,4,Market,S&P 500 Change,,-2.59,-2.589953,%,Risk-off,-31.08,Yahoo Finance,https://finance.yahoo.com/quote/%5EGSPC,hourly,Daily price change,live
+2026-06-08T11:27:14+01:00,5,Market,Nasdaq Change,,-4.68,-4.683223,%,Risk-off,-56.2,Yahoo Finance,https://finance.yahoo.com/quote/%5EIXIC,hourly,Daily price change,live
+2026-06-08T11:27:14+01:00,6,Market,Russell 2000 Change,,-2.94,-2.940356,%,Risk-off,-35.28,Yahoo Finance,https://finance.yahoo.com/quote/%5ERUT,hourly,Daily price change,live
+2026-06-08T11:27:14+01:00,7,Rates,US 10Y Yield,,0.45,0.4536,%,Neutral,15.0,Yahoo Finance,https://finance.yahoo.com/quote/%5ETNX,hourly,Rate pressure contained,live
+2026-06-08T11:27:39+01:00,8,Credit,High Yield Spread,,Unavailable,,%,Unavailable,,FRED,https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2,daily,Spread unavailable,unavailable
+2026-06-08T11:27:39+01:00,9,Macro,US Dollar Index,,100.10,100.103,index,Risk-on,25.0,Yahoo Finance,https://finance.yahoo.com/quote/DX-Y.NYB,hourly,Dollar softness,live
+2026-06-08T11:27:39+01:00,10,Macro,Gold Change,,-2.73,-2.73176,%,Risk-off,-27.32,Yahoo Finance,https://finance.yahoo.com/quote/GC%3DF,hourly,Daily price change,live
+2026-06-08T11:27:39+01:00,11,Macro,Oil Change,,-1.37,-1.374714,%,Neutral,-13.75,Yahoo Finance,https://finance.yahoo.com/quote/CL%3DF,hourly,Daily price change,live
+2026-06-08T11:27:40+01:00,12,Survey,AAII Bull-Bear Spread,,50.00,50.0,pts,Strong risk-on,100.0,AAII,https://www.aaii.com/sentimentsurvey,weekly,"Bullish 50.0%, bearish 0.0%",live
+2026-06-08T11:27:40+01:00,13,Watchlist,SPY Composite Sentiment,SPY,-15.85,-15.84761,-100 to 100,Neutral,-15.85,Yahoo Finance RSS + Stocktwits,https://finance.yahoo.com/quote/SPY,hourly,price -2.50%; news -2 from 20 headlines,live
+2026-06-08T11:27:40+01:00,14,Watchlist,QQQ Composite Sentiment,QQQ,-32.85,-32.854503,-100 to 100,Risk-off,-32.85,Yahoo Finance RSS + Stocktwits,https://finance.yahoo.com/quote/QQQ,hourly,price -4.50%; news -12 from 20 headlines,live
+2026-06-08T11:27:40+01:00,15,Watchlist,NVDA Composite Sentiment,NVDA,-9.66,-9.663967,-100 to 100,Neutral,-9.66,Yahoo Finance RSS + Stocktwits,https://finance.yahoo.com/quote/NVDA,hourly,price -2.86%; news +15 from 20 headlines,live
+2026-06-08T11:27:41+01:00,16,Watchlist,AAPL Composite Sentiment,AAPL,-6.58,-6.575178,-100 to 100,Neutral,-6.58,Yahoo Finance RSS + Stocktwits,https://finance.yahoo.com/quote/AAPL,hourly,price -1.51%; news +5 from 20 headlines,live
+2026-06-08T11:27:41+01:00,17,Watchlist,MSFT Composite Sentiment,MSFT,-34.74,-34.736141,-100 to 100,Risk-off,-34.74,Yahoo Finance RSS + Stocktwits,https://finance.yahoo.com/quote/MSFT,hourly,price -7.46%; news +20 from 20 headlines,live
+2026-06-08T11:27:41+01:00,18,Watchlist,TSLA Composite Sentiment,TSLA,-45.00,-45.0,-100 to 100,Risk-off,-45.0,Yahoo Finance RSS + Stocktwits,https://finance.yahoo.com/quote/TSLA,hourly,price -10.28%; news +10 from 20 headlines,live
+2026-06-08T11:27:41+01:00,19,Watchlist,BTC-USD Composite Sentiment,BTC-USD,-14.30,-14.303099,-100 to 100,Neutral,-14.3,Yahoo Finance RSS + Stocktwits,https://finance.yahoo.com/quote/BTC-USD,hourly,price -1.13%; news -15 from 20 headlines,live
+2026-06-08T11:27:41+01:00,20,Crypto,Crypto Fear & Greed,BTC-USD,8,8.0,0-100,Strong risk-off,-84.0,Alternative.me,https://api.alternative.me/fng/?limit=1,daily,Extreme Fear,live
