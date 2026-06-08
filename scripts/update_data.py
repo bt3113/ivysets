@@ -34,19 +34,6 @@ SESSION.headers.update({
     "Accept": "application/json,text/csv,text/html,*/*;q=0.8",
 })
 
-LITERATURE = [
-    {"topic":"Value","study":"Fama and French (1992, 1993) document size and book-to-market effects in average returns.","dashboard_use":"Valuation ratios are analysis factors, not direct price targets."},
-    {"topic":"Profitability and investment","study":"Fama and French (2015) add profitability and investment factors to their five-factor model.","dashboard_use":"Margins, ROA, ROE, FCF margin and asset growth are quality/investment checks."},
-    {"topic":"Momentum","study":"Jegadeesh and Titman (1993) document intermediate-term return continuation.","dashboard_use":"20D, 63D, 126D, 252D returns and relative strength are momentum factors."},
-    {"topic":"Momentum factor model","study":"Carhart (1997) adds momentum to explain mutual fund performance persistence.","dashboard_use":"Momentum is scored separately from fundamentals."},
-    {"topic":"Accounting strength","study":"Piotroski (2000) uses accounting signals to separate stronger and weaker value stocks.","dashboard_use":"Cash flow, leverage, margin and profitability factors are displayed."},
-    {"topic":"Accruals","study":"Sloan (1996) shows accrual-related earnings components have different persistence.","dashboard_use":"CFO/net income and FCF margin are earnings-quality checks."},
-    {"topic":"Gross profitability","study":"Novy-Marx (2013) documents information in gross profitability.","dashboard_use":"Gross margin and gross profit are included."},
-    {"topic":"Distress","study":"Campbell, Hilscher and Szilagyi (2008) link financial distress risk to equity returns and weak fundamentals.","dashboard_use":"Debt/equity, liabilities/assets and cash/assets are balance-sheet risk factors."},
-    {"topic":"Volatility","study":"Ang, Hodrick, Xing and Zhang (2006) study idiosyncratic volatility and expected returns.","dashboard_use":"Volatility, drawdown, beta and ATR define forecast range width and risk."},
-    {"topic":"Prediction limits","study":"Efficient-market and random-walk literature limits exact short-horizon prediction from public data.","dashboard_use":"The predicted price is a transparent statistical center, not a guaranteed target."},
-]
-
 FACTOR_CATALOG = [
     ("price","Current price","Market","yahoo","Latest daily adjusted/regular close from Yahoo chart data."),
     ("market_cap","Market cap","Market","calculated","Price multiplied by SEC-reported shares outstanding."),
@@ -73,7 +60,7 @@ FACTOR_CATALOG = [
     ("max_drawdown_1y","1Y max drawdown","Risk","calculated","Largest peak-to-trough loss over one year."),
     ("downside_vol_60d","60D downside volatility","Risk","calculated","Annualized stdev of negative daily returns."),
     ("atr_14_pct","ATR 14 as % price","Risk","calculated","Average true range over 14 days divided by price."),
-    ("forecast_date","Prediction date","Forecast","calculated","Seven calendar days ahead, within the requested ten-day window."),
+    ("forecast_date","Prediction date","Forecast","calculated","Seven calendar days ahead."),
     ("predicted_price","Predicted price center","Forecast","calculated","Factor-adjusted statistical center from recent drift, volatility and peer factor rank."),
     ("prediction_low","68% prediction low","Forecast","calculated","Center minus one recent-volatility standard deviation over five trading days."),
     ("prediction_high","68% prediction high","Forecast","calculated","Center plus one recent-volatility standard deviation over five trading days."),
@@ -114,6 +101,12 @@ FACTOR_CATALOG = [
     ("interest_coverage","Interest coverage","Balance sheet","calculated","Operating income divided by interest expense."),
 ]
 
+LITERATURE = [
+    {"topic":"Value","study":"Fama and French (1992, 1993) document size and book-to-market effects in average returns.","dashboard_use":"Valuation ratios are analysis factors, not direct price targets."},
+    {"topic":"Profitability and investment","study":"Fama and French (2015) add profitability and investment factors to their five-factor model.","dashboard_use":"Margins, ROA, ROE, FCF margin and asset growth are quality/investment checks."},
+    {"topic":"Momentum","study":"Jegadeesh and Titman (1993) document intermediate-term return continuation.","dashboard_use":"20D, 63D, 126D, 252D returns and relative strength are momentum factors."},
+]
+
 
 def now() -> str:
     return datetime.now(tz.gettz(TIMEZONE)).isoformat(timespec="seconds")
@@ -124,302 +117,217 @@ def prediction_date() -> str:
 
 
 def to_num(x: Any) -> float | None:
-    if x is None or isinstance(x, bool):
-        return None
+    if x is None or isinstance(x, bool): return None
     if isinstance(x, (int, float)):
-        v = float(x)
-        return None if math.isnan(v) or math.isinf(v) else v
+        v=float(x); return None if math.isnan(v) or math.isinf(v) else v
     try:
-        s = str(x).replace(",", "").replace("%", "").strip()
-        if s in {"", "-", ".", "—", "N/A"}:
-            return None
-        v = float(s)
-        return None if math.isnan(v) or math.isinf(v) else v
-    except Exception:
-        return None
+        s=str(x).replace(",","").replace("%","").strip()
+        if s in {"","-",".","—","N/A"}: return None
+        v=float(s); return None if math.isnan(v) or math.isinf(v) else v
+    except Exception: return None
 
 
 def div(a: float | None, b: float | None) -> float | None:
-    return None if a is None or b in (None, 0) else a / b
+    return None if a is None or b in (None,0) else a/b
 
 
 def get_json(url: str) -> Any | None:
     try:
-        r = SESSION.get(url, timeout=35)
-        r.raise_for_status()
-        return r.json()
-    except Exception:
-        return None
+        r=SESSION.get(url,timeout=35); r.raise_for_status(); return r.json()
+    except Exception: return None
 
 
 def yahoo_url(symbol: str) -> str:
-    return f"https://query1.finance.yahoo.com/v8/finance/chart/{requests.utils.quote(symbol, safe='')}?range=2y&interval=1d"
+    return f"https://query1.finance.yahoo.com/v8/finance/chart/{requests.utils.quote(symbol,safe='')}?range=2y&interval=1d"
 
 
 def yahoo(symbol: str) -> dict[str, list[float]]:
-    data = get_json(yahoo_url(symbol))
-    result = (((data or {}).get("chart") or {}).get("result") or [None])[0]
-    if not result:
-        return {"close": [], "high": [], "low": [], "volume": []}
-    q = (result.get("indicators", {}).get("quote") or [{}])[0]
-    out = {"close": [], "high": [], "low": [], "volume": []}
-    for c, h, l, v in zip(q.get("close", []), q.get("high", []), q.get("low", []), q.get("volume", [])):
-        c, h, l, v = to_num(c), to_num(h), to_num(l), to_num(v)
+    result=((((get_json(yahoo_url(symbol)) or {}).get("chart") or {}).get("result") or [None])[0])
+    if not result: return {"close":[],"high":[],"low":[],"volume":[]}
+    q=(result.get("indicators",{}).get("quote") or [{}])[0]
+    out={"close":[],"high":[],"low":[],"volume":[]}
+    for c,h,l,v in zip(q.get("close",[]),q.get("high",[]),q.get("low",[]),q.get("volume",[])):
+        c,h,l,v=to_num(c),to_num(h),to_num(l),to_num(v)
         if c is not None and h is not None and l is not None:
             out["close"].append(c); out["high"].append(h); out["low"].append(l); out["volume"].append(v or 0)
     return out
 
 
-def ret(values: list[float], days: int) -> float | None:
-    return None if len(values) <= days or values[-days - 1] == 0 else values[-1] / values[-days - 1] - 1
+def ret(values:list[float],days:int)->float|None:
+    return None if len(values)<=days or values[-days-1]==0 else values[-1]/values[-days-1]-1
 
+def sma(values:list[float],days:int)->float|None:
+    return None if len(values)<days else sum(values[-days:])/days
 
-def sma(values: list[float], days: int) -> float | None:
-    return None if len(values) < days else sum(values[-days:]) / days
+def log_returns(values:list[float],days:int|None=None)->list[float]:
+    vals=values[-(days+1):] if days else values
+    return [math.log(vals[i]/vals[i-1]) for i in range(1,len(vals)) if vals[i-1]>0 and vals[i]>0]
 
+def realized_vol(values:list[float],days:int)->float|None:
+    rs=log_returns(values,days)
+    return None if len(rs)<max(8,days//3) else statistics.stdev(rs)*math.sqrt(TRADING_DAYS)
 
-def log_returns(values: list[float], days: int | None = None) -> list[float]:
-    vals = values[-(days + 1):] if days else values
-    return [math.log(vals[i] / vals[i - 1]) for i in range(1, len(vals)) if vals[i - 1] > 0 and vals[i] > 0]
+def rsi(values:list[float],days:int=14)->float|None:
+    if len(values)<=days: return None
+    gains=[]; losses=[]
+    for i in range(len(values)-days,len(values)):
+        d=values[i]-values[i-1]; gains.append(max(d,0)); losses.append(abs(min(d,0)))
+    ag,al=sum(gains)/days,sum(losses)/days
+    return 100.0 if al==0 else 100-100/(1+ag/al)
 
+def atr_pct(high:list[float],low:list[float],close:list[float],days:int=14)->float|None:
+    if len(close)<=days: return None
+    trs=[max(high[i]-low[i],abs(high[i]-close[i-1]),abs(low[i]-close[i-1])) for i in range(len(close)-days,len(close))]
+    return div(sum(trs)/len(trs),close[-1])
 
-def realized_vol(values: list[float], days: int) -> float | None:
-    rs = log_returns(values, days)
-    return None if len(rs) < max(8, days // 3) else statistics.stdev(rs) * math.sqrt(TRADING_DAYS)
-
-
-def rsi(values: list[float], days: int = 14) -> float | None:
-    if len(values) <= days: return None
-    gains, losses = [], []
-    for i in range(len(values) - days, len(values)):
-        d = values[i] - values[i - 1]
-        gains.append(max(d, 0)); losses.append(abs(min(d, 0)))
-    avg_gain, avg_loss = sum(gains) / days, sum(losses) / days
-    if avg_loss == 0: return 100.0
-    return 100 - 100 / (1 + avg_gain / avg_loss)
-
-
-def atr_pct(high: list[float], low: list[float], close: list[float], days: int = 14) -> float | None:
-    if len(close) <= days: return None
-    trs = [max(high[i] - low[i], abs(high[i] - close[i - 1]), abs(low[i] - close[i - 1])) for i in range(len(close) - days, len(close))]
-    return div(sum(trs) / len(trs), close[-1])
-
-
-def max_drawdown(values: list[float], days: int = 252) -> float | None:
-    if len(values) < 2: return None
-    vals, peak, worst = values[-days:], values[-days], 0.0
-    for v in vals:
-        peak = max(peak, v); worst = min(worst, v / peak - 1)
+def max_drawdown(values:list[float],days:int=252)->float|None:
+    if len(values)<2: return None
+    vals=values[-days:]; peak=vals[0]; worst=0.0
+    for v in vals: peak=max(peak,v); worst=min(worst,v/peak-1)
     return worst
 
+def downside_vol(values:list[float],days:int=60)->float|None:
+    rs=[x for x in log_returns(values,days) if x<0]
+    return None if len(rs)<5 else statistics.stdev(rs)*math.sqrt(TRADING_DAYS)
 
-def downside_vol(values: list[float], days: int = 60) -> float | None:
-    rs = [x for x in log_returns(values, days) if x < 0]
-    return None if len(rs) < 5 else statistics.stdev(rs) * math.sqrt(TRADING_DAYS)
-
-
-def beta_corr(stock: list[float], spy: list[float], days: int = 252) -> tuple[float | None, float | None]:
-    sr, mr = log_returns(stock, days), log_returns(spy, days)
-    length = min(len(sr), len(mr))
-    if length < 60: return None, None
-    sr, mr = sr[-length:], mr[-length:]
-    ms, mm = statistics.mean(sr), statistics.mean(mr)
-    cov = sum((a - ms) * (b - mm) for a, b in zip(sr, mr)) / (length - 1)
-    var_m = statistics.variance(mr)
-    beta = None if var_m == 0 else cov / var_m
-    corr = None if statistics.stdev(sr) == 0 or statistics.stdev(mr) == 0 else cov / (statistics.stdev(sr) * statistics.stdev(mr))
-    return beta, corr
+def beta_corr(stock:list[float],spy:list[float],days:int=252)->tuple[float|None,float|None]:
+    sr,mr=log_returns(stock,days),log_returns(spy,days); length=min(len(sr),len(mr))
+    if length<60: return None,None
+    sr,mr=sr[-length:],mr[-length:]; ms,mm=statistics.mean(sr),statistics.mean(mr)
+    cov=sum((a-ms)*(b-mm) for a,b in zip(sr,mr))/(length-1); var_m=statistics.variance(mr)
+    beta=None if var_m==0 else cov/var_m
+    corr=None if statistics.stdev(sr)==0 or statistics.stdev(mr)==0 else cov/(statistics.stdev(sr)*statistics.stdev(mr))
+    return beta,corr
 
 
-def sec_url(cik: str) -> str:
-    return f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json"
+def sec_url(cik:str)->str: return f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json"
+def sec_companyfacts(cik:str)->dict[str,Any]: return get_json(sec_url(cik)) or {}
 
-
-def sec_companyfacts(cik: str) -> dict[str, Any]:
-    return get_json(sec_url(cik)) or {}
-
-
-def fact_items(facts: dict[str, Any], tag: str, units: tuple[str, ...]) -> list[dict[str, Any]]:
-    all_units = (((facts.get("facts") or {}).get("us-gaap") or {}).get(tag) or {}).get("units") or {}
+def fact_items(facts:dict[str,Any],tag:str,units:tuple[str,...])->list[dict[str,Any]]:
+    all_units=(((facts.get("facts") or {}).get("us-gaap") or {}).get(tag) or {}).get("units") or {}
     for unit in units:
         if unit in all_units: return all_units[unit]
     return []
 
-
-def annual_values(facts: dict[str, Any], tags: list[str], units: tuple[str, ...] = ("USD", "shares", "USD/shares")) -> list[tuple[int, float]]:
-    vals: dict[int, float] = {}
+def latest_annual(facts:dict[str,Any],tags:list[str],units:tuple[str,...]=("USD","shares","USD/shares"))->tuple[float|None,float|None]:
+    vals={}
     for tag in tags:
-        for item in fact_items(facts, tag, units):
-            val, fy = to_num(item.get("val")), item.get("fy")
-            if val is not None and fy is not None and item.get("form") in {"10-K", "10-K/A"} and item.get("fp") == "FY":
-                vals[int(fy)] = val
-    return sorted(vals.items())
+        for item in fact_items(facts,tag,units):
+            val,fy=to_num(item.get("val")),item.get("fy")
+            if val is not None and fy is not None and item.get("form") in {"10-K","10-K/A"} and item.get("fp")=="FY": vals[int(fy)]=val
+    items=sorted(vals.items())
+    return (None,None) if not items else (items[-1][1], items[-2][1] if len(items)>1 else None)
+
+def growth(c:float|None,p:float|None)->float|None: return None if c is None or p in (None,0) else c/abs(p)-1
 
 
-def latest_annual(facts: dict[str, Any], tags: list[str], units: tuple[str, ...] = ("USD", "shares", "USD/shares")) -> tuple[float | None, float | None]:
-    vals = annual_values(facts, tags, units)
-    if not vals: return None, None
-    return vals[-1][1], vals[-2][1] if len(vals) > 1 else None
+def fundamentals(cik:str)->dict[str,float|None]:
+    facts=sec_companyfacts(cik)
+    revenue,rev_prev=latest_annual(facts,["Revenues","SalesRevenueNet","RevenueFromContractWithCustomerExcludingAssessedTax"])
+    gross_profit,_=latest_annual(facts,["GrossProfit"]); op_inc,_=latest_annual(facts,["OperatingIncomeLoss"]); net_inc,_=latest_annual(facts,["NetIncomeLoss","ProfitLoss"])
+    eps,eps_prev=latest_annual(facts,["EarningsPerShareDiluted"],("USD/shares",)); ocf,_=latest_annual(facts,["NetCashProvidedByUsedInOperatingActivities"])
+    capex_raw,_=latest_annual(facts,["PaymentsToAcquirePropertyPlantAndEquipment","PaymentsToAcquireProductiveAssets"]); capex=None if capex_raw is None else abs(capex_raw)
+    assets,_=latest_annual(facts,["Assets"]); liabilities,_=latest_annual(facts,["Liabilities"]); equity,_=latest_annual(facts,["StockholdersEquity","StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"])
+    cash,_=latest_annual(facts,["CashAndCashEquivalentsAtCarryingValue","CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"])
+    debt_current,_=latest_annual(facts,["ShortTermBorrowings","ShortTermDebt","LongTermDebtCurrent"]); debt_long,_=latest_annual(facts,["LongTermDebtNoncurrent","LongTermDebt"])
+    debt_vals=[v for v in [debt_current,debt_long] if v is not None]; debt=sum(debt_vals) if debt_vals else None
+    shares,shares_prev=latest_annual(facts,["WeightedAverageNumberOfDilutedSharesOutstanding","WeightedAverageNumberOfSharesOutstandingDiluted"],("shares",)); shares_out,_=latest_annual(facts,["EntityCommonStockSharesOutstanding"],("shares",))
+    rd,_=latest_annual(facts,["ResearchAndDevelopmentExpense"]); sga,_=latest_annual(facts,["SellingGeneralAndAdministrativeExpense"]); dda,_=latest_annual(facts,["DepreciationDepletionAndAmortization","DepreciationDepletionAndAmortizationExpense"]); interest,_=latest_annual(facts,["InterestExpenseNonOperating","InterestExpense"])
+    fcf=None if ocf is None or capex is None else ocf-capex; ebitda=None if op_inc is None else op_inc+(dda or 0)
+    return {"revenue":revenue,"revenue_growth_yoy":growth(revenue,rev_prev),"gross_profit":gross_profit,"gross_margin":div(gross_profit,revenue),"operating_income":op_inc,"operating_margin":div(op_inc,revenue),"net_income":net_inc,"net_margin":div(net_inc,revenue),"eps_diluted":eps,"eps_growth_yoy":growth(eps,eps_prev),"operating_cash_flow":ocf,"capex":capex,"free_cash_flow":fcf,"fcf_margin":div(fcf,revenue),"cfo_to_net_income":div(ocf,net_inc),"total_assets":assets,"total_liabilities":liabilities,"shareholders_equity":equity,"cash":cash,"total_debt":debt,"debt_to_equity":div(debt,equity),"cash_to_assets":div(cash,assets),"liabilities_to_assets":div(liabilities,assets),"roa":div(net_inc,assets),"roe":div(net_inc,equity),"rd_to_sales":div(rd,revenue),"sga_to_sales":div(sga,revenue),"share_change_yoy":growth(shares,shares_prev),"shares":shares_out or shares,"ebitda":ebitda,"interest_coverage":div(op_inc,interest)}
 
 
-def growth(c: float | None, p: float | None) -> float | None:
-    return None if c is None or p in (None, 0) else c / abs(p) - 1
-
-
-def fundamentals(cik: str) -> dict[str, float | None]:
-    facts = sec_companyfacts(cik)
-    revenue, revenue_prev = latest_annual(facts, ["Revenues", "SalesRevenueNet", "RevenueFromContractWithCustomerExcludingAssessedTax"])
-    gross_profit, _ = latest_annual(facts, ["GrossProfit"])
-    operating_income, _ = latest_annual(facts, ["OperatingIncomeLoss"])
-    net_income, _ = latest_annual(facts, ["NetIncomeLoss", "ProfitLoss"])
-    eps, eps_prev = latest_annual(facts, ["EarningsPerShareDiluted"], ("USD/shares",))
-    ocf, _ = latest_annual(facts, ["NetCashProvidedByUsedInOperatingActivities"])
-    capex_raw, _ = latest_annual(facts, ["PaymentsToAcquirePropertyPlantAndEquipment", "PaymentsToAcquireProductiveAssets"])
-    capex = None if capex_raw is None else abs(capex_raw)
-    assets, _ = latest_annual(facts, ["Assets"])
-    liabilities, _ = latest_annual(facts, ["Liabilities"])
-    equity, _ = latest_annual(facts, ["StockholdersEquity", "StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest"])
-    cash, _ = latest_annual(facts, ["CashAndCashEquivalentsAtCarryingValue", "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"])
-    debt_current, _ = latest_annual(facts, ["ShortTermBorrowings", "ShortTermDebt", "LongTermDebtCurrent"])
-    debt_long, _ = latest_annual(facts, ["LongTermDebtNoncurrent", "LongTermDebt"])
-    debt_vals = [v for v in [debt_current, debt_long] if v is not None]
-    debt = sum(debt_vals) if debt_vals else None
-    shares, shares_prev = latest_annual(facts, ["WeightedAverageNumberOfDilutedSharesOutstanding", "WeightedAverageNumberOfSharesOutstandingDiluted"], ("shares",))
-    shares_out, _ = latest_annual(facts, ["EntityCommonStockSharesOutstanding"], ("shares",))
-    rd, _ = latest_annual(facts, ["ResearchAndDevelopmentExpense"])
-    sga, _ = latest_annual(facts, ["SellingGeneralAndAdministrativeExpense"])
-    dda, _ = latest_annual(facts, ["DepreciationDepletionAndAmortization", "DepreciationDepletionAndAmortizationExpense"])
-    interest, _ = latest_annual(facts, ["InterestExpenseNonOperating", "InterestExpense"])
-    fcf = None if ocf is None or capex is None else ocf - capex
-    ebitda = None if operating_income is None else operating_income + (dda or 0)
-    return {"revenue":revenue,"revenue_growth_yoy":growth(revenue,revenue_prev),"gross_profit":gross_profit,"gross_margin":div(gross_profit,revenue),"operating_income":operating_income,"operating_margin":div(operating_income,revenue),"net_income":net_income,"net_margin":div(net_income,revenue),"eps_diluted":eps,"eps_growth_yoy":growth(eps,eps_prev),"operating_cash_flow":ocf,"capex":capex,"free_cash_flow":fcf,"fcf_margin":div(fcf,revenue),"cfo_to_net_income":div(ocf,net_income),"total_assets":assets,"total_liabilities":liabilities,"shareholders_equity":equity,"cash":cash,"total_debt":debt,"debt_to_equity":div(debt,equity),"cash_to_assets":div(cash,assets),"liabilities_to_assets":div(liabilities,assets),"roa":div(net_income,assets),"roe":div(net_income,equity),"rd_to_sales":div(rd,revenue),"sga_to_sales":div(sga,revenue),"share_change_yoy":growth(shares,shares_prev),"shares":shares_out or shares,"ebitda":ebitda,"interest_coverage":div(operating_income,interest)}
-
-
-def factor_percentile(stocks: list[dict[str, Any]], key: str, higher_better: bool) -> dict[str, float | None]:
-    pairs = [(s["symbol"], s["values"].get(key)) for s in stocks]
-    pairs = [(sym, val) for sym, val in pairs if val is not None and math.isfinite(val)]
-    if len(pairs) < 3: return {s["symbol"]: None for s in stocks}
-    ordered = sorted(v for _, v in pairs)
-    out = {}
-    for sym, val in pairs:
-        r = sum(1 for x in ordered if x <= val) / len(ordered)
-        out[sym] = 100 * (r if higher_better else 1 - r)
-    for s in stocks: out.setdefault(s["symbol"], None)
+def factor_percentile(stocks:list[dict[str,Any]],key:str,higher_better:bool)->dict[str,float|None]:
+    pairs=[(s["symbol"],s["values"].get(key)) for s in stocks]; pairs=[(a,b) for a,b in pairs if b is not None and math.isfinite(b)]
+    if len(pairs)<3: return {s["symbol"]:None for s in stocks}
+    ordered=sorted(v for _,v in pairs); out={}
+    for sym,val in pairs:
+        rank=sum(1 for x in ordered if x<=val)/len(ordered); out[sym]=100*(rank if higher_better else 1-rank)
+    for s in stocks: out.setdefault(s["symbol"],None)
     return out
 
-
-def avg(vals: list[float | None]) -> float | None:
-    xs = [v for v in vals if v is not None and math.isfinite(v)]
-    return None if not xs else sum(xs) / len(xs)
-
-
-def compute_stock(symbol: str, name: str, cik: str, spy_close: list[float]) -> dict[str, Any]:
-    h = yahoo(symbol)
-    close, high, low, vol = h["close"], h["high"], h["low"], h["volume"]
-    price = close[-1] if close else None
-    f = fundamentals(cik)
-    shares = f.get("shares")
-    market_cap = None if price is None or shares is None else price * shares
-    ev = None if market_cap is None else market_cap + (f.get("total_debt") or 0) - (f.get("cash") or 0)
-    s50, s200 = sma(close, 50), sma(close, 200)
-    beta, corr = beta_corr(close, spy_close)
-    high_52 = max(close[-252:]) if len(close) >= 252 else None
-    low_52 = min(close[-252:]) if len(close) >= 252 else None
-    r20 = log_returns(close, 20)
-    daily_mu = statistics.mean(r20) if len(r20) >= 10 else None
-    daily_sd = statistics.stdev(r20) if len(r20) >= 10 else None
-    base_center = None if price is None or daily_mu is None else math.exp(math.log(price) + daily_mu * 5)
-    vals = {"price":price,"market_cap":market_cap,"enterprise_value":ev,"avg_dollar_volume_20d":None if price is None or len(vol)<20 else sum(vol[-20:])/20*price,"return_1d":ret(close,1),"return_5d":ret(close,5),"return_20d":ret(close,20),"return_63d":ret(close,63),"return_126d":ret(close,126),"return_252d":ret(close,252),"relative_strength_63d":None if ret(close,63) is None or ret(spy_close,63) is None else ret(close,63)-ret(spy_close,63),"sma_50":s50,"sma_200":s200,"price_vs_50dma":None if price is None or s50 is None else price/s50-1,"price_vs_200dma":None if price is None or s200 is None else price/s200-1,"distance_52w_high":None if price is None or high_52 in (None,0) else price/high_52-1,"distance_52w_low":None if price is None or low_52 in (None,0) else price/low_52-1,"rsi_14":rsi(close),"realized_vol_20d":realized_vol(close,20),"realized_vol_60d":realized_vol(close,60),"beta_1y":beta,"correlation_spy_1y":corr,"max_drawdown_1y":max_drawdown(close),"downside_vol_60d":downside_vol(close),"atr_14_pct":atr_pct(high,low,close),"forecast_date":prediction_date(),"predicted_price":base_center,"prediction_low":None if base_center is None or daily_sd is None else math.exp(math.log(base_center)-daily_sd*math.sqrt(5)),"prediction_high":None if base_center is None or daily_sd is None else math.exp(math.log(base_center)+daily_sd*math.sqrt(5)),**f}
-    vals["pe"] = div(price, vals.get("eps_diluted")); vals["ps"] = div(market_cap, vals.get("revenue")); vals["pb"] = div(market_cap, vals.get("shareholders_equity")); vals["p_fcf"] = div(market_cap, vals.get("free_cash_flow")); vals["ev_sales"] = div(ev, vals.get("revenue")); vals["ev_ebitda"] = div(ev, vals.get("ebitda"))
-    return {"symbol":symbol,"name":name,"cik":cik,"values":vals,"links":{"yahoo_chart":yahoo_url(symbol),"yahoo_quote":f"https://finance.yahoo.com/quote/{requests.utils.quote(symbol, safe='')}","sec_companyfacts":sec_url(cik)}}
+def avg(vals:list[float|None])->float|None:
+    xs=[v for v in vals if v is not None and math.isfinite(v)]
+    return None if not xs else sum(xs)/len(xs)
 
 
-def add_analysis(stocks: list[dict[str, Any]]) -> None:
-    groups = {"value_score":[("pe",False),("ps",False),("pb",False),("p_fcf",False),("ev_sales",False),("ev_ebitda",False)],"quality_score":[("gross_margin",True),("operating_margin",True),("net_margin",True),("fcf_margin",True),("roa",True),("roe",True),("cfo_to_net_income",True),("debt_to_equity",False)],"growth_score":[("revenue_growth_yoy",True),("eps_growth_yoy",True),("return_252d",True),("share_change_yoy",False)],"momentum_score":[("return_20d",True),("return_63d",True),("return_126d",True),("return_252d",True),("relative_strength_63d",True),("price_vs_50dma",True),("price_vs_200dma",True)],"risk_score":[("realized_vol_20d",False),("realized_vol_60d",False),("beta_1y",False),("atr_14_pct",False),("max_drawdown_1y",True),("downside_vol_60d",False)]}
-    scores = {k: factor_percentile(stocks, k, hb) for pairs in groups.values() for k,hb in pairs}
+def compute_stock(symbol:str,name:str,cik:str,spy_close:list[float])->dict[str,Any]:
+    h=yahoo(symbol); close,high,low,vol=h["close"],h["high"],h["low"],h["volume"]
+    price=close[-1] if close else None; f=fundamentals(cik); shares=f.get("shares")
+    market_cap=None if price is None or shares is None else price*shares; ev=None if market_cap is None else market_cap+(f.get("total_debt") or 0)-(f.get("cash") or 0)
+    s50,s200=sma(close,50),sma(close,200); beta,corr=beta_corr(close,spy_close); high_52=max(close[-252:]) if len(close)>=252 else None; low_52=min(close[-252:]) if len(close)>=252 else None
+    r20=log_returns(close,20); daily_mu=statistics.mean(r20) if len(r20)>=10 else None; daily_sd=statistics.stdev(r20) if len(r20)>=10 else None
+    base_center=None if price is None or daily_mu is None else math.exp(math.log(price)+daily_mu*5)
+    vals={"price":price,"market_cap":market_cap,"enterprise_value":ev,"avg_dollar_volume_20d":None if price is None or len(vol)<20 else sum(vol[-20:])/20*price,"return_1d":ret(close,1),"return_5d":ret(close,5),"return_20d":ret(close,20),"return_63d":ret(close,63),"return_126d":ret(close,126),"return_252d":ret(close,252),"relative_strength_63d":None if ret(close,63) is None or ret(spy_close,63) is None else ret(close,63)-ret(spy_close,63),"sma_50":s50,"sma_200":s200,"price_vs_50dma":None if price is None or s50 is None else price/s50-1,"price_vs_200dma":None if price is None or s200 is None else price/s200-1,"distance_52w_high":None if price is None or high_52 in (None,0) else price/high_52-1,"distance_52w_low":None if price is None or low_52 in (None,0) else price/low_52-1,"rsi_14":rsi(close),"realized_vol_20d":realized_vol(close,20),"realized_vol_60d":realized_vol(close,60),"beta_1y":beta,"correlation_spy_1y":corr,"max_drawdown_1y":max_drawdown(close),"downside_vol_60d":downside_vol(close),"atr_14_pct":atr_pct(high,low,close),"forecast_date":prediction_date(),"predicted_price":base_center,"prediction_low":None if base_center is None or daily_sd is None else math.exp(math.log(base_center)-daily_sd*math.sqrt(5)),"prediction_high":None if base_center is None or daily_sd is None else math.exp(math.log(base_center)+daily_sd*math.sqrt(5)),**f}
+    vals["pe"]=div(price,vals.get("eps_diluted")); vals["ps"]=div(market_cap,vals.get("revenue")); vals["pb"]=div(market_cap,vals.get("shareholders_equity")); vals["p_fcf"]=div(market_cap,vals.get("free_cash_flow")); vals["ev_sales"]=div(ev,vals.get("revenue")); vals["ev_ebitda"]=div(ev,vals.get("ebitda"))
+    return {"symbol":symbol,"name":name,"cik":cik,"values":vals,"links":{"yahoo_chart":yahoo_url(symbol),"yahoo_quote":f"https://finance.yahoo.com/quote/{requests.utils.quote(symbol,safe='')}","sec_companyfacts":sec_url(cik)}}
+
+
+def add_analysis(stocks:list[dict[str,Any]])->None:
+    groups={"value_score":[("pe",False),("ps",False),("pb",False),("p_fcf",False),("ev_sales",False),("ev_ebitda",False)],"quality_score":[("gross_margin",True),("operating_margin",True),("net_margin",True),("fcf_margin",True),("roa",True),("roe",True),("cfo_to_net_income",True),("debt_to_equity",False)],"growth_score":[("revenue_growth_yoy",True),("eps_growth_yoy",True),("return_252d",True),("share_change_yoy",False)],"momentum_score":[("return_20d",True),("return_63d",True),("return_126d",True),("return_252d",True),("relative_strength_63d",True),("price_vs_50dma",True),("price_vs_200dma",True)],"risk_score":[("realized_vol_20d",False),("realized_vol_60d",False),("beta_1y",False),("atr_14_pct",False),("max_drawdown_1y",True),("downside_vol_60d",False)]}
+    scores={k:factor_percentile(stocks,k,hb) for pairs in groups.values() for k,hb in pairs}
     for s in stocks:
-        sym = s["symbol"]
-        cat = {g: avg([scores[k].get(sym) for k,_ in pairs]) for g,pairs in groups.items()}
-        overall = avg(list(cat.values()))
-        s["category_scores"] = {k: None if v is None else round(v,1) for k,v in cat.items()}
-        s["overall_score"] = None if overall is None else round(overall,1)
-        v = s["values"]
-        tilt = 0 if overall is None else (overall - 50) / 50 * 0.0025
+        sym=s["symbol"]; cat={g:avg([scores[k].get(sym) for k,_ in pairs]) for g,pairs in groups.items()}; overall=avg(list(cat.values()))
+        s["category_scores"]={k:None if v is None else round(v,1) for k,v in cat.items()}; s["overall_score"]=None if overall is None else round(overall,1)
+        v=s["values"]; tilt=0 if overall is None else (overall-50)/50*0.0025
         if v.get("predicted_price") is not None:
-            v["predicted_price"] *= math.exp(tilt * 5)
-            if v.get("prediction_low") is not None: v["prediction_low"] *= math.exp(tilt * 5)
-            if v.get("prediction_high") is not None: v["prediction_high"] *= math.exp(tilt * 5)
-        positives, risks = [], []
-        for key,label,positive_cond in [("price_vs_200dma","200DMA trend",lambda x:x>0),("relative_strength_63d","relative strength",lambda x:x>0),("revenue_growth_yoy","revenue growth",lambda x:x>0),("fcf_margin","FCF margin",lambda x:x>0)]:
-            val = v.get(key)
-            if val is not None: (positives if positive_cond(val) else risks).append(label)
-        if v.get("debt_to_equity") is not None and v["debt_to_equity"] > 2: risks.append("balance-sheet leverage")
-        s["status"] = "High research rank" if overall is not None and overall>=70 else "Neutral / watch" if overall is not None and overall>=50 else "Weak research rank" if overall is not None else "Insufficient data"
-        s["positives"] = positives[:4]; s["risks"] = risks[:4]
+            m=math.exp(tilt*5); v["predicted_price"]*=m
+            if v.get("prediction_low") is not None: v["prediction_low"]*=m
+            if v.get("prediction_high") is not None: v["prediction_high"]*=m
+        positives=[]; risks=[]
+        checks=[("price_vs_200dma","200DMA trend",lambda x:x>0),("relative_strength_63d","relative strength",lambda x:x>0),("revenue_growth_yoy","revenue growth",lambda x:x>0),("fcf_margin","FCF margin",lambda x:x>0)]
+        for key,label,cond in checks:
+            val=v.get(key)
+            if val is not None: (positives if cond(val) else risks).append(label)
+        if v.get("debt_to_equity") is not None and v["debt_to_equity"]>2: risks.append("balance-sheet leverage")
+        missing=sum(1 for key,*_ in FACTOR_CATALOG if v.get(key) is None)
+        s["positives"]=positives[:4]; s["risks"]=risks[:4]; s["missing_count"]=missing
+        s["analysis_text"]=f"{sym} has {len(FACTOR_CATALOG)-missing}/{len(FACTOR_CATALOG)} factors available. Current price is {display('price',v.get('price'))}. Predicted price center by {v.get('forecast_date')} is {display('predicted_price',v.get('predicted_price'))}. Positive checks: {', '.join(s['positives']) if s['positives'] else 'none shown'}. Risk checks: {', '.join(s['risks']) if s['risks'] else 'none shown'}."
 
 
-def money(v: float | None) -> str:
+def money(v:float|None)->str:
     if v is None: return "Unavailable"
-    if isinstance(v, str): return v
-    if abs(v) >= 1e12: return f"${v/1e12:.2f}T"
-    if abs(v) >= 1e9: return f"${v/1e9:.2f}B"
-    if abs(v) >= 1e6: return f"${v/1e6:.2f}M"
+    if abs(v)>=1e12: return f"${v/1e12:.2f}T"
+    if abs(v)>=1e9: return f"${v/1e9:.2f}B"
+    if abs(v)>=1e6: return f"${v/1e6:.2f}M"
     return f"${v:,.2f}"
 
+def percent(v:float|None)->str: return "Unavailable" if v is None else f"{v*100:.1f}%"
+def ratio(v:float|None)->str: return "Unavailable" if v is None else f"{v:.2f}"
 
-def percent(v: float | None) -> str:
-    return "Unavailable" if v is None else f"{v*100:.1f}%"
-
-
-def ratio(v: float | None) -> str:
-    return "Unavailable" if v is None else f"{v:.2f}"
-
-
-def display(key: str, value: Any) -> str:
+def display(key:str,value:Any)->str:
     if value is None: return "Unavailable"
-    if key == "forecast_date": return str(value)
+    if key=="forecast_date": return str(value)
     if key in {"price","predicted_price","prediction_low","prediction_high","market_cap","enterprise_value","avg_dollar_volume_20d","revenue","gross_profit","operating_income","net_income","operating_cash_flow","capex","free_cash_flow","total_assets","total_liabilities","shareholders_equity","cash","total_debt"}: return money(value)
     if "return" in key or "growth" in key or "margin" in key or key in {"price_vs_50dma","price_vs_200dma","distance_52w_high","distance_52w_low","realized_vol_20d","realized_vol_60d","correlation_spy_1y","max_drawdown_1y","downside_vol_60d","atr_14_pct","cash_to_assets","liabilities_to_assets","roa","roe","rd_to_sales","sga_to_sales","share_change_yoy"}: return percent(value)
     return ratio(value)
 
-
-def factor_sources(source_type: str, links: dict[str,str]) -> list[dict[str,str]]:
-    if source_type == "yahoo": return [{"label":"Yahoo chart JSON","url":links["yahoo_chart"]},{"label":"Yahoo quote page","url":links["yahoo_quote"]}]
-    if source_type == "sec": return [{"label":"SEC companyfacts JSON","url":links["sec_companyfacts"]}]
+def factor_sources(source_type:str,links:dict[str,str])->list[dict[str,str]]:
+    if source_type=="yahoo": return [{"label":"Yahoo chart JSON","url":links["yahoo_chart"]},{"label":"Yahoo quote","url":links["yahoo_quote"]}]
+    if source_type=="sec": return [{"label":"SEC companyfacts JSON","url":links["sec_companyfacts"]}]
     return [{"label":"Yahoo chart JSON","url":links["yahoo_chart"]},{"label":"SEC companyfacts JSON","url":links["sec_companyfacts"]}]
 
 
-def write_outputs() -> None:
-    DOCS.mkdir(parents=True, exist_ok=True)
-    spy_close = yahoo("SPY")["close"]
-    stocks = [compute_stock(sym,name,cik,spy_close) for sym,(name,cik) in STOCKS.items()]
-    add_analysis(stocks)
-    total = len(FACTOR_CATALOG)
+def write_outputs()->None:
+    DOCS.mkdir(parents=True,exist_ok=True); spy_close=yahoo("SPY")["close"]
+    stocks=[compute_stock(sym,name,cik,spy_close) for sym,(name,cik) in STOCKS.items()]
+    add_analysis(stocks); total=len(FACTOR_CATALOG)
     for s in stocks:
-        factors = []
-        available = 0
+        factors=[]; available=0
         for key,label,category,source_type,definition in FACTOR_CATALOG:
-            value = s["values"].get(key)
-            is_available = value is not None
-            available += int(is_available)
-            factors.append({"key":key,"label":label,"category":category,"value":value,"display":display(key,value),"definition":definition,"available":is_available,"source_type":source_type,"sources":factor_sources(source_type,s["links"])})
-        s["factors"] = factors
-        s["available_factor_count"] = available
-        s["total_factor_count"] = total
-        s["current_price"] = s["values"].get("price")
-        s["current_price_display"] = display("price", s["current_price"])
-        s["predicted_price"] = s["values"].get("predicted_price")
-        s["predicted_price_display"] = display("predicted_price", s["predicted_price"])
-        s["prediction_date"] = prediction_date()
-    stocks.sort(key=lambda x: (-1 if x.get("overall_score") is None else -x["overall_score"]))
-    payload = {"summary":{"name":"IvySets Stock Factor Lab","updated_at_london":now(),"timezone":TIMEZONE,"stock_count":len(stocks),"factor_count":total,"update_cadence":"GitHub Actions scheduled every 15 minutes; actual run time depends on GitHub scheduling.","prediction_note":"Predicted price is a transparent factor-adjusted statistical center, not a guaranteed target."},"stocks":stocks,"factor_catalog":[{"key":k,"label":l,"category":c,"source_type":s,"definition":d} for k,l,c,s,d in FACTOR_CATALOG],"literature":LITERATURE}
+            value=s["values"].get(key); ok=value is not None; available+=int(ok)
+            factors.append({"key":key,"label":label,"category":category,"value":value,"display":display(key,value),"definition":definition,"available":ok,"source_type":source_type,"sources":factor_sources(source_type,s["links"])})
+        s["factors"]=factors; s["available_factor_count"]=available; s["total_factor_count"]=total
+        s["current_price"]=s["values"].get("price"); s["current_price_display"]=display("price",s["current_price"])
+        s["predicted_price"]=s["values"].get("predicted_price"); s["predicted_price_display"]=display("predicted_price",s["predicted_price"]); s["prediction_date"]=prediction_date()
+    stocks.sort(key=lambda x:x["symbol"])
+    payload={"summary":{"name":"IvySets X-Theory Analysis","updated_at_london":now(),"timezone":TIMEZONE,"stock_count":len(stocks),"factor_count":total,"refresh_minutes":15},"stocks":stocks,"factor_catalog":[{"key":k,"label":l,"category":c,"source_type":s,"definition":d} for k,l,c,s,d in FACTOR_CATALOG],"literature":LITERATURE}
     (DOCS/"data.json").write_text(json.dumps(payload,indent=2)+"\n",encoding="utf-8")
-    cols=["timestamp","symbol","stock_name","factor","category","value","display","available","source_type","verify_links","definition"]
+    cols=["timestamp","symbol","stock_name","current_price","predicted_price","prediction_date","available_factors","total_factors","factors"]
     with (DOCS/"sentiment.csv").open("w",newline="",encoding="utf-8") as f:
         w=csv.DictWriter(f,fieldnames=cols); w.writeheader()
         for s in stocks:
-            for fac in s["factors"]:
-                w.writerow({"timestamp":payload["summary"]["updated_at_london"],"symbol":s["symbol"],"stock_name":s["name"],"factor":fac["label"],"category":fac["category"],"value":fac["value"],"display":fac["display"],"available":fac["available"],"source_type":fac["source_type"],"verify_links":" | ".join(x["url"] for x in fac["sources"]),"definition":fac["definition"]})
+            factor_text=", ".join(f"{fac['label']}={fac['display']}" for fac in s["factors"])
+            w.writerow({"timestamp":payload["summary"]["updated_at_london"],"symbol":s["symbol"],"stock_name":s["name"],"current_price":s["current_price_display"],"predicted_price":s["predicted_price_display"],"prediction_date":s["prediction_date"],"available_factors":s["available_factor_count"],"total_factors":s["total_factor_count"],"factors":factor_text})
 
-if __name__ == "__main__":
-    write_outputs()
+if __name__=="__main__": write_outputs()
