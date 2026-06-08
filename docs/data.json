@@ -1,7 +1,7 @@
 {
   "summary": {
     "name": "IvySets Stock Factor Lab",
-    "updated_at_london": "2026-06-08T23:18:06+01:00",
+    "updated_at_london": "2026-06-08T23:22:32+01:00",
     "timezone": "Europe/London",
     "stock_count": 10,
     "factor_count": 62,
@@ -14,7 +14,7 @@
         "price": 301.5400085449219,
         "market_cap": 4524516461593.964,
         "enterprise_value": 4591610461593.964,
-        "avg_dollar_volume_20d": 14735275764.847435,
+        "avg_dollar_volume_20d": 14794149943.815788,
         "return_1d": -0.01887156849768501,
         "return_5d": -0.015572423530705759,
         "return_20d": 0.02802400455287457,
@@ -127,8 +127,8 @@
           "key": "avg_dollar_volume_20d",
           "label": "20D avg dollar volume",
           "category": "Liquidity",
-          "value": 14735275764.847435,
-          "display": "$14.74B",
+          "value": 14794149943.815788,
+          "display": "$14.79B",
           "definition": "Average 20-day dollar volume."
         },
         {
@@ -603,7 +603,7 @@
         "price": 363.30999755859375,
         "market_cap": 4443281270141.602,
         "enterprise_value": 4463654270141.602,
-        "avg_dollar_volume_20d": 11502453524.248682,
+        "avg_dollar_volume_20d": 11502995764.420038,
         "return_1d": -0.014164386177498822,
         "return_5d": -0.03469989034202192,
         "return_20d": -0.09353790263521733,
@@ -716,7 +716,7 @@
           "key": "avg_dollar_volume_20d",
           "label": "20D avg dollar volume",
           "category": "Liquidity",
-          "value": 11502453524.248682,
+          "value": 11502995764.420038,
           "display": "$11.50B",
           "definition": "Average 20-day dollar volume."
         },
@@ -1781,7 +1781,7 @@
         "price": 208.63999938964844,
         "market_cap": 5114600945037.842,
         "enterprise_value": 5113462945037.842,
-        "avg_dollar_volume_20d": 37101371431.624344,
+        "avg_dollar_volume_20d": 37104680785.40666,
         "return_1d": 0.017259839984335112,
         "return_5d": -0.07006597066294462,
         "return_20d": -0.030483260462924155,
@@ -1894,7 +1894,7 @@
           "key": "avg_dollar_volume_20d",
           "label": "20D avg dollar volume",
           "category": "Liquidity",
-          "value": 37101371431.624344,
+          "value": 37104680785.40666,
           "display": "$37.10B",
           "definition": "Average 20-day dollar volume."
         },
@@ -2958,7 +2958,7 @@
         "price": 411.739990234375,
         "market_cap": 3073639027099.6094,
         "enterprise_value": 3089547027099.6094,
-        "avg_dollar_volume_20d": 15154349572.074024,
+        "avg_dollar_volume_20d": 15201993632.717003,
         "return_1d": -0.011831960627074034,
         "return_5d": -0.10592373825894597,
         "return_20d": -0.008142235793432095,
@@ -3072,8 +3072,8 @@
           "key": "avg_dollar_volume_20d",
           "label": "20D avg dollar volume",
           "category": "Liquidity",
-          "value": 15154349572.074024,
-          "display": "$15.15B",
+          "value": 15201993632.717003,
+          "display": "$15.20B",
           "definition": "Average 20-day dollar volume."
         },
         {
@@ -3548,7 +3548,7 @@
         "price": 245.22000122070312,
         "market_cap": 2654996953216.5527,
         "enterprise_value": 2636474953216.5527,
-        "avg_dollar_volume_20d": 9861769420.502806,
+        "avg_dollar_volume_20d": 9870148943.51352,
         "return_1d": -0.0032922715222234444,
         "return_5d": -0.06139480955891907,
         "return_20d": -0.10070409341593423,
@@ -3661,8 +3661,8 @@
           "key": "avg_dollar_volume_20d",
           "label": "20D avg dollar volume",
           "category": "Liquidity",
-          "value": 9861769420.502806,
-          "display": "$9.86B",
+          "value": 9870148943.51352,
+          "display": "$9.87B",
           "definition": "Average 20-day dollar volume."
         },
         {
@@ -4137,7 +4137,7 @@
         "price": 585.3900146484375,
         "market_cap": 1506793897705.0781,
         "enterprise_value": 1526437897705.0781,
-        "avg_dollar_volume_20d": 9941238844.52591,
+        "avg_dollar_volume_20d": 9985571249.881256,
         "return_1d": -0.012833027574304379,
         "return_5d": -0.025113589006007242,
         "return_20d": -0.039761806407535016,
@@ -4251,8 +4251,8 @@
           "key": "avg_dollar_volume_20d",
           "label": "20D avg dollar volume",
           "category": "Liquidity",
-          "value": 9941238844.52591,
-          "display": "$9.94B",
+          "value": 9985571249.881256,
+          "display": "$9.99B",
           "definition": "Average 20-day dollar volume."
         },
         {
@@ -4727,7 +4727,7 @@
         "price": 396.6000061035156,
         "market_cap": 1924699829620.3613,
         "enterprise_value": 1951338829620.3613,
-        "avg_dollar_volume_20d": 11189639575.084082,
+        "avg_dollar_volume_20d": 11206044973.996553,
         "return_1d": 0.02818031993256742,
         "return_5d": -0.13776984357460575,
         "return_20d": -0.07767440441042883,
@@ -4840,8 +4840,8 @@
           "key": "avg_dollar_volume_20d",
           "label": "20D avg dollar volume",
           "category": "Liquidity",
-          "value": 11189639575.084082,
-          "display": "$11.19B",
+          "value": 11206044973.996553,
+          "display": "$11.21B",
           "definition": "Average 20-day dollar volume."
         },
         {
@@ -5316,7 +5316,7 @@
         "price": 408.95001220703125,
         "market_cap": 1442775643066.4062,
         "enterprise_value": 1432897484066.4062,
-        "avg_dollar_volume_20d": 20045980851.81132,
+        "avg_dollar_volume_20d": 20091530971.91598,
         "return_1d": 0.04590795960877547,
         "return_5d": -0.016663442806619133,
         "return_20d": -0.045290051640144324,
@@ -5430,8 +5430,8 @@
           "key": "avg_dollar_volume_20d",
           "label": "20D avg dollar volume",
           "category": "Liquidity",
-          "value": 20045980851.81132,
-          "display": "$20.05B",
+          "value": 20091530971.91598,
+          "display": "$20.09B",
           "definition": "Average 20-day dollar volume."
         },
         {
