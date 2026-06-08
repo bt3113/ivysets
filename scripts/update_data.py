@@ -188,7 +188,10 @@ def dollar_card(card_id: int) -> dict[str, Any]:
 
 def ten_year_card(card_id: int) -> dict[str, Any]:
     tnx = yahoo("^TNX")["price"]
-    value = None if tnx is None else tnx / 10
+    if tnx is None:
+        value = None
+    else:
+        value = tnx / 10 if tnx > 20 else tnx
     if value is None:
         score, detail = None, "Yield unavailable"
     elif value > 5:
@@ -237,16 +240,18 @@ def put_call_card(card_id: int) -> dict[str, Any]:
     value = None
     if text:
         try:
-            rows = list(csv.DictReader(text.splitlines()))
-            latest = rows[-1] if rows else {}
-            normalized = {re.sub(r"[^a-z0-9]+", " ", str(k).lower()).strip(): v for k, v in latest.items()}
-            for key, raw in normalized.items():
-                if "total" in key and (("put call" in key) or ("p c" in key) or ("pc" in key)) and "ratio" in key:
-                    value = number(raw)
+            lines = [line.strip() for line in text.splitlines() if line.strip()]
+            header = [h.strip().lower() for h in lines[0].split(",")]
+            latest = [v.strip() for v in lines[-1].split(",")]
+            for index, name in enumerate(header):
+                normalized = re.sub(r"[^a-z0-9]+", " ", name).strip()
+                if index < len(latest) and "total" in normalized and "ratio" in normalized:
+                    value = number(latest[index])
                     break
-                if key in {"total p c ratio", "total put call ratio", "total pc ratio"}:
-                    value = number(raw)
-                    break
+            if value is None and len(latest) >= 4:
+                numeric_values = [number(v) for v in latest]
+                candidates = [v for v in numeric_values if v is not None and 0.2 <= v <= 2.5]
+                value = candidates[-1] if candidates else None
         except Exception:
             value = None
     if value is None:
@@ -271,8 +276,12 @@ def aaii_card(card_id: int) -> dict[str, Any]:
 
     bullish = find_pct("Bullish")
     bearish = find_pct("Bearish")
-    value = None if bullish is None or bearish is None else bullish - bearish
-    detail = "AAII unavailable" if value is None else f"Bullish {bullish:.1f}%, bearish {bearish:.1f}%"
+    if bullish is None or bearish is None or bullish <= 0 or bearish <= 0 or bullish + bearish > 100:
+        value = None
+        detail = "AAII parser unavailable"
+    else:
+        value = bullish - bearish
+        detail = f"Bullish {bullish:.1f}%, bearish {bearish:.1f}%"
     return card(card_id, "Survey", "AAII Bull-Bear Spread", value, "pts", None if value is None else clamp(value * 2.5), "AAII", url, "weekly", detail=detail)
 
 
