@@ -1,25 +1,621 @@
-timestamp,section,symbol,metric,value,status,decision_impact,position_size_multiplier,source,source_url,formula_id
-2026-06-08T23:05:29+01:00,module,,Market Trend,100.0,Constructive,Broad trend permits normal long exposure if other risk modules agree.,1.0,Yahoo Finance,https://finance.yahoo.com/quote/SPY,MKT_TREND
-2026-06-08T23:05:29+01:00,evidence,,Market Trend - SPY close vs 200DMA,739.22 vs 684.43,pass,Broad trend permits normal long exposure if other risk modules agree.,1.0,Yahoo Finance,https://finance.yahoo.com/quote/SPY,MKT_TREND
-2026-06-08T23:05:29+01:00,evidence,,Market Trend - SPY close vs 50DMA,739.22 vs 715.39,pass,Broad trend permits normal long exposure if other risk modules agree.,1.0,Yahoo Finance,https://finance.yahoo.com/quote/SPY,MKT_TREND
-2026-06-08T23:05:29+01:00,evidence,,Market Trend - 50DMA vs 200DMA,715.39 vs 684.43,pass,Broad trend permits normal long exposure if other risk modules agree.,1.0,Yahoo Finance,https://finance.yahoo.com/quote/SPY,MKT_TREND
-2026-06-08T23:05:29+01:00,evidence,,Market Trend - 3M momentum,9.0%,pass,Broad trend permits normal long exposure if other risk modules agree.,1.0,Yahoo Finance,https://finance.yahoo.com/quote/SPY,MKT_TREND
-2026-06-08T23:05:29+01:00,evidence,,Market Trend - 12M momentum,24.6%,pass,Broad trend permits normal long exposure if other risk modules agree.,1.0,Yahoo Finance,https://finance.yahoo.com/quote/SPY,MKT_TREND
-2026-06-08T23:05:29+01:00,module,,Volatility / Risk Budget,85.0,Normal,Volatility permits normal planned position size.,1.0,Yahoo Finance / Cboe VIX,https://finance.yahoo.com/quote/%5EVIX,VOL_RISK
-2026-06-08T23:05:29+01:00,evidence,,Volatility / Risk Budget - 20D realized volatility,12.9%,pass,Volatility permits normal planned position size.,1.0,Yahoo Finance / Cboe VIX,https://finance.yahoo.com/quote/%5EVIX,VOL_RISK
-2026-06-08T23:05:29+01:00,evidence,,Volatility / Risk Budget - VIX level,18.92,pass,Volatility permits normal planned position size.,1.0,Yahoo Finance / Cboe VIX,https://finance.yahoo.com/quote/%5EVIX,VOL_RISK
-2026-06-08T23:05:29+01:00,evidence,,Volatility / Risk Budget - VIX 1Y percentile,72.6%,pass,Volatility permits normal planned position size.,1.0,Yahoo Finance / Cboe VIX,https://finance.yahoo.com/quote/%5EVIX,VOL_RISK
-2026-06-08T23:05:29+01:00,evidence,,Volatility / Risk Budget - SPY drawdown from 63D high,-2.7%,pass,Volatility permits normal planned position size.,1.0,Yahoo Finance / Cboe VIX,https://finance.yahoo.com/quote/%5EVIX,VOL_RISK
-2026-06-08T23:05:29+01:00,evidence,,Volatility / Risk Budget - Volatility size multiplier,1.00x,pass,Volatility permits normal planned position size.,1.0,Yahoo Finance / Cboe VIX,https://finance.yahoo.com/quote/%5EVIX,VOL_RISK
-2026-06-08T23:05:29+01:00,module,,Credit Stress,,Unavailable,Credit module excluded; FRED source unavailable.,1.0,FRED,https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2,CREDIT_STRESS
-2026-06-08T23:05:29+01:00,module,,Financial Conditions,,Unavailable,Financial conditions excluded; FRED source unavailable.,1.0,FRED,https://fred.stlouisfed.org/graph/fredgraph.csv?id=NFCI,FIN_CONDITIONS
-2026-06-08T23:05:29+01:00,module,,Options Crowding,,Unavailable,Options module excluded; Cboe data unavailable.,1.0,Cboe,https://www.cboe.com/us/options/market_statistics/daily/,OPTIONS_CROWDING
-2026-06-08T23:05:29+01:00,module,,Retail Sentiment Context,,Unavailable,Retail sentiment excluded; AAII values could not be validated.,1.0,AAII,https://www.aaii.com/sentimentsurvey,RETAIL_SENTIMENT
-2026-06-08T23:05:29+01:00,module,,Long-Term Valuation,,Unavailable,Valuation context excluded; CAPE source unavailable.,1.0,Multpl,https://www.multpl.com/shiller-pe/table/by-month,VALUATION_CONTEXT
-2026-06-08T23:05:29+01:00,watchlist,SPY,Trade Readiness,Eligible,Eligible,"trend and relative strength acceptable | Eligible for planned setup, subject to personal entry rules and risk limits.",1.0,Yahoo Finance chart API,https://finance.yahoo.com/quote/SPY,WATCHLIST_READINESS
-2026-06-08T23:05:29+01:00,watchlist,QQQ,Trade Readiness,Eligible,Eligible,"trend and relative strength acceptable | Eligible for planned setup, subject to personal entry rules and risk limits.",1.0,Yahoo Finance chart API,https://finance.yahoo.com/quote/QQQ,WATCHLIST_READINESS
-2026-06-08T23:05:29+01:00,watchlist,NVDA,Trade Readiness,Watch,Watch,elevated volatility | Research only; require technical repair or smaller entry size.,0.5,Yahoo Finance chart API,https://finance.yahoo.com/quote/NVDA,WATCHLIST_READINESS
-2026-06-08T23:05:29+01:00,watchlist,AAPL,Trade Readiness,Eligible,Eligible,"trend and relative strength acceptable | Eligible for planned setup, subject to personal entry rules and risk limits.",1.0,Yahoo Finance chart API,https://finance.yahoo.com/quote/AAPL,WATCHLIST_READINESS
-2026-06-08T23:05:29+01:00,watchlist,MSFT,Trade Readiness,Avoid,Avoid,below 200DMA; underperforming SPY over 63D | Wait for price to repair trend and relative strength before considering entry.,0.25,Yahoo Finance chart API,https://finance.yahoo.com/quote/MSFT,WATCHLIST_READINESS
-2026-06-08T23:05:29+01:00,watchlist,TSLA,Trade Readiness,Avoid,Avoid,below 200DMA; underperforming SPY over 63D; elevated volatility | Wait for price to repair trend and relative strength before considering entry.,0.25,Yahoo Finance chart API,https://finance.yahoo.com/quote/TSLA,WATCHLIST_READINESS
-2026-06-08T23:05:29+01:00,watchlist,BTC-USD,Trade Readiness,Avoid,Avoid,below 200DMA; underperforming SPY over 63D; negative 63D momentum; drawdown greater than 12% | Wait for price to repair trend and relative strength before considering entry.,0.25,Yahoo Finance chart API,https://finance.yahoo.com/quote/BTC-USD,WATCHLIST_READINESS
+timestamp,symbol,overall_score,status,category,factor,value,display,definition
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Market,Current price,301.5400085449219,$301.54,Latest adjusted market price from daily data.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Market,Market cap,4524516461593.964,$4.52T,Price multiplied by shares outstanding where SEC shares are available.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Market,Enterprise value,4591610461593.964,$4.59T,Market cap plus debt minus cash.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Liquidity,20D avg dollar volume,14735275764.847435,$14.74B,Average 20-day dollar volume.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Momentum,1D return,-0.01887156849768501,-1.9%,One trading-day total return.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Momentum,5D return,-0.015572423530705759,-1.6%,Five trading-day total return.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Momentum,20D return,0.02802400455287457,2.8%,Twenty trading-day total return.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Momentum,63D return,0.16030476712086839,16.0%,Approximate 3-month return.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Momentum,126D return,0.07424294774351492,7.4%,Approximate 6-month return.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Momentum,252D return,0.5029656641889166,50.3%,Approximate 12-month return.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Momentum,63D relative strength vs SPY,0.07044387187741163,0.07,Ticker 63D return minus SPY 63D return.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Trend,50DMA,282.21040008544924,282.21,50-day simple moving average.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Trend,200DMA,265.57074943542483,265.57,200-day simple moving average.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Trend,Price vs 50DMA,0.0684936077962397,6.8%,Distance from 50DMA.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Trend,Price vs 200DMA,0.13544134354391013,13.5%,Distance from 200DMA.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Risk,Distance from 52W high,-0.043337573391771134,-4.3%,Current price relative to one-year high.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Risk,Distance from 52W low,0.5413003960624463,54.1%,Current price relative to one-year low.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Momentum,RSI 14,53.992236932916775,53.99,14-day relative strength index.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Risk,20D realized volatility,0.19048240715331882,19.0%,Annualized realized volatility from 20 daily log returns.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Risk,60D realized volatility,0.22290749875803587,22.3%,Annualized realized volatility from 60 daily log returns.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Risk,1Y beta vs SPY,0.9143847034617155,0.91,Covariance with SPY divided by SPY variance over one year.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Risk,1Y correlation vs SPY,0.4968895414729279,49.7%,Correlation of daily returns with SPY.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Risk,1Y max drawdown,-0.1382298375943204,-13.8%,Largest peak-to-trough loss over one year.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Risk,60D downside volatility,0.1235041068493678,12.4%,Annualized volatility of negative daily returns.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Risk,ATR 14 as % price,0.021473117132727027,2.1%,Average true range over 14 days divided by price.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Forecast,1W statistical center,303.63075306182486,$303.63,Current price projected by 20D average daily log return over five days.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Forecast,1W 68% low,295.5923075568679,$295.59,Center minus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Forecast,1W 68% high,311.8877989988101,$311.89,Center plus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Fundamental,Revenue,416161000000.0,$416.16B,Latest annual revenue from SEC companyfacts.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Growth,Revenue growth YoY,0.06425511782832749,6.4%,Latest annual revenue growth versus prior year.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Fundamental,Gross profit,195201000000.0,$195.20B,Latest annual gross profit.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Quality,Gross margin,0.4690516410716045,46.9%,Gross profit divided by revenue.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Fundamental,Operating income,133050000000.0,$133.05B,Latest annual operating income.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Quality,Operating margin,0.31970799762591884,32.0%,Operating income divided by revenue.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Fundamental,Net income,112010000000.0,$112.01B,Latest annual net income.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Quality,Net margin,0.2691506412181824,26.9%,Net income divided by revenue.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Fundamental,Diluted EPS,7.46,7.46,Latest annual diluted earnings per share.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Growth,EPS growth YoY,0.22697368421052633,22.7%,Latest annual diluted EPS growth versus prior year.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Quality,Operating cash flow,111482000000.0,$111.48B,Latest annual operating cash flow.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Investment,Capital expenditure,12715000000.0,$12.71B,Latest annual property/equipment purchases.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Quality,Free cash flow,98767000000.0,$98.77B,Operating cash flow minus capex cash outflow.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Quality,FCF margin,0.23732882225869315,23.7%,Free cash flow divided by revenue.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Quality,CFO / net income,0.995286135166503,1.00,Operating cash flow divided by net income.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Balance sheet,Total assets,359241000000.0,$359.24B,Latest annual total assets.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Balance sheet,Total liabilities,285508000000.0,$285.51B,Latest annual total liabilities.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Balance sheet,Shareholders equity,73733000000.0,$73.73B,Latest annual shareholders equity.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Balance sheet,Cash and equivalents,35934000000.0,$35.93B,Latest annual cash and equivalents.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Balance sheet,Total debt,103028000000.0,$103.03B,Short-term plus long-term debt when available.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Balance sheet,Debt / equity,1.3973119227482946,1.40,Total debt divided by shareholders equity.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Balance sheet,Cash / assets,0.10002755810166435,10.0%,Cash divided by assets.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Balance sheet,Liabilities / assets,0.7947533828265705,79.5%,Liabilities divided by assets.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Quality,ROA,0.3117962593356549,31.2%,Net income divided by assets.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Quality,ROE,1.5191298333175105,151.9%,Net income divided by equity.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Valuation,P/E,40.42091267358202,40.42,Market price divided by diluted EPS.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Valuation,P/S,10.872033808054969,10.87,Market cap divided by revenue.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Valuation,P/B,61.36352056194599,61.36,Market cap divided by equity.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Valuation,P/FCF,45.81000193985809,45.81,Market cap divided by free cash flow.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Valuation,EV/Sales,11.033255066173822,11.03,Enterprise value divided by revenue.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Valuation,EV/EBITDA,31.721408666053858,31.72,Enterprise value divided by estimated EBITDA.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Investment,R&D / sales,0.08302075398703868,8.3%,Research and development divided by revenue.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Efficiency,SG&A / sales,0.06632288945864702,6.6%,Selling/general/admin expense divided by revenue.
+2026-06-08T23:16:03+01:00,AAPL,66.0,Neutral / watch,Capital allocation,Diluted share change YoY,-0.026180913344576395,-2.6%,Change in diluted weighted-average shares.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Market,Current price,363.30999755859375,$363.31,Latest adjusted market price from daily data.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Market,Market cap,4443281270141.602,$4.44T,Price multiplied by shares outstanding where SEC shares are available.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Market,Enterprise value,4463654270141.602,$4.46T,Market cap plus debt minus cash.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Liquidity,20D avg dollar volume,11502453524.248682,$11.50B,Average 20-day dollar volume.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Momentum,1D return,-0.014164386177498822,-1.4%,One trading-day total return.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Momentum,5D return,-0.03469989034202192,-3.5%,Five trading-day total return.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Momentum,20D return,-0.09353790263521733,-9.4%,Twenty trading-day total return.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Momentum,63D return,0.18589246288701333,18.6%,Approximate 3-month return.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Momentum,126D return,0.1438511527731392,14.4%,Approximate 6-month return.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Momentum,252D return,1.1598595984637257,116.0%,Approximate 12-month return.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Momentum,63D relative strength vs SPY,0.09603156764355658,0.10,Ticker 63D return minus SPY 63D return.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Trend,50DMA,356.1499993896484,356.15,50-day simple moving average.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Trend,200DMA,304.86139976501465,304.86,200-day simple moving average.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Trend,Price vs 50DMA,0.020103883704101433,2.0%,Distance from 50DMA.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Trend,Price vs 200DMA,0.19172187045861144,19.2%,Distance from 200DMA.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Risk,Distance from 52W high,-0.09763548267679079,-9.8%,Current price relative to one-year high.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Risk,Distance from 52W low,1.1993461601131803,119.9%,Current price relative to one-year low.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Momentum,RSI 14,28.148165774340683,28.15,14-day relative strength index.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Risk,20D realized volatility,0.3057816248704624,30.6%,Annualized realized volatility from 20 daily log returns.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Risk,60D realized volatility,0.35871009358317457,35.9%,Annualized realized volatility from 60 daily log returns.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Risk,1Y beta vs SPY,1.3094004225652505,1.31,Covariance with SPY divided by SPY variance over one year.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Risk,1Y correlation vs SPY,0.5475857493748985,54.8%,Correlation of daily returns with SPY.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Risk,1Y max drawdown,-0.20422474306151095,-20.4%,Largest peak-to-trough loss over one year.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Risk,60D downside volatility,0.1859438934682212,18.6%,Annualized volatility of negative daily returns.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Risk,ATR 14 as % price,0.02667913639802457,2.7%,Average true range over 14 days divided by price.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Forecast,1W statistical center,354.49879335005556,$354.50,Current price projected by 20D average daily log return over five days.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Forecast,1W 68% low,339.55394685674304,$339.55,Center minus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Forecast,1W 68% high,370.1014099525841,$370.10,Center plus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Fundamental,Revenue,402836000000.0,$402.84B,Latest annual revenue from SEC companyfacts.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Growth,Revenue growth YoY,0.1509008108154437,15.1%,Latest annual revenue growth versus prior year.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Fundamental,Gross profit,,Unavailable,Latest annual gross profit.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Quality,Gross margin,,Unavailable,Gross profit divided by revenue.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Fundamental,Operating income,129039000000.0,$129.04B,Latest annual operating income.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Quality,Operating margin,0.32032638592380025,32.0%,Operating income divided by revenue.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Fundamental,Net income,132170000000.0,$132.17B,Latest annual net income.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Quality,Net margin,0.3280987796522654,32.8%,Net income divided by revenue.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Fundamental,Diluted EPS,10.81,10.81,Latest annual diluted earnings per share.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Growth,EPS growth YoY,0.3445273631840797,34.5%,Latest annual diluted EPS growth versus prior year.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Quality,Operating cash flow,164713000000.0,$164.71B,Latest annual operating cash flow.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Investment,Capital expenditure,91447000000.0,$91.45B,Latest annual property/equipment purchases.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Quality,Free cash flow,73266000000.0,$73.27B,Operating cash flow minus capex cash outflow.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Quality,FCF margin,0.18187550268595656,18.2%,Free cash flow divided by revenue.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Quality,CFO / net income,1.2462207762729818,1.25,Operating cash flow divided by net income.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Balance sheet,Total assets,595281000000.0,$595.28B,Latest annual total assets.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Balance sheet,Total liabilities,180016000000.0,$180.02B,Latest annual total liabilities.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Balance sheet,Shareholders equity,415265000000.0,$415.26B,Latest annual shareholders equity.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Balance sheet,Cash and equivalents,30708000000.0,$30.71B,Latest annual cash and equivalents.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Balance sheet,Total debt,51081000000.0,$51.08B,Short-term plus long-term debt when available.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Balance sheet,Debt / equity,0.12300819958339855,0.12,Total debt divided by shareholders equity.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Balance sheet,Cash / assets,0.05158572170117978,5.2%,Cash divided by assets.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Balance sheet,Liabilities / assets,0.3024050826416432,30.2%,Liabilities divided by assets.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Quality,ROA,0.22202959610671263,22.2%,Net income divided by assets.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Quality,ROE,0.3182786895115167,31.8%,Net income divided by equity.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Valuation,P/E,33.608695426326896,33.61,Market price divided by diluted EPS.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Valuation,P/S,11.03000047200747,11.03,Market cap divided by revenue.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Valuation,P/B,10.699869409031827,10.70,Market cap divided by equity.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Valuation,P/FCF,60.64588308549124,60.65,Market cap divided by free cash flow.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Valuation,EV/Sales,11.080574402837883,11.08,Enterprise value divided by revenue.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Valuation,EV/EBITDA,34.59151318703339,34.59,Enterprise value divided by estimated EBITDA.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Investment,R&D / sales,0.15164235569810047,15.2%,Research and development divided by revenue.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Efficiency,SG&A / sales,,Unavailable,Selling/general/admin expense divided by revenue.
+2026-06-08T23:16:03+01:00,GOOGL,62.5,Neutral / watch,Capital allocation,Diluted share change YoY,-0.017433919820036947,-1.7%,Change in diluted weighted-average shares.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Market,Current price,311.1099853515625,$311.11,Latest adjusted market price from daily data.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Market,Market cap,865352424255.3711,$865.35B,Price multiplied by shares outstanding where SEC shares are available.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Market,Enterprise value,854679424255.3711,$854.68B,Market cap plus debt minus cash.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Liquidity,20D avg dollar volume,2711345735.591821,$2.71B,Average 20-day dollar volume.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Momentum,1D return,-0.00403370933611058,-0.4%,One trading-day total return.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Momentum,5D return,0.04899183841508625,4.9%,Five trading-day total return.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Momentum,20D return,0.02982449210861504,3.0%,Twenty trading-day total return.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Momentum,63D return,0.07308902780907856,7.3%,Approximate 3-month return.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Momentum,126D return,-0.01578620897058447,-1.6%,Approximate 6-month return.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Momentum,252D return,0.18766929129088128,18.8%,Approximate 12-month return.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Momentum,63D relative strength vs SPY,-0.016771867434378196,-0.02,Ticker 63D return minus SPY 63D return.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Trend,50DMA,304.5905999755859,304.59,50-day simple moving average.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Trend,200DMA,306.18605072021484,306.19,200-day simple moving average.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Trend,Price vs 50DMA,0.021403764188714813,2.1%,Distance from 50DMA.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Trend,Price vs 200DMA,0.016081511942707793,1.6%,Distance from 200DMA.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Risk,Distance from 52W high,-0.07023101828628753,-7.0%,Current price relative to one-year high.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Risk,Distance from 52W low,0.17422144184866828,17.4%,Current price relative to one-year low.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Momentum,RSI 14,60.665830871207014,60.67,14-day relative strength index.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Risk,20D realized volatility,0.2208585888728332,22.1%,Annualized realized volatility from 20 daily log returns.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Risk,60D realized volatility,0.21768125927711754,21.8%,Annualized realized volatility from 60 daily log returns.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Risk,1Y beta vs SPY,0.9403639010124321,0.94,Covariance with SPY divided by SPY variance over one year.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Risk,1Y correlation vs SPY,0.527981144189118,52.8%,Correlation of daily returns with SPY.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Risk,1Y max drawdown,-0.15471740617447216,-15.5%,Largest peak-to-trough loss over one year.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Risk,60D downside volatility,0.1313153835545042,13.1%,Annualized volatility of negative daily returns.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Risk,ATR 14 as % price,0.02041767424085179,2.0%,Average true range over 14 days divided by price.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Forecast,1W statistical center,313.40415831707986,$313.40,Current price projected by 20D average daily log return over five days.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Forecast,1W 68% low,303.8042771474763,$303.80,Center minus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Forecast,1W 68% high,323.3073851779812,$323.31,Center plus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Fundamental,Revenue,182447000000.0,$182.45B,Latest annual revenue from SEC companyfacts.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Growth,Revenue growth YoY,0.027546238933068956,2.8%,Latest annual revenue growth versus prior year.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Fundamental,Gross profit,,Unavailable,Latest annual gross profit.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Quality,Gross margin,,Unavailable,Gross profit divided by revenue.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Fundamental,Operating income,,Unavailable,Latest annual operating income.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Quality,Operating margin,,Unavailable,Operating income divided by revenue.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Fundamental,Net income,57048000000.0,$57.05B,Latest annual net income.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Quality,Net margin,0.31268258727192005,31.3%,Net income divided by revenue.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Fundamental,Diluted EPS,20.02,20.02,Latest annual diluted earnings per share.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Growth,EPS growth YoY,0.013670886075949351,1.4%,Latest annual diluted EPS growth versus prior year.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Quality,Operating cash flow,-147782000000.0,$-147.78B,Latest annual operating cash flow.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Investment,Capital expenditure,,Unavailable,Latest annual property/equipment purchases.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Quality,Free cash flow,,Unavailable,Operating cash flow minus capex cash outflow.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Quality,FCF margin,,Unavailable,Free cash flow divided by revenue.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Quality,CFO / net income,-2.5904852054410323,-2.59,Operating cash flow divided by net income.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Balance sheet,Total assets,4424900000000.0,$4.42T,Latest annual total assets.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Balance sheet,Total liabilities,4062462000000.0,$4.06T,Latest annual total liabilities.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Balance sheet,Shareholders equity,362438000000.0,$362.44B,Latest annual shareholders equity.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Balance sheet,Cash and equivalents,343338000000.0,$343.34B,Latest annual cash and equivalents.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Balance sheet,Total debt,332665000000.0,$332.67B,Short-term plus long-term debt when available.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Balance sheet,Debt / equity,0.9178535363289722,0.92,Total debt divided by shareholders equity.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Balance sheet,Cash / assets,0.07759226197202197,7.8%,Cash divided by assets.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Balance sheet,Liabilities / assets,0.9180912562995774,91.8%,Liabilities divided by assets.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Quality,ROA,0.01289249474564397,1.3%,Net income divided by assets.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Quality,ROE,0.1574007140531622,15.7%,Net income divided by equity.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Valuation,P/E,15.539959308269855,15.54,Market price divided by diluted EPS.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Valuation,P/S,4.7430345484188345,4.74,Market cap divided by revenue.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Valuation,P/B,2.387587461180591,2.39,Market cap divided by equity.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Valuation,P/FCF,,Unavailable,Market cap divided by free cash flow.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Valuation,EV/Sales,4.684535367834884,4.68,Enterprise value divided by revenue.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Valuation,EV/EBITDA,,Unavailable,Enterprise value divided by estimated EBITDA.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Investment,R&D / sales,,Unavailable,Research and development divided by revenue.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Efficiency,SG&A / sales,,Unavailable,Selling/general/admin expense divided by revenue.
+2026-06-08T23:16:03+01:00,JPM,57.7,Neutral / watch,Capital allocation,Diluted share change YoY,-0.03386592566863489,-3.4%,Change in diluted weighted-average shares.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Market,Current price,208.63999938964844,$208.64,Latest adjusted market price from daily data.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Market,Market cap,5114600945037.842,$5.11T,Price multiplied by shares outstanding where SEC shares are available.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Market,Enterprise value,5113462945037.842,$5.11T,Market cap plus debt minus cash.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Liquidity,20D avg dollar volume,37101371431.624344,$37.10B,Average 20-day dollar volume.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Momentum,1D return,0.017259839984335112,1.7%,One trading-day total return.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Momentum,5D return,-0.07006597066294462,-7.0%,Five trading-day total return.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Momentum,20D return,-0.030483260462924155,-3.0%,Twenty trading-day total return.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Momentum,63D return,0.14229403975722943,14.2%,Approximate 3-month return.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Momentum,126D return,0.1377467217485251,13.8%,Approximate 6-month return.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Momentum,252D return,0.4903921080268596,49.0%,Approximate 12-month return.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Momentum,63D relative strength vs SPY,0.05243314451377268,0.05,Ticker 63D return minus SPY 63D return.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Trend,50DMA,204.19500091552734,204.20,50-day simple moving average.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Trend,200DMA,188.7393005371094,188.74,200-day simple moving average.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Trend,Price vs 50DMA,0.02176840007929437,2.2%,Distance from 50DMA.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Trend,Price vs 200DMA,0.10544014307516325,10.5%,Distance from 200DMA.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Risk,Distance from 52W high,-0.11495717940119188,-11.5%,Current price relative to one-year high.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Risk,Distance from 52W low,0.4721986846777513,47.2%,Current price relative to one-year low.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Momentum,RSI 14,39.31916820052777,39.32,14-day relative strength index.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Risk,20D realized volatility,0.4616361922325153,46.2%,Annualized realized volatility from 20 daily log returns.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Risk,60D realized volatility,0.4006786608740132,40.1%,Annualized realized volatility from 60 daily log returns.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Risk,1Y beta vs SPY,1.828320550256918,1.83,Covariance with SPY divided by SPY variance over one year.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Risk,1Y correlation vs SPY,0.6398877128159802,64.0%,Correlation of daily returns with SPY.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Risk,1Y max drawdown,-0.20223143583337766,-20.2%,Largest peak-to-trough loss over one year.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Risk,60D downside volatility,0.24712551184271897,24.7%,Annualized volatility of negative daily returns.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Risk,ATR 14 as % price,0.039185744340873296,3.9%,Average true range over 14 days divided by price.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Forecast,1W statistical center,207.03148667511078,$207.03,Current price projected by 20D average daily log return over five days.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Forecast,1W 68% low,193.9974974502513,$194.00,Center minus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Forecast,1W 68% high,220.94118242890278,$220.94,Center plus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Fundamental,Revenue,215938000000.0,$215.94B,Latest annual revenue from SEC companyfacts.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Growth,Revenue growth YoY,0.6547353579009478,65.5%,Latest annual revenue growth versus prior year.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Fundamental,Gross profit,153463000000.0,$153.46B,Latest annual gross profit.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Quality,Gross margin,0.7106808435754708,71.1%,Gross profit divided by revenue.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Fundamental,Operating income,130387000000.0,$130.39B,Latest annual operating income.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Quality,Operating margin,0.6038168363141272,60.4%,Operating income divided by revenue.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Fundamental,Net income,120067000000.0,$120.07B,Latest annual net income.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Quality,Net margin,0.5560253406070261,55.6%,Net income divided by revenue.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Fundamental,Diluted EPS,4.9,4.90,Latest annual diluted earnings per share.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Growth,EPS growth YoY,0.6666666666666667,66.7%,Latest annual diluted EPS growth versus prior year.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Quality,Operating cash flow,102718000000.0,$102.72B,Latest annual operating cash flow.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Investment,Capital expenditure,6042000000.0,$6.04B,Latest annual property/equipment purchases.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Quality,Free cash flow,96676000000.0,$96.68B,Operating cash flow minus capex cash outflow.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Quality,FCF margin,0.44770258129648327,44.8%,Free cash flow divided by revenue.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Quality,CFO / net income,0.855505675997568,0.86,Operating cash flow divided by net income.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Balance sheet,Total assets,206803000000.0,$206.80B,Latest annual total assets.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Balance sheet,Total liabilities,49510000000.0,$49.51B,Latest annual total liabilities.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Balance sheet,Shareholders equity,157293000000.0,$157.29B,Latest annual shareholders equity.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Balance sheet,Cash and equivalents,10605000000.0,$10.61B,Latest annual cash and equivalents.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Balance sheet,Total debt,9467000000.0,$9.47B,Short-term plus long-term debt when available.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Balance sheet,Debt / equity,0.06018703947410247,0.06,Total debt divided by shareholders equity.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Balance sheet,Cash / assets,0.05128068741749394,5.1%,Cash divided by assets.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Balance sheet,Liabilities / assets,0.23940658501085574,23.9%,Liabilities divided by assets.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Quality,ROA,0.5805863551302447,58.1%,Net income divided by assets.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Quality,ROE,0.7633333969089534,76.3%,Net income divided by equity.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Valuation,P/E,42.57959171217315,42.58,Market price divided by diluted EPS.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Valuation,P/S,23.685506696541793,23.69,Market cap divided by revenue.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Valuation,P/B,32.516392624197145,32.52,Market cap divided by equity.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Valuation,P/FCF,52.90455692248171,52.90,Market cap divided by free cash flow.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Valuation,EV/Sales,23.68023666532913,23.68,Enterprise value divided by revenue.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Valuation,EV/EBITDA,38.38071714357008,38.38,Enterprise value divided by estimated EBITDA.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Investment,R&D / sales,0.08565884652076058,8.6%,Research and development divided by revenue.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Efficiency,SG&A / sales,0.021205160740582946,2.1%,Selling/general/admin expense divided by revenue.
+2026-06-08T23:16:03+01:00,NVDA,53.4,Neutral / watch,Capital allocation,Diluted share change YoY,-0.01169166263505883,-1.2%,Change in diluted weighted-average shares.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Market,Current price,1149.1500244140625,"$1,149.15",Latest adjusted market price from daily data.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Market,Market cap,1033430616955.5664,$1.03T,Price multiplied by shares outstanding where SEC shares are available.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Market,Enterprise value,1068043216955.5664,$1.07T,Market cap plus debt minus cash.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Liquidity,20D avg dollar volume,3722514874.941028,$3.72B,Average 20-day dollar volume.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Momentum,1D return,0.015670555390661756,1.6%,One trading-day total return.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Momentum,5D return,0.06186479048505755,6.2%,Five trading-day total return.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Momentum,20D return,0.2116084238746594,21.2%,Twenty trading-day total return.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Momentum,63D return,0.13958885720888392,14.0%,Approximate 3-month return.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Momentum,126D return,0.1327366809687076,13.3%,Approximate 6-month return.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Momentum,252D return,0.5008228442775275,50.1%,Approximate 12-month return.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Momentum,63D relative strength vs SPY,0.04972796196542717,0.05,Ticker 63D return minus SPY 63D return.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Trend,50DMA,978.0662072753906,978.07,50-day simple moving average.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Trend,200DMA,949.8351541137695,949.84,200-day simple moving average.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Trend,Price vs 50DMA,0.17492048684031514,17.5%,Distance from 50DMA.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Trend,Price vs 200DMA,0.20984153875233336,21.0%,Distance from 200DMA.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Risk,Distance from 52W high,0.0,0.0%,Current price relative to one-year high.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Risk,Distance from 52W low,0.836729768356153,83.7%,Current price relative to one-year low.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Momentum,RSI 14,77.58254306024097,77.58,14-day relative strength index.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Risk,20D realized volatility,0.3133347693101882,31.3%,Annualized realized volatility from 20 daily log returns.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Risk,60D realized volatility,0.38005951681043965,38.0%,Annualized realized volatility from 60 daily log returns.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Risk,1Y beta vs SPY,0.5369980887651727,0.54,Covariance with SPY divided by SPY variance over one year.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Risk,1Y correlation vs SPY,0.17061366291825322,17.1%,Correlation of daily returns with SPY.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Risk,1Y max drawdown,-0.23641618385157648,-23.6%,Largest peak-to-trough loss over one year.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Risk,60D downside volatility,0.19733890011903554,19.7%,Annualized volatility of negative daily returns.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Risk,ATR 14 as % price,0.03397790173883705,3.4%,Average true range over 14 days divided by price.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Forecast,1W statistical center,1205.639037685416,"$1,205.64",Current price projected by 20D average daily log return over five days.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Forecast,1W 68% low,1153.5841092475523,"$1,153.58",Center minus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Forecast,1W 68% high,1260.0429197478563,"$1,260.04",Center plus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Fundamental,Revenue,65179000000.0,$65.18B,Latest annual revenue from SEC companyfacts.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Growth,Revenue growth YoY,0.44704913337788366,44.7%,Latest annual revenue growth versus prior year.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Fundamental,Gross profit,,Unavailable,Latest annual gross profit.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Quality,Gross margin,,Unavailable,Gross profit divided by revenue.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Fundamental,Operating income,,Unavailable,Latest annual operating income.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Quality,Operating margin,,Unavailable,Operating income divided by revenue.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Fundamental,Net income,20640000000.0,$20.64B,Latest annual net income.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Quality,Net margin,0.31666641096058545,31.7%,Net income divided by revenue.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Fundamental,Diluted EPS,22.95,22.95,Latest annual diluted earnings per share.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Growth,EPS growth YoY,0.9598633646456018,96.0%,Latest annual diluted EPS growth versus prior year.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Quality,Operating cash flow,16813000000.0,$16.81B,Latest annual operating cash flow.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Investment,Capital expenditure,,Unavailable,Latest annual property/equipment purchases.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Quality,Free cash flow,,Unavailable,Operating cash flow minus capex cash outflow.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Quality,FCF margin,,Unavailable,Free cash flow divided by revenue.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Quality,CFO / net income,0.8145833333333333,0.81,Operating cash flow divided by net income.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Balance sheet,Total assets,112476000000.0,$112.48B,Latest annual total assets.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Balance sheet,Total liabilities,,Unavailable,Latest annual total liabilities.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Balance sheet,Shareholders equity,26535000000.0,$26.54B,Latest annual shareholders equity.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Balance sheet,Cash and equivalents,7268000000.0,$7.27B,Latest annual cash and equivalents.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Balance sheet,Total debt,41880600000.0,$41.88B,Short-term plus long-term debt when available.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Balance sheet,Debt / equity,1.5783154324477107,1.58,Total debt divided by shareholders equity.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Balance sheet,Cash / assets,0.06461822966677336,6.5%,Cash divided by assets.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Balance sheet,Liabilities / assets,,Unavailable,Liabilities divided by assets.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Quality,ROA,0.18350581457377574,18.4%,Net income divided by assets.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Quality,ROE,0.7778405879027699,77.8%,Net income divided by equity.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Valuation,P/E,50.07189648863017,50.07,Market price divided by diluted EPS.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Valuation,P/S,15.855269595353816,15.86,Market cap divided by revenue.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Valuation,P/B,38.945943733015504,38.95,Market cap divided by equity.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Valuation,P/FCF,,Unavailable,Market cap divided by free cash flow.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Valuation,EV/Sales,16.386308733726604,16.39,Enterprise value divided by revenue.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Valuation,EV/EBITDA,,Unavailable,Enterprise value divided by estimated EBITDA.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Investment,R&D / sales,0.11032387732245048,11.0%,Research and development divided by revenue.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Efficiency,SG&A / sales,0.1702081958913147,17.0%,Selling/general/admin expense divided by revenue.
+2026-06-08T23:16:03+01:00,LLY,50.8,Neutral / watch,Capital allocation,Diluted share change YoY,-0.005264036971038388,-0.5%,Change in diluted weighted-average shares.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Market,Current price,411.739990234375,$411.74,Latest adjusted market price from daily data.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Market,Market cap,3073639027099.6094,$3.07T,Price multiplied by shares outstanding where SEC shares are available.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Market,Enterprise value,3089547027099.6094,$3.09T,Market cap plus debt minus cash.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Liquidity,20D avg dollar volume,15154349572.074024,$15.15B,Average 20-day dollar volume.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Momentum,1D return,-0.011831960627074034,-1.2%,One trading-day total return.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Momentum,5D return,-0.10592373825894597,-10.6%,Five trading-day total return.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Momentum,20D return,-0.008142235793432095,-0.8%,Twenty trading-day total return.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Momentum,63D return,0.005691083636023109,0.6%,Approximate 3-month return.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Momentum,126D return,-0.143706860140142,-14.4%,Approximate 6-month return.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Momentum,252D return,-0.11961170740136107,-12.0%,Approximate 12-month return.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Momentum,63D relative strength vs SPY,-0.08416981160743364,-0.08,Ticker 63D return minus SPY 63D return.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Trend,50DMA,409.26539916992186,409.27,50-day simple moving average.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Trend,200DMA,455.9104997253418,455.91,200-day simple moving average.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Trend,Price vs 50DMA,0.006046421391772139,0.6%,Distance from 50DMA.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Trend,Price vs 200DMA,-0.09688416809346756,-9.7%,Distance from 200DMA.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Risk,Distance from 52W high,-0.2404302310197579,-24.0%,Current price relative to one-year high.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Risk,Distance from 52W low,0.15407686440407575,15.4%,Current price relative to one-year low.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Momentum,RSI 14,44.92253598621088,44.92,14-day relative strength index.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Risk,20D realized volatility,0.3615824689028786,36.2%,Annualized realized volatility from 20 daily log returns.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Risk,60D realized volatility,0.31727826596891134,31.7%,Annualized realized volatility from 60 daily log returns.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Risk,1Y beta vs SPY,0.8734159083236303,0.87,Covariance with SPY divided by SPY variance over one year.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Risk,1Y correlation vs SPY,0.4159649654227738,41.6%,Correlation of daily returns with SPY.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Risk,1Y max drawdown,-0.34183779918986856,-34.2%,Largest peak-to-trough loss over one year.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Risk,60D downside volatility,0.19200563384234648,19.2%,Annualized volatility of negative daily returns.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Risk,ATR 14 as % price,0.03221692700354558,3.2%,Average true range over 14 days divided by price.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Forecast,1W statistical center,410.8992979226402,$410.90,Current price projected by 20D average daily log return over five days.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Forecast,1W 68% low,390.4953287251621,$390.50,Center minus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Forecast,1W 68% high,432.36940524876326,$432.37,Center plus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Fundamental,Revenue,281724000000.0,$281.72B,Latest annual revenue from SEC companyfacts.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Growth,Revenue growth YoY,0.14932156232406713,14.9%,Latest annual revenue growth versus prior year.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Fundamental,Gross profit,193893000000.0,$193.89B,Latest annual gross profit.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Quality,Gross margin,0.6882374238616519,68.8%,Gross profit divided by revenue.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Fundamental,Operating income,128528000000.0,$128.53B,Latest annual operating income.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Quality,Operating margin,0.4562195624085985,45.6%,Operating income divided by revenue.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Fundamental,Net income,101832000000.0,$101.83B,Latest annual net income.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Quality,Net margin,0.3614601524896707,36.1%,Net income divided by revenue.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Fundamental,Diluted EPS,13.64,13.64,Latest annual diluted earnings per share.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Growth,EPS growth YoY,0.1559322033898305,15.6%,Latest annual diluted EPS growth versus prior year.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Quality,Operating cash flow,136162000000.0,$136.16B,Latest annual operating cash flow.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Investment,Capital expenditure,64551000000.0,$64.55B,Latest annual property/equipment purchases.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Quality,Free cash flow,71611000000.0,$71.61B,Operating cash flow minus capex cash outflow.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Quality,FCF margin,0.2541884965427156,25.4%,Free cash flow divided by revenue.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Quality,CFO / net income,1.3371238903291696,1.34,Operating cash flow divided by net income.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Balance sheet,Total assets,619003000000.0,$619.00B,Latest annual total assets.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Balance sheet,Total liabilities,275524000000.0,$275.52B,Latest annual total liabilities.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Balance sheet,Shareholders equity,343479000000.0,$343.48B,Latest annual shareholders equity.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Balance sheet,Cash and equivalents,30242000000.0,$30.24B,Latest annual cash and equivalents.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Balance sheet,Total debt,46150000000.0,$46.15B,Short-term plus long-term debt when available.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Balance sheet,Debt / equity,0.1343604703635448,0.13,Total debt divided by shareholders equity.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Balance sheet,Cash / assets,0.04885598292738484,4.9%,Cash divided by assets.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Balance sheet,Liabilities / assets,0.44510931287893596,44.5%,Liabilities divided by assets.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Quality,ROA,0.16450970350709124,16.5%,Net income divided by assets.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Quality,ROE,0.2964722734140952,29.6%,Net income divided by equity.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Valuation,P/E,30.18621629284274,30.19,Market price divided by diluted EPS.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Valuation,P/S,10.910107151324024,10.91,Market cap divided by revenue.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Valuation,P/B,8.948550063030373,8.95,Market cap divided by equity.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Valuation,P/FCF,42.92132531454119,42.92,Market cap divided by free cash flow.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Valuation,EV/Sales,10.966573764037175,10.97,Enterprise value divided by revenue.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Valuation,EV/EBITDA,24.03792968924755,24.04,Enterprise value divided by estimated EBITDA.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Investment,R&D / sales,0.11531853871164686,11.5%,Research and development divided by revenue.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Efficiency,SG&A / sales,,Unavailable,Selling/general/admin expense divided by revenue.
+2026-06-08T23:16:03+01:00,MSFT,49.7,Weak research rank,Capital allocation,Diluted share change YoY,-0.0005355469272995128,-0.1%,Change in diluted weighted-average shares.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Market,Current price,245.22000122070312,$245.22,Latest adjusted market price from daily data.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Market,Market cap,2654996953216.5527,$2.65T,Price multiplied by shares outstanding where SEC shares are available.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Market,Enterprise value,2636474953216.5527,$2.64T,Market cap plus debt minus cash.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Liquidity,20D avg dollar volume,9861769420.502806,$9.86B,Average 20-day dollar volume.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Momentum,1D return,-0.0032922715222234444,-0.3%,One trading-day total return.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Momentum,5D return,-0.06139480955891907,-6.1%,Five trading-day total return.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Momentum,20D return,-0.10070409341593423,-10.1%,Twenty trading-day total return.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Momentum,63D return,0.14862520451129524,14.9%,Approximate 3-month return.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Momentum,126D return,0.0703155714173731,7.0%,Approximate 6-month return.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Momentum,252D return,0.1794526328768149,17.9%,Approximate 12-month return.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Momentum,63D relative strength vs SPY,0.05876430926783849,0.06,Ticker 63D return minus SPY 63D return.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Trend,50DMA,251.91120056152343,251.91,50-day simple moving average.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Trend,200DMA,232.23535011291503,232.24,200-day simple moving average.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Trend,Price vs 50DMA,-0.02656173812798024,-2.7%,Distance from 50DMA.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Trend,Price vs 200DMA,0.05591160476419654,5.6%,Distance from 200DMA.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Risk,Distance from 52W high,-0.1082584460194308,-10.8%,Current price relative to one-year high.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Risk,Distance from 52W low,0.23356310429439087,23.4%,Current price relative to one-year low.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Momentum,RSI 14,34.37300735890098,34.37,14-day relative strength index.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Risk,20D realized volatility,0.27463370953902166,27.5%,Annualized realized volatility from 20 daily log returns.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Risk,60D realized volatility,0.3008028697330583,30.1%,Annualized realized volatility from 60 daily log returns.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Risk,1Y beta vs SPY,1.4534204319228292,1.45,Covariance with SPY divided by SPY variance over one year.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Risk,1Y correlation vs SPY,0.5850270772597874,58.5%,Correlation of daily returns with SPY.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Risk,1Y max drawdown,-0.2173622311569574,-21.7%,Largest peak-to-trough loss over one year.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Risk,60D downside volatility,0.16172591356834243,16.2%,Annualized volatility of negative daily returns.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Risk,ATR 14 as % price,0.029927921525090245,3.0%,Average true range over 14 days divided by price.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Forecast,1W statistical center,238.79847247309976,$238.80,Current price projected by 20D average daily log return over five days.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Forecast,1W 68% low,229.73703838341902,$229.74,Center minus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Forecast,1W 68% high,248.21731339774018,$248.22,Center plus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Fundamental,Revenue,716924000000.0,$716.92B,Latest annual revenue from SEC companyfacts.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Growth,Revenue growth YoY,0.12377754683294695,12.4%,Latest annual revenue growth versus prior year.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Fundamental,Gross profit,5531000000.0,$5.53B,Latest annual gross profit.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Quality,Gross margin,0.0077149042297370435,0.8%,Gross profit divided by revenue.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Fundamental,Operating income,79975000000.0,$79.97B,Latest annual operating income.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Quality,Operating margin,0.11155296795755199,11.2%,Operating income divided by revenue.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Fundamental,Net income,77670000000.0,$77.67B,Latest annual net income.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Quality,Net margin,0.10833784334183261,10.8%,Net income divided by revenue.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Fundamental,Diluted EPS,7.17,7.17,Latest annual diluted earnings per share.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Growth,EPS growth YoY,0.2965641952983724,29.7%,Latest annual diluted EPS growth versus prior year.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Quality,Operating cash flow,139514000000.0,$139.51B,Latest annual operating cash flow.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Investment,Capital expenditure,131819000000.0,$131.82B,Latest annual property/equipment purchases.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Quality,Free cash flow,7695000000.0,$7.70B,Operating cash flow minus capex cash outflow.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Quality,FCF margin,0.010733355278941701,1.1%,Free cash flow divided by revenue.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Quality,CFO / net income,1.796240504699369,1.80,Operating cash flow divided by net income.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Balance sheet,Total assets,818042000000.0,$818.04B,Latest annual total assets.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Balance sheet,Total liabilities,,Unavailable,Latest annual total liabilities.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Balance sheet,Shareholders equity,411065000000.0,$411.06B,Latest annual shareholders equity.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Balance sheet,Cash and equivalents,90106000000.0,$90.11B,Latest annual cash and equivalents.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Balance sheet,Total debt,71584000000.0,$71.58B,Short-term plus long-term debt when available.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Balance sheet,Debt / equity,0.17414277547346527,0.17,Total debt divided by shareholders equity.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Balance sheet,Cash / assets,0.11014837868960274,11.0%,Cash divided by assets.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Balance sheet,Liabilities / assets,,Unavailable,Liabilities divided by assets.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Quality,ROA,0.09494622525493801,9.5%,Net income divided by assets.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Quality,ROE,0.1889482198679041,18.9%,Net income divided by equity.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Valuation,P/E,34.20083699033516,34.20,Market price divided by diluted EPS.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Valuation,P/S,3.703317162232751,3.70,Market cap divided by revenue.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Valuation,P/B,6.458825132805159,6.46,Market cap divided by equity.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Valuation,P/FCF,345.0288438228139,345.03,Market cap divided by free cash flow.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Valuation,EV/Sales,3.6774817877718595,3.68,Enterprise value divided by revenue.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Valuation,EV/EBITDA,18.091380373541337,18.09,Enterprise value divided by estimated EBITDA.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Investment,R&D / sales,,Unavailable,Research and development divided by revenue.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Efficiency,SG&A / sales,,Unavailable,Selling/general/admin expense divided by revenue.
+2026-06-08T23:16:03+01:00,AMZN,48.4,Weak research rank,Capital allocation,Diluted share change YoY,0.009887137393899792,1.0%,Change in diluted weighted-average shares.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Market,Current price,585.3900146484375,$585.39,Latest adjusted market price from daily data.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Market,Market cap,1506793897705.0781,$1.51T,Price multiplied by shares outstanding where SEC shares are available.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Market,Enterprise value,1526437897705.0781,$1.53T,Market cap plus debt minus cash.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Liquidity,20D avg dollar volume,9941238844.52591,$9.94B,Average 20-day dollar volume.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Momentum,1D return,-0.012833027574304379,-1.3%,One trading-day total return.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Momentum,5D return,-0.025113589006007242,-2.5%,Five trading-day total return.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Momentum,20D return,-0.039761806407535016,-4.0%,Twenty trading-day total return.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Momentum,63D return,-0.09576916325110274,-9.6%,Approximate 3-month return.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Momentum,126D return,-0.11509683805187942,-11.5%,Approximate 6-month return.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Momentum,252D return,-0.14494169199917195,-14.5%,Approximate 12-month return.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Momentum,63D relative strength vs SPY,-0.1856300584945595,-0.19,Ticker 63D return minus SPY 63D return.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Trend,50DMA,620.2773999023437,620.28,50-day simple moving average.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Trend,200DMA,661.6366491699218,661.64,200-day simple moving average.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Trend,Price vs 50DMA,-0.056244811207693424,-5.6%,Distance from 50DMA.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Trend,Price vs 200DMA,-0.11523943635398992,-11.5%,Distance from 200DMA.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Risk,Distance from 52W high,-0.258999981457674,-25.9%,Current price relative to one-year high.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Risk,Distance from 52W low,0.11350157359536239,11.4%,Current price relative to one-year low.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Momentum,RSI 14,41.4537244334975,41.45,14-day relative strength index.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Risk,20D realized volatility,0.37101997362869693,37.1%,Annualized realized volatility from 20 daily log returns.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Risk,60D realized volatility,0.4373888818243384,43.7%,Annualized realized volatility from 60 daily log returns.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Risk,1Y beta vs SPY,1.4982762843385686,1.50,Covariance with SPY divided by SPY variance over one year.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Risk,1Y correlation vs SPY,0.511894604165033,51.2%,Correlation of daily returns with SPY.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Risk,1Y max drawdown,-0.33453168265427213,-33.5%,Largest peak-to-trough loss over one year.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Risk,60D downside volatility,0.36969169187708895,37.0%,Annualized volatility of negative daily returns.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Risk,ATR 14 as % price,0.032389892281791274,3.2%,Average true range over 14 days divided by price.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Forecast,1W statistical center,579.4821385066172,$579.48,Current price projected by 20D average daily log return over five days.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Forecast,1W 68% low,549.9752745424965,$549.98,Center minus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Forecast,1W 68% high,610.5720827677953,$610.57,Center plus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Fundamental,Revenue,200966000000.0,$200.97B,Latest annual revenue from SEC companyfacts.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Growth,Revenue growth YoY,0.22167038498246217,22.2%,Latest annual revenue growth versus prior year.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Fundamental,Gross profit,,Unavailable,Latest annual gross profit.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Quality,Gross margin,,Unavailable,Gross profit divided by revenue.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Fundamental,Operating income,83276000000.0,$83.28B,Latest annual operating income.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Quality,Operating margin,0.41437855159579234,41.4%,Operating income divided by revenue.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Fundamental,Net income,60458000000.0,$60.46B,Latest annual net income.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Quality,Net margin,0.3008369574952977,30.1%,Net income divided by revenue.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Fundamental,Diluted EPS,23.49,23.49,Latest annual diluted earnings per share.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Growth,EPS growth YoY,-0.015507124895222213,-1.6%,Latest annual diluted EPS growth versus prior year.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Quality,Operating cash flow,115800000000.0,$115.80B,Latest annual operating cash flow.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Investment,Capital expenditure,69691000000.0,$69.69B,Latest annual property/equipment purchases.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Quality,Free cash flow,46109000000.0,$46.11B,Operating cash flow minus capex cash outflow.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Quality,FCF margin,0.2294368201586338,22.9%,Free cash flow divided by revenue.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Quality,CFO / net income,1.915379271560422,1.92,Operating cash flow divided by net income.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Balance sheet,Total assets,366021000000.0,$366.02B,Latest annual total assets.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Balance sheet,Total liabilities,148778000000.0,$148.78B,Latest annual total liabilities.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Balance sheet,Shareholders equity,217243000000.0,$217.24B,Latest annual shareholders equity.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Balance sheet,Cash and equivalents,39100000000.0,$39.10B,Latest annual cash and equivalents.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Balance sheet,Total debt,58744000000.0,$58.74B,Short-term plus long-term debt when available.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Balance sheet,Debt / equity,0.27040687156778354,0.27,Total debt divided by shareholders equity.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Balance sheet,Cash / assets,0.1068244718199229,10.7%,Cash divided by assets.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Balance sheet,Liabilities / assets,0.4064739454840023,40.6%,Liabilities divided by assets.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Quality,ROA,0.16517631502017643,16.5%,Net income divided by assets.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Quality,ROE,0.2782966539773433,27.8%,Net income divided by equity.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Valuation,P/E,24.92081799269636,24.92,Market price divided by diluted EPS.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Valuation,P/S,7.497755330280137,7.50,Market cap divided by revenue.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Valuation,P/B,6.935983657494502,6.94,Market cap divided by equity.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Valuation,P/FCF,32.67895416740936,32.68,Market cap divided by free cash flow.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Valuation,EV/Sales,7.595503208030602,7.60,Enterprise value divided by revenue.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Valuation,EV/EBITDA,14.980939599822147,14.98,Enterprise value divided by estimated EBITDA.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Investment,R&D / sales,0.2854811261606441,28.5%,Research and development divided by revenue.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Efficiency,SG&A / sales,,Unavailable,Selling/general/admin expense divided by revenue.
+2026-06-08T23:16:03+01:00,META,42.4,Weak research rank,Capital allocation,Diluted share change YoY,-0.015302218821729108,-1.5%,Change in diluted weighted-average shares.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Market,Current price,396.6000061035156,$396.60,Latest adjusted market price from daily data.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Market,Market cap,1924699829620.3613,$1.92T,Price multiplied by shares outstanding where SEC shares are available.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Market,Enterprise value,1951338829620.3613,$1.95T,Market cap plus debt minus cash.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Liquidity,20D avg dollar volume,11189639575.084082,$11.19B,Average 20-day dollar volume.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Momentum,1D return,0.02818031993256742,2.8%,One trading-day total return.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Momentum,5D return,-0.13776984357460575,-13.8%,Five trading-day total return.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Momentum,20D return,-0.07767440441042883,-7.8%,Twenty trading-day total return.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Momentum,63D return,0.1470716011670734,14.7%,Approximate 3-month return.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Momentum,126D return,0.04086294353226849,4.1%,Approximate 6-month return.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Momentum,252D return,0.5257954729303098,52.6%,Approximate 12-month return.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Momentum,63D relative strength vs SPY,0.057210705923616656,0.06,Ticker 63D return minus SPY 63D return.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Trend,50DMA,400.1514007568359,400.15,50-day simple moving average.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Trend,200DMA,356.3213006591797,356.32,200-day simple moving average.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Trend,Price vs 50DMA,-0.008875127380794545,-0.9%,Distance from 50DMA.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Trend,Price vs 200DMA,0.11304040866998966,11.3%,Distance from 200DMA.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Risk,Distance from 52W high,-0.17644371519901725,-17.6%,Current price relative to one-year high.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Risk,Distance from 52W low,0.6235467827304089,62.4%,Current price relative to one-year low.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Momentum,RSI 14,43.79855354320374,43.80,14-day relative strength index.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Risk,20D realized volatility,0.6953415939102133,69.5%,Annualized realized volatility from 20 daily log returns.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Risk,60D realized volatility,0.5349931594219484,53.5%,Annualized realized volatility from 60 daily log returns.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Risk,1Y beta vs SPY,2.0752631861014437,2.08,Covariance with SPY divided by SPY variance over one year.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Risk,1Y correlation vs SPY,0.5530441119519384,55.3%,Correlation of daily returns with SPY.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Risk,1Y max drawdown,-0.28951254862383435,-29.0%,Largest peak-to-trough loss over one year.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Risk,60D downside volatility,0.44498935203881307,44.5%,Annualized volatility of negative daily returns.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Risk,ATR 14 as % price,0.05882824813483814,5.9%,Average true range over 14 days divided by price.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Forecast,1W statistical center,388.6635219501392,$388.66,Current price projected by 20D average daily log return over five days.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Forecast,1W 68% low,352.40068436605935,$352.40,Center minus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Forecast,1W 68% high,428.65788858052304,$428.66,Center plus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Fundamental,Revenue,63887000000.0,$63.89B,Latest annual revenue from SEC companyfacts.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Growth,Revenue growth YoY,0.23874432853763516,23.9%,Latest annual revenue growth versus prior year.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Fundamental,Gross profit,43294000000.0,$43.29B,Latest annual gross profit.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Quality,Gross margin,0.6776652527118193,67.8%,Gross profit divided by revenue.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Fundamental,Operating income,25484000000.0,$25.48B,Latest annual operating income.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Quality,Operating margin,0.3988917933225852,39.9%,Operating income divided by revenue.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Fundamental,Net income,23126000000.0,$23.13B,Latest annual net income.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Quality,Net margin,0.3619828760154648,36.2%,Net income divided by revenue.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Fundamental,Diluted EPS,4.77,4.77,Latest annual diluted earnings per share.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Growth,EPS growth YoY,2.8780487804878048,287.8%,Latest annual diluted EPS growth versus prior year.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Quality,Operating cash flow,27537000000.0,$27.54B,Latest annual operating cash flow.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Investment,Capital expenditure,623000000.0,$623.00M,Latest annual property/equipment purchases.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Quality,Free cash flow,26914000000.0,$26.91B,Operating cash flow minus capex cash outflow.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Quality,FCF margin,0.4212750637844945,42.1%,Free cash flow divided by revenue.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Quality,CFO / net income,1.190737697829283,1.19,Operating cash flow divided by net income.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Balance sheet,Total assets,171092000000.0,$171.09B,Latest annual total assets.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Balance sheet,Total liabilities,89800000000.0,$89.80B,Latest annual total liabilities.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Balance sheet,Shareholders equity,81292000000.0,$81.29B,Latest annual shareholders equity.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Balance sheet,Cash and equivalents,16178000000.0,$16.18B,Latest annual cash and equivalents.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Balance sheet,Total debt,42817000000.0,$42.82B,Short-term plus long-term debt when available.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Balance sheet,Debt / equity,0.5267061949515327,0.53,Total debt divided by shareholders equity.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Balance sheet,Cash / assets,0.0945573141935333,9.5%,Cash divided by assets.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Balance sheet,Liabilities / assets,0.5248638159586655,52.5%,Liabilities divided by assets.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Quality,ROA,0.13516704463095877,13.5%,Net income divided by assets.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Quality,ROE,0.2844806377011268,28.4%,Net income divided by equity.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Valuation,P/E,83.14465536761334,83.14,Market price divided by diluted EPS.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Valuation,P/S,30.126627163904413,30.13,Market cap divided by revenue.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Valuation,P/B,23.67637442331793,23.68,Market cap divided by equity.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Valuation,P/FCF,71.5129608984306,71.51,Market cap divided by free cash flow.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Valuation,EV/Sales,30.543597752600082,30.54,Enterprise value divided by revenue.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Valuation,EV/EBITDA,76.57113599200916,76.57,Enterprise value divided by estimated EBITDA.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Investment,R&D / sales,0.1718189929093556,17.2%,Research and development divided by revenue.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Efficiency,SG&A / sales,0.06591325308748258,6.6%,Selling/general/admin expense divided by revenue.
+2026-06-08T23:16:03+01:00,AVGO,41.5,Weak research rank,Capital allocation,Diluted share change YoY,0.015696944328170703,1.6%,Change in diluted weighted-average shares.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Market,Current price,408.95001220703125,$408.95,Latest adjusted market price from daily data.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Market,Market cap,1442775643066.4062,$1.44T,Price multiplied by shares outstanding where SEC shares are available.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Market,Enterprise value,1432897484066.4062,$1.43T,Market cap plus debt minus cash.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Liquidity,20D avg dollar volume,20045980851.81132,$20.05B,Average 20-day dollar volume.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Momentum,1D return,0.04590795960877547,4.6%,One trading-day total return.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Momentum,5D return,-0.016663442806619133,-1.7%,Five trading-day total return.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Momentum,20D return,-0.045290051640144324,-4.5%,Twenty trading-day total return.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Momentum,63D return,0.02576005748952115,2.6%,Approximate 3-month return.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Momentum,126D return,-0.10027938022721705,-10.0%,Approximate 6-month return.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Momentum,252D return,0.4364242875748334,43.6%,Approximate 12-month return.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Momentum,63D relative strength vs SPY,-0.0641008377539356,-0.06,Ticker 63D return minus SPY 63D return.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Trend,50DMA,396.0254016113281,396.03,50-day simple moving average.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Trend,200DMA,414.56710052490234,414.57,200-day simple moving average.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Trend,Price vs 50DMA,0.0326358121047694,3.3%,Distance from 50DMA.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Trend,Price vs 200DMA,-0.013549286257300786,-1.4%,Distance from 200DMA.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Risk,Distance from 52W high,-0.1652037067631308,-16.5%,Current price relative to one-year high.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Risk,Distance from 52W low,0.39127035725105497,39.1%,Current price relative to one-year low.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Momentum,RSI 14,49.595779730674806,49.60,14-day relative strength index.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Risk,20D realized volatility,0.4846866137513321,48.5%,Annualized realized volatility from 20 daily log returns.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Risk,60D realized volatility,0.4389650679888725,43.9%,Annualized realized volatility from 60 daily log returns.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Risk,1Y beta vs SPY,2.02029966165306,2.02,Covariance with SPY divided by SPY variance over one year.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Risk,1Y correlation vs SPY,0.5498924857076282,55.0%,Correlation of daily returns with SPY.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Risk,1Y max drawdown,-0.29931820735955295,-29.9%,Largest peak-to-trough loss over one year.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Risk,60D downside volatility,0.2642293807162149,26.4%,Annualized volatility of negative daily returns.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Risk,ATR 14 as % price,0.03776047666032453,3.8%,Average true range over 14 days divided by price.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Forecast,1W statistical center,404.2388851641911,$404.24,Current price projected by 20D average daily log return over five days.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Forecast,1W 68% low,377.5615156660164,$377.56,Center minus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Forecast,1W 68% high,432.8011979466058,$432.80,Center plus one recent-volatility standard deviation over five days.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Fundamental,Revenue,94827000000.0,$94.83B,Latest annual revenue from SEC companyfacts.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Growth,Revenue growth YoY,-0.02930699150373628,-2.9%,Latest annual revenue growth versus prior year.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Fundamental,Gross profit,17094000000.0,$17.09B,Latest annual gross profit.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Quality,Gross margin,0.18026511436616155,18.0%,Gross profit divided by revenue.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Fundamental,Operating income,4355000000.0,$4.36B,Latest annual operating income.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Quality,Operating margin,0.04592573845001951,4.6%,Operating income divided by revenue.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Fundamental,Net income,3855000000.0,$3.85B,Latest annual net income.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Quality,Net margin,0.040652978582049415,4.1%,Net income divided by revenue.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Fundamental,Diluted EPS,1.08,1.08,Latest annual diluted earnings per share.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Growth,EPS growth YoY,-0.47058823529411764,-47.1%,Latest annual diluted EPS growth versus prior year.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Quality,Operating cash flow,14747000000.0,$14.75B,Latest annual operating cash flow.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Investment,Capital expenditure,8527000000.0,$8.53B,Latest annual property/equipment purchases.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Quality,Free cash flow,6220000000.0,$6.22B,Operating cash flow minus capex cash outflow.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Quality,FCF margin,0.06559313275754795,6.6%,Free cash flow divided by revenue.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Quality,CFO / net income,3.8254215304798964,3.83,Operating cash flow divided by net income.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Balance sheet,Total assets,137806000000.0,$137.81B,Latest annual total assets.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Balance sheet,Total liabilities,54941000000.0,$54.94B,Latest annual total liabilities.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Balance sheet,Shareholders equity,82807000000.0,$82.81B,Latest annual shareholders equity.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Balance sheet,Cash and equivalents,16513000000.0,$16.51B,Latest annual cash and equivalents.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Balance sheet,Total debt,6634841000.0,$6.63B,Short-term plus long-term debt when available.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Balance sheet,Debt / equity,0.08012415617037207,0.08,Total debt divided by shareholders equity.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Balance sheet,Cash / assets,0.11982787396775177,12.0%,Cash divided by assets.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Balance sheet,Liabilities / assets,0.39868365673483014,39.9%,Liabilities divided by assets.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Quality,ROA,0.027974108529381883,2.8%,Net income divided by assets.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Quality,ROE,0.04655403528687188,4.7%,Net income divided by equity.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Valuation,P/E,378.6574187102141,378.66,Market price divided by diluted EPS.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Valuation,P/S,15.21481901849058,15.21,Market cap divided by revenue.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Valuation,P/B,17.42335361824974,17.42,Market cap divided by equity.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Valuation,P/FCF,231.9574988852743,231.96,Market cap divided by free cash flow.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Valuation,EV/Sales,15.110648697801325,15.11,Enterprise value divided by revenue.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Valuation,EV/EBITDA,279.62794607388446,279.63,Enterprise value divided by estimated EBITDA.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Investment,R&D / sales,0.06760732702711253,6.8%,Research and development divided by revenue.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Efficiency,SG&A / sales,0.061522562139475045,6.2%,Selling/general/admin expense divided by revenue.
+2026-06-08T23:16:03+01:00,TSLA,28.6,Weak research rank,Capital allocation,Diluted share change YoY,0.00857632933104635,0.9%,Change in diluted weighted-average shares.
