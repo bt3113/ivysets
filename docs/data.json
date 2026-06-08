@@ -1,7 +1,7 @@
 {
   "summary": {
     "name": "IvySets X-Theory Analysis",
-    "updated_at_london": "2026-06-08T23:51:01+01:00",
+    "updated_at_london": "2026-06-09T00:01:56+01:00",
     "timezone": "Europe/London",
     "stock_count": 10,
     "factor_count": 64,
@@ -38,7 +38,7 @@
         "max_drawdown_1y": -0.1382298375943204,
         "downside_vol_60d": 0.1235041068493678,
         "atr_14_pct": 0.021473117132727027,
-        "forecast_date": "2026-06-15",
+        "forecast_date": "2026-06-16",
         "predicted_price": 304.75790039356866,
         "prediction_low": 296.6896143263139,
         "prediction_high": 313.0455983880353,
@@ -101,7 +101,7 @@
       ],
       "risks": [],
       "missing_count": 0,
-      "analysis_text": "AAPL has 64/64 factors available. Current price is $301.54. Predicted price center by 2026-06-15 is $304.76. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
+      "analysis_text": "AAPL has 64/64 factors available. Current price is $301.54. Predicted price center by 2026-06-16 is $304.76. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -607,8 +607,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-06-15",
-          "display": "2026-06-15",
+          "value": "2026-06-16",
+          "display": "2026-06-16",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -1346,7 +1346,7 @@
       "current_price_display": "$301.54",
       "predicted_price": 304.75790039356866,
       "predicted_price_display": "$304.76",
-      "prediction_date": "2026-06-15"
+      "prediction_date": "2026-06-16"
     },
     {
       "symbol": "AMZN",
@@ -1378,7 +1378,7 @@
         "max_drawdown_1y": -0.2173622311569574,
         "downside_vol_60d": 0.16172591356834243,
         "atr_14_pct": 0.029927921525090245,
-        "forecast_date": "2026-06-15",
+        "forecast_date": "2026-06-16",
         "predicted_price": 238.6910018157089,
         "prediction_low": 229.63364580185686,
         "prediction_high": 248.1056038144653,
@@ -1441,7 +1441,7 @@
       ],
       "risks": [],
       "missing_count": 4,
-      "analysis_text": "AMZN has 60/64 factors available. Current price is $245.22. Predicted price center by 2026-06-15 is $238.69. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
+      "analysis_text": "AMZN has 60/64 factors available. Current price is $245.22. Predicted price center by 2026-06-16 is $238.69. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -1947,8 +1947,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-06-15",
-          "display": "2026-06-15",
+          "value": "2026-06-16",
+          "display": "2026-06-16",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -2686,7 +2686,7 @@
       "current_price_display": "$245.22",
       "predicted_price": 238.6910018157089,
       "predicted_price_display": "$238.69",
-      "prediction_date": "2026-06-15"
+      "prediction_date": "2026-06-16"
     },
     {
       "symbol": "AVGO",
@@ -2718,7 +2718,7 @@
         "max_drawdown_1y": -0.28951254862383435,
         "downside_vol_60d": 0.44498935203881307,
         "atr_14_pct": 0.05882824813483814,
-        "forecast_date": "2026-06-15",
+        "forecast_date": "2026-06-16",
         "predicted_price": 387.7946286680954,
         "prediction_low": 351.61286001429886,
         "prediction_high": 427.69958418958385,
@@ -2781,7 +2781,7 @@
       ],
       "risks": [],
       "missing_count": 0,
-      "analysis_text": "AVGO has 64/64 factors available. Current price is $396.60. Predicted price center by 2026-06-15 is $387.79. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
+      "analysis_text": "AVGO has 64/64 factors available. Current price is $396.60. Predicted price center by 2026-06-16 is $387.79. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -3287,8 +3287,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-06-15",
-          "display": "2026-06-15",
+          "value": "2026-06-16",
+          "display": "2026-06-16",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -4026,7 +4026,7 @@
       "current_price_display": "$396.60",
       "predicted_price": 387.7946286680954,
       "predicted_price_display": "$387.79",
-      "prediction_date": "2026-06-15"
+      "prediction_date": "2026-06-16"
     },
     {
       "symbol": "GOOGL",
@@ -4058,7 +4058,7 @@
         "max_drawdown_1y": -0.20422474306151095,
         "downside_vol_60d": 0.1859438934682212,
         "atr_14_pct": 0.02667913639802457,
-        "forecast_date": "2026-06-15",
+        "forecast_date": "2026-06-16",
         "predicted_price": 355.7713593452933,
         "prediction_low": 340.7728644226823,
         "prediction_high": 371.42998561470245,
@@ -4121,7 +4121,7 @@
       ],
       "risks": [],
       "missing_count": 3,
-      "analysis_text": "GOOGL has 61/64 factors available. Current price is $363.31. Predicted price center by 2026-06-15 is $355.77. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
+      "analysis_text": "GOOGL has 61/64 factors available. Current price is $363.31. Predicted price center by 2026-06-16 is $355.77. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -4627,8 +4627,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-06-15",
-          "display": "2026-06-15",
+          "value": "2026-06-16",
+          "display": "2026-06-16",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -5366,7 +5366,7 @@
       "current_price_display": "$363.31",
       "predicted_price": 355.7713593452933,
       "predicted_price_display": "$355.77",
-      "prediction_date": "2026-06-15"
+      "prediction_date": "2026-06-16"
     },
     {
       "symbol": "JPM",
@@ -5398,7 +5398,7 @@
         "max_drawdown_1y": -0.15471740617447216,
         "downside_vol_60d": 0.1313153835545042,
         "atr_14_pct": 0.02041767424085179,
-        "forecast_date": "2026-06-15",
+        "forecast_date": "2026-06-16",
         "predicted_price": 313.9321662655895,
         "prediction_low": 304.31611168721713,
         "prediction_high": 323.8520775971964,
@@ -5461,7 +5461,7 @@
         "relative strength"
       ],
       "missing_count": 12,
-      "analysis_text": "JPM has 52/64 factors available. Current price is $311.11. Predicted price center by 2026-06-15 is $313.93. Positive checks: 200DMA trend, revenue growth. Risk checks: relative strength.",
+      "analysis_text": "JPM has 52/64 factors available. Current price is $311.11. Predicted price center by 2026-06-16 is $313.93. Positive checks: 200DMA trend, revenue growth. Risk checks: relative strength.",
       "factors": [
         {
           "key": "price",
@@ -5967,8 +5967,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-06-15",
-          "display": "2026-06-15",
+          "value": "2026-06-16",
+          "display": "2026-06-16",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -6706,7 +6706,7 @@
       "current_price_display": "$311.11",
       "predicted_price": 313.9321662655895,
       "predicted_price_display": "$313.93",
-      "prediction_date": "2026-06-15"
+      "prediction_date": "2026-06-16"
     },
     {
       "symbol": "LLY",
@@ -6738,7 +6738,7 @@
         "max_drawdown_1y": -0.23641618385157648,
         "downside_vol_60d": 0.19733890011903554,
         "atr_14_pct": 0.03397790173883705,
-        "forecast_date": "2026-06-15",
+        "forecast_date": "2026-06-16",
         "predicted_price": 1206.638409713592,
         "prediction_low": 1154.5403321757212,
         "prediction_high": 1261.0873879584367,
@@ -6800,7 +6800,7 @@
       ],
       "risks": [],
       "missing_count": 12,
-      "analysis_text": "LLY has 52/64 factors available. Current price is $1,149.15. Predicted price center by 2026-06-15 is $1,206.64. Positive checks: 200DMA trend, relative strength, revenue growth. Risk checks: none shown.",
+      "analysis_text": "LLY has 52/64 factors available. Current price is $1,149.15. Predicted price center by 2026-06-16 is $1,206.64. Positive checks: 200DMA trend, relative strength, revenue growth. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -7306,8 +7306,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-06-15",
-          "display": "2026-06-15",
+          "value": "2026-06-16",
+          "display": "2026-06-16",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -8045,7 +8045,7 @@
       "current_price_display": "$1,149.15",
       "predicted_price": 1206.638409713592,
       "predicted_price_display": "$1,206.64",
-      "prediction_date": "2026-06-15"
+      "prediction_date": "2026-06-16"
     },
     {
       "symbol": "META",
@@ -8077,7 +8077,7 @@
         "max_drawdown_1y": -0.33453168265427213,
         "downside_vol_60d": 0.36969169187708895,
         "atr_14_pct": 0.032389892281791274,
-        "forecast_date": "2026-06-15",
+        "forecast_date": "2026-06-16",
         "predicted_price": 578.4999218160083,
         "prediction_low": 549.043071704511,
         "prediction_high": 609.5371689185785,
@@ -8141,7 +8141,7 @@
         "relative strength"
       ],
       "missing_count": 3,
-      "analysis_text": "META has 61/64 factors available. Current price is $585.39. Predicted price center by 2026-06-15 is $578.50. Positive checks: revenue growth, FCF margin. Risk checks: 200DMA trend, relative strength.",
+      "analysis_text": "META has 61/64 factors available. Current price is $585.39. Predicted price center by 2026-06-16 is $578.50. Positive checks: revenue growth, FCF margin. Risk checks: 200DMA trend, relative strength.",
       "factors": [
         {
           "key": "price",
@@ -8647,8 +8647,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-06-15",
-          "display": "2026-06-15",
+          "value": "2026-06-16",
+          "display": "2026-06-16",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -9386,7 +9386,7 @@
       "current_price_display": "$585.39",
       "predicted_price": 578.4999218160083,
       "predicted_price_display": "$578.50",
-      "prediction_date": "2026-06-15"
+      "prediction_date": "2026-06-16"
     },
     {
       "symbol": "MSFT",
@@ -9418,7 +9418,7 @@
         "max_drawdown_1y": -0.34183779918986856,
         "downside_vol_60d": 0.19200563384234648,
         "atr_14_pct": 0.03221692700354558,
-        "forecast_date": "2026-06-15",
+        "forecast_date": "2026-06-16",
         "predicted_price": 410.807895225565,
         "prediction_low": 390.40846479908294,
         "prediction_high": 432.27322662307,
@@ -9482,7 +9482,7 @@
         "relative strength"
       ],
       "missing_count": 1,
-      "analysis_text": "MSFT has 63/64 factors available. Current price is $411.74. Predicted price center by 2026-06-15 is $410.81. Positive checks: revenue growth, FCF margin. Risk checks: 200DMA trend, relative strength.",
+      "analysis_text": "MSFT has 63/64 factors available. Current price is $411.74. Predicted price center by 2026-06-16 is $410.81. Positive checks: revenue growth, FCF margin. Risk checks: 200DMA trend, relative strength.",
       "factors": [
         {
           "key": "price",
@@ -9988,8 +9988,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-06-15",
-          "display": "2026-06-15",
+          "value": "2026-06-16",
+          "display": "2026-06-16",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -10727,7 +10727,7 @@
       "current_price_display": "$411.74",
       "predicted_price": 410.807895225565,
       "predicted_price_display": "$410.81",
-      "prediction_date": "2026-06-15"
+      "prediction_date": "2026-06-16"
     },
     {
       "symbol": "NVDA",
@@ -10759,7 +10759,7 @@
         "max_drawdown_1y": -0.20223143583337766,
         "downside_vol_60d": 0.24712551184271897,
         "atr_14_pct": 0.039185744340873296,
-        "forecast_date": "2026-06-15",
+        "forecast_date": "2026-06-16",
         "predicted_price": 207.35831189490813,
         "prediction_low": 194.30374688004846,
         "prediction_high": 221.2899658515081,
@@ -10822,7 +10822,7 @@
       ],
       "risks": [],
       "missing_count": 0,
-      "analysis_text": "NVDA has 64/64 factors available. Current price is $208.64. Predicted price center by 2026-06-15 is $207.36. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
+      "analysis_text": "NVDA has 64/64 factors available. Current price is $208.64. Predicted price center by 2026-06-16 is $207.36. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -11328,8 +11328,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-06-15",
-          "display": "2026-06-15",
+          "value": "2026-06-16",
+          "display": "2026-06-16",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -12067,7 +12067,7 @@
       "current_price_display": "$208.64",
       "predicted_price": 207.35831189490813,
       "predicted_price_display": "$207.36",
-      "prediction_date": "2026-06-15"
+      "prediction_date": "2026-06-16"
     },
     {
       "symbol": "TSLA",
@@ -12099,7 +12099,7 @@
         "max_drawdown_1y": -0.29931820735955295,
         "downside_vol_60d": 0.2642293807162149,
         "atr_14_pct": 0.03776047666032453,
-        "forecast_date": "2026-06-15",
+        "forecast_date": "2026-06-16",
         "predicted_price": 401.9352368838599,
         "prediction_low": 375.40989451277187,
         "prediction_high": 430.33478075626044,
@@ -12163,7 +12163,7 @@
         "revenue growth"
       ],
       "missing_count": 0,
-      "analysis_text": "TSLA has 64/64 factors available. Current price is $408.95. Predicted price center by 2026-06-15 is $401.94. Positive checks: FCF margin. Risk checks: 200DMA trend, relative strength, revenue growth.",
+      "analysis_text": "TSLA has 64/64 factors available. Current price is $408.95. Predicted price center by 2026-06-16 is $401.94. Positive checks: FCF margin. Risk checks: 200DMA trend, relative strength, revenue growth.",
       "factors": [
         {
           "key": "price",
@@ -12669,8 +12669,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-06-15",
-          "display": "2026-06-15",
+          "value": "2026-06-16",
+          "display": "2026-06-16",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -13408,7 +13408,7 @@
       "current_price_display": "$408.95",
       "predicted_price": 401.9352368838599,
       "predicted_price_display": "$401.94",
-      "prediction_date": "2026-06-15"
+      "prediction_date": "2026-06-16"
     }
   ],
   "factor_catalog": [
