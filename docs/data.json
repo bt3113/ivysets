@@ -2,7 +2,7 @@
   "summary": {
     "name": "IvySets Evidence-Based Market Regime",
     "timezone": "Europe/London",
-    "updated_at_london": "2026-06-08T23:03:25+01:00",
+    "updated_at_london": "2026-06-08T23:05:29+01:00",
     "watchlist": [
       "SPY",
       "QQQ",
@@ -66,7 +66,7 @@
       "source": "Yahoo Finance",
       "source_url": "https://finance.yahoo.com/quote/SPY",
       "formula": "SPY close vs 50DMA/200DMA plus 63D/252D momentum.",
-      "updated_at_london": "2026-06-08T23:02:22+01:00",
+      "updated_at_london": "2026-06-08T23:04:27+01:00",
       "available": true
     },
     {
@@ -110,7 +110,7 @@
       "source": "Yahoo Finance / Cboe VIX",
       "source_url": "https://finance.yahoo.com/quote/%5EVIX",
       "formula": "20D realized volatility, VIX percentile, and SPY 63D drawdown.",
-      "updated_at_london": "2026-06-08T23:02:22+01:00",
+      "updated_at_london": "2026-06-08T23:04:27+01:00",
       "available": true
     },
     {
@@ -123,7 +123,7 @@
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2",
       "formula": "High-yield OAS current level, 3Y z-score, 20-observation change.",
-      "updated_at_london": "2026-06-08T23:02:52+01:00",
+      "updated_at_london": "2026-06-08T23:04:57+01:00",
       "available": false
     },
     {
@@ -136,7 +136,7 @@
       "source": "FRED",
       "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=NFCI",
       "formula": "NFCI level and 4-week change.",
-      "updated_at_london": "2026-06-08T23:03:22+01:00",
+      "updated_at_london": "2026-06-08T23:05:27+01:00",
       "available": false
     },
     {
@@ -149,7 +149,7 @@
       "source": "Cboe",
       "source_url": "https://www.cboe.com/us/options/market_statistics/daily/",
       "formula": "Put/call ratios and trailing percentiles.",
-      "updated_at_london": "2026-06-08T23:03:22+01:00",
+      "updated_at_london": "2026-06-08T23:05:27+01:00",
       "available": false
     },
     {
@@ -162,7 +162,7 @@
       "source": "AAII",
       "source_url": "https://www.aaii.com/sentimentsurvey",
       "formula": "AAII bullish minus bearish spread.",
-      "updated_at_london": "2026-06-08T23:03:24+01:00",
+      "updated_at_london": "2026-06-08T23:05:28+01:00",
       "available": false
     },
     {
@@ -175,7 +175,7 @@
       "source": "Multpl",
       "source_url": "https://www.multpl.com/shiller-pe/table/by-month",
       "formula": "Shiller CAPE current value and historical percentile.",
-      "updated_at_london": "2026-06-08T23:03:24+01:00",
+      "updated_at_london": "2026-06-08T23:05:28+01:00",
       "available": false
     }
   ],
@@ -268,13 +268,13 @@
       "symbol": "BTC-USD",
       "status": "Avoid",
       "position_size_multiplier": 0.25,
-      "price": 63537.1406,
+      "price": 63561.8516,
       "trend": "Below 200DMA",
-      "relative_strength_vs_spy": -0.167158,
-      "realized_volatility_20d": 0.381461,
-      "drawdown_63d": -0.226467,
-      "return_63d": -0.077297,
-      "risk_adjusted_momentum": -0.202635,
+      "relative_strength_vs_spy": -0.166799,
+      "realized_volatility_20d": 0.381655,
+      "drawdown_63d": -0.226167,
+      "return_63d": -0.076939,
+      "risk_adjusted_momentum": -0.201592,
       "reason": "below 200DMA; underperforming SPY over 63D; negative 63D momentum; drawdown greater than 12%",
       "next_step": "Wait for price to repair trend and relative strength before considering entry."
     }
