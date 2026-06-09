@@ -1,7 +1,7 @@
 {
   "summary": {
     "name": "IvySets X-Theory Analysis",
-    "updated_at_london": "2026-06-09T11:50:32+01:00",
+    "updated_at_london": "2026-06-09T11:55:44+01:00",
     "timezone": "Europe/London",
     "stock_count": 26,
     "factor_count": 64,
@@ -1399,8 +1399,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 63 to 63.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -2794,8 +2796,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 64 to 64.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -4187,8 +4191,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 60 to 60.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -5581,8 +5587,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 60 to 60.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -6976,8 +6984,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 64 to 64.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -8366,8 +8376,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 27 to 43.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -9756,8 +9768,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 27 to 41.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -11148,8 +11162,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 61 to 61.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -12542,8 +12558,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 63 to 63.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -13936,8 +13954,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 61 to 61.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -15331,8 +15351,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 62 to 62.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -16724,8 +16746,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 52 to 52.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -18121,8 +18145,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 64 to 64.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -19515,8 +19541,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 52 to 56.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -20909,8 +20937,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 59 to 60.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -22299,8 +22329,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 27 to 45.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -23693,8 +23725,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 61 to 61.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -25088,8 +25122,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 63 to 63.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -26481,8 +26517,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 27 to 52.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -27876,8 +27914,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 64 to 64.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -29269,8 +29309,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 61 to 61.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -30661,8 +30703,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 62 to 62.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -32055,8 +32099,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 64 to 64.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -33446,8 +33492,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 60 to 60.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -34842,8 +34890,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 64 to 64.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     },
     {
@@ -36235,8 +36285,10 @@
       "prediction_date": "2026-06-16",
       "enrichment_note": "Available factors changed from 61 to 61.",
       "accuracy": {
-        "status": "Collecting history",
-        "closed_predictions": 0
+        "status": "Waiting for first closed forecast",
+        "closed_predictions": 0,
+        "pending_predictions": 1,
+        "first_pending_projection_date": "2026-06-16"
       }
     }
   ],
@@ -36708,15 +36760,17 @@
     }
   ],
   "accuracy": {
-    "status": "Collecting history",
+    "status": "Waiting for first closed forecast",
+    "explanation": "No closed forecast yet. Accuracy appears only after a projection date has passed and actual price can be compared.",
     "closed_predictions": 0,
     "pending_predictions": 26,
+    "first_pending_projection_date": "2026-06-16",
     "directional_accuracy_pct": null,
     "mean_error_pct": null,
     "median_error_pct": null,
     "range_coverage_pct": null,
     "benchmark_mean_error_pct": null,
-    "model_vs_benchmark": "Pending",
+    "model_vs_benchmark": "Waiting for actual prices",
     "history_file": "prediction_history.csv"
   }
 }
