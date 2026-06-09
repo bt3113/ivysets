@@ -34,6 +34,7 @@ jobs:
       - run: python scripts/append_tickers_extra.py
       - run: python scripts/append_tickers_uk.py
       - run: python scripts/enrich_factors.py
+      - run: python scripts/refresh_live_prices.py
       - run: python scripts/track_accuracy.py
       - name: Commit latest data
         run: |
