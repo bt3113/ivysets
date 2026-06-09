@@ -1,7 +1,7 @@
 {
   "summary": {
     "name": "IvySets X-Theory Analysis",
-    "updated_at_london": "2026-06-09T11:45:32+01:00",
+    "updated_at_london": "2026-06-09T11:48:18+01:00",
     "timezone": "Europe/London",
     "stock_count": 26,
     "factor_count": 64,
@@ -1397,7 +1397,11 @@
       "predicted_price": 210.6634846114879,
       "predicted_price_display": "$210.66",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 63 to 63."
+      "enrichment_note": "Available factors changed from 63 to 63.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "AAPL",
@@ -2788,7 +2792,11 @@
       "predicted_price": 307.31093140953766,
       "predicted_price_display": "$307.31",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 64 to 64."
+      "enrichment_note": "Available factors changed from 64 to 64.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "AMZN",
@@ -4177,7 +4185,11 @@
       "predicted_price": 238.91620404507157,
       "predicted_price_display": "$238.92",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 60 to 60."
+      "enrichment_note": "Available factors changed from 60 to 60.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "APP",
@@ -5567,7 +5579,11 @@
       "predicted_price": 589.2430018946075,
       "predicted_price_display": "$589.24",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 60 to 60."
+      "enrichment_note": "Available factors changed from 60 to 60.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "AVGO",
@@ -6958,7 +6974,11 @@
       "predicted_price": 386.83886821041585,
       "predicted_price_display": "$386.84",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 64 to 64."
+      "enrichment_note": "Available factors changed from 64 to 64.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "BCS",
@@ -8344,7 +8364,11 @@
       "predicted_price": 24.351548973602576,
       "predicted_price_display": "$24.35",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 27 to 43."
+      "enrichment_note": "Available factors changed from 27 to 43.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "BTGOF",
@@ -9730,7 +9754,11 @@
       "predicted_price": 2.4105590185363495,
       "predicted_price_display": "$2.41",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 27 to 41."
+      "enrichment_note": "Available factors changed from 27 to 41.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "CRDO",
@@ -11118,7 +11146,11 @@
       "predicted_price": 230.55723118101338,
       "predicted_price_display": "$230.56",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 61 to 61."
+      "enrichment_note": "Available factors changed from 61 to 61.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "DOCN",
@@ -12508,7 +12540,11 @@
       "predicted_price": 171.9338280438536,
       "predicted_price_display": "$171.93",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 63 to 63."
+      "enrichment_note": "Available factors changed from 63 to 63.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "GOOGL",
@@ -13898,7 +13934,11 @@
       "predicted_price": 359.25466047651963,
       "predicted_price_display": "$359.25",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 61 to 61."
+      "enrichment_note": "Available factors changed from 61 to 61.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "HPE",
@@ -15289,7 +15329,11 @@
       "predicted_price": 56.26729004185535,
       "predicted_price_display": "$56.27",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 62 to 62."
+      "enrichment_note": "Available factors changed from 62 to 62.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "JPM",
@@ -16678,7 +16722,11 @@
       "predicted_price": 315.55934943217466,
       "predicted_price_display": "$315.56",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 52 to 52."
+      "enrichment_note": "Available factors changed from 52 to 52.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "LITE",
@@ -18071,7 +18119,11 @@
       "predicted_price": 889.2102471254024,
       "predicted_price_display": "$889.21",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 64 to 64."
+      "enrichment_note": "Available factors changed from 64 to 64.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "LLY",
@@ -19461,7 +19513,11 @@
       "predicted_price": 1213.7456791305951,
       "predicted_price_display": "$1,213.75",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 52 to 56."
+      "enrichment_note": "Available factors changed from 52 to 56.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "LUNR",
@@ -20851,7 +20907,11 @@
       "predicted_price": 29.709015014777183,
       "predicted_price_display": "$29.71",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 59 to 60."
+      "enrichment_note": "Available factors changed from 59 to 60.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "LYG",
@@ -22237,7 +22297,11 @@
       "predicted_price": 5.262284018312889,
       "predicted_price_display": "$5.26",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 27 to 45."
+      "enrichment_note": "Available factors changed from 27 to 45.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "META",
@@ -23627,7 +23691,11 @@
       "predicted_price": 578.5566693154842,
       "predicted_price_display": "$578.56",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 61 to 61."
+      "enrichment_note": "Available factors changed from 61 to 61.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "MSFT",
@@ -25018,7 +25086,11 @@
       "predicted_price": 411.6314772599394,
       "predicted_price_display": "$411.63",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 63 to 63."
+      "enrichment_note": "Available factors changed from 63 to 63.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "NBIS",
@@ -26407,7 +26479,11 @@
       "predicted_price": 231.69218960358623,
       "predicted_price_display": "$231.69",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 27 to 52."
+      "enrichment_note": "Available factors changed from 27 to 52.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "NVDA",
@@ -27798,7 +27874,11 @@
       "predicted_price": 208.70326368592805,
       "predicted_price_display": "$208.70",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 64 to 64."
+      "enrichment_note": "Available factors changed from 64 to 64.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "OSCR",
@@ -29187,7 +29267,11 @@
       "predicted_price": 29.153180823719676,
       "predicted_price_display": "$29.15",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 61 to 61."
+      "enrichment_note": "Available factors changed from 61 to 61.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "RBRK",
@@ -30575,7 +30659,11 @@
       "predicted_price": 74.17318851069096,
       "predicted_price_display": "$74.17",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 62 to 62."
+      "enrichment_note": "Available factors changed from 62 to 62.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "SITM",
@@ -31965,7 +32053,11 @@
       "predicted_price": 626.3370452075882,
       "predicted_price_display": "$626.34",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 64 to 64."
+      "enrichment_note": "Available factors changed from 64 to 64.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "SNOW",
@@ -33352,7 +33444,11 @@
       "predicted_price": 267.30532576976356,
       "predicted_price_display": "$267.31",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 60 to 60."
+      "enrichment_note": "Available factors changed from 60 to 60.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "TSLA",
@@ -34744,7 +34840,11 @@
       "predicted_price": 398.529553094451,
       "predicted_price_display": "$398.53",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 64 to 64."
+      "enrichment_note": "Available factors changed from 64 to 64.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     },
     {
       "symbol": "ZETA",
@@ -36133,7 +36233,11 @@
       "predicted_price": 23.02773671257272,
       "predicted_price_display": "$23.03",
       "prediction_date": "2026-06-16",
-      "enrichment_note": "Available factors changed from 61 to 61."
+      "enrichment_note": "Available factors changed from 61 to 61.",
+      "accuracy": {
+        "status": "Collecting history",
+        "closed_predictions": 0
+      }
     }
   ],
   "factor_catalog": [
@@ -36602,5 +36706,17 @@
       "study": "Jegadeesh and Titman (1993) document intermediate-term return continuation.",
       "dashboard_use": "20D, 63D, 126D, 252D returns and relative strength are momentum factors."
     }
-  ]
+  ],
+  "accuracy": {
+    "status": "Collecting history",
+    "closed_predictions": 0,
+    "pending_predictions": 26,
+    "directional_accuracy_pct": null,
+    "mean_error_pct": null,
+    "median_error_pct": null,
+    "range_coverage_pct": null,
+    "benchmark_mean_error_pct": null,
+    "model_vs_benchmark": "Pending",
+    "history_file": "prediction_history.csv"
+  }
 }
