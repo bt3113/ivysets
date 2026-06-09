@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import csv
 import json
-from pathlib import Path
 
 import update_data as base
 
@@ -12,6 +11,11 @@ EXTRA_STOCKS = {
     "APP": ("AppLovin Corporation", "0001751008"),
     "NBIS": ("Nebius Group N.V.", "0001513845"),
     "ZETA": ("Zeta Global Holdings Corp.", "0001851003"),
+    "AAOI": ("Applied Optoelectronics, Inc.", "0001158114"),
+    "DOCN": ("DigitalOcean Holdings, Inc.", "0001582961"),
+    "LITE": ("Lumentum Holdings Inc.", "0001633978"),
+    "SNOW": ("Snowflake Inc.", "0001640147"),
+    "LUNR": ("Intuitive Machines, Inc.", "0001844452"),
 }
 
 
