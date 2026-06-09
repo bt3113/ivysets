@@ -1,0 +1,3 @@
+Manual IvySets data refresh requested from ChatGPT.
+Requested at: 2026-06-09T00:00:00Z
+Purpose: trigger GitHub Actions workflow to refresh prices, factors, projections, and accuracy files.
