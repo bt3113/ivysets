@@ -33,6 +33,7 @@ jobs:
       - run: python scripts/append_tickers.py
       - run: python scripts/append_tickers_extra.py
       - run: python scripts/append_tickers_uk.py
+      - run: python scripts/enrich_factors.py
       - name: Commit latest data
         run: |
           git config user.name "github-actions[bot]"
