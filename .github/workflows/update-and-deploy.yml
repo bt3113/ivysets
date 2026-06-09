@@ -31,6 +31,7 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python scripts/update_data.py
       - run: python scripts/append_tickers.py
+      - run: python scripts/append_tickers_extra.py
       - name: Commit latest data
         run: |
           git config user.name "github-actions[bot]"
