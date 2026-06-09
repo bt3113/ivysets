@@ -3,7 +3,6 @@ from __future__ import annotations
 import csv
 import json
 from datetime import date
-from pathlib import Path
 from statistics import mean, median
 from typing import Any
 
@@ -132,18 +131,24 @@ def pct(value: float | None) -> float | None:
 
 def build_summary(rows: list[dict[str, Any]]) -> dict[str, Any]:
     closed = [row for row in rows if row.get("actual_price")]
-    pending = len(rows) - len(closed)
+    pending_rows = [row for row in rows if not row.get("actual_price")]
+    pending = len(pending_rows)
+    pending_dates = sorted({row.get("projection_date", "") for row in pending_rows if row.get("projection_date")})
+    first_pending = pending_dates[0] if pending_dates else None
+    explanation = "No closed forecast yet. Accuracy appears only after a projection date has passed and actual price can be compared."
     if not closed:
         return {
-            "status": "Collecting history",
+            "status": "Waiting for first closed forecast",
+            "explanation": explanation,
             "closed_predictions": 0,
             "pending_predictions": pending,
+            "first_pending_projection_date": first_pending,
             "directional_accuracy_pct": None,
             "mean_error_pct": None,
             "median_error_pct": None,
             "range_coverage_pct": None,
             "benchmark_mean_error_pct": None,
-            "model_vs_benchmark": "Pending",
+            "model_vs_benchmark": "Waiting for actual prices",
         }
     direction_hits = [1 for row in closed if row.get("direction_projected") == row.get("direction_actual")]
     error_pcts = [num(row.get("percentage_error")) for row in closed if num(row.get("percentage_error")) is not None]
@@ -151,13 +156,15 @@ def build_summary(rows: list[dict[str, Any]]) -> dict[str, Any]:
     inside = [row.get("inside_range") == "TRUE" for row in closed if row.get("inside_range")]
     model_mean = mean(error_pcts) if error_pcts else None
     bench_mean = mean(benchmark_pcts) if benchmark_pcts else None
-    vs_benchmark = "Pending"
+    vs_benchmark = "Waiting for benchmark comparison"
     if model_mean is not None and bench_mean is not None:
         vs_benchmark = "Beating no-change benchmark" if model_mean < bench_mean else "Not beating no-change benchmark"
     return {
         "status": "Measured",
+        "explanation": "Closed forecasts have actual prices available, so accuracy metrics are now measured.",
         "closed_predictions": len(closed),
         "pending_predictions": pending,
+        "first_pending_projection_date": first_pending,
         "directional_accuracy_pct": round(100 * len(direction_hits) / len(closed), 2),
         "mean_error_pct": pct(model_mean),
         "median_error_pct": pct(median(error_pcts)) if error_pcts else None,
@@ -171,14 +178,23 @@ def attach_stock_accuracy(payload: dict[str, Any], rows: list[dict[str, Any]]) -
     for stock in payload.get("stocks", []):
         symbol = stock.get("symbol")
         closed = [row for row in rows if row.get("symbol") == symbol and row.get("actual_price")]
+        pending = [row for row in rows if row.get("symbol") == symbol and not row.get("actual_price")]
+        first_pending = min((row.get("projection_date") for row in pending if row.get("projection_date")), default=None)
         if not closed:
-            stock["accuracy"] = {"status": "Collecting history", "closed_predictions": 0}
+            stock["accuracy"] = {
+                "status": "Waiting for first closed forecast",
+                "closed_predictions": 0,
+                "pending_predictions": len(pending),
+                "first_pending_projection_date": first_pending,
+            }
             continue
         hit = sum(1 for row in closed if row.get("direction_projected") == row.get("direction_actual"))
         errors = [num(row.get("percentage_error")) for row in closed if num(row.get("percentage_error")) is not None]
         stock["accuracy"] = {
             "status": "Measured",
             "closed_predictions": len(closed),
+            "pending_predictions": len(pending),
+            "first_pending_projection_date": first_pending,
             "directional_accuracy_pct": round(100 * hit / len(closed), 2),
             "mean_error_pct": pct(mean(errors)) if errors else None,
         }
