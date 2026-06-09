@@ -35,12 +35,12 @@ jobs:
       - run: python scripts/append_tickers_uk.py
       - run: python scripts/enrich_factors.py
       - run: python scripts/refresh_live_prices.py
-      - run: python scripts/track_accuracy.py
+      - run: python scripts/projection_details.py
       - name: Commit latest data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data.json docs/sentiment.csv docs/prediction_history.csv
+          git add docs/data.json docs/sentiment.csv
           git diff --cached --quiet || git commit -m "Update stock factor data"
           git pull --rebase
           git push
