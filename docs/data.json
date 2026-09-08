@@ -1,7 +1,7 @@
 {
   "summary": {
     "name": "IvySets X-Theory Analysis",
-    "updated_at_london": "2026-09-07T23:30:43+01:00",
+    "updated_at_london": "2026-09-08T01:40:59+01:00",
     "timezone": "Europe/London",
     "stock_count": 26,
     "factor_count": 64,
@@ -42,7 +42,7 @@
         "max_drawdown_1y": -0.6570148160033573,
         "downside_vol_60d": 0.7826704016261874,
         "atr_14_pct": 0.09606205250596658,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 98.9532882421469,
         "prediction_low": 84.57396667486236,
         "prediction_high": 115.77739154150113,
@@ -111,7 +111,7 @@
         "FCF margin"
       ],
       "missing_count": 1,
-      "analysis_text": "AAOI has 63/64 factors available. Current displayed price is $105.65. Projected Price by 2026-09-14 is $98.95. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, revenue growth. Risk checks: relative strength, FCF margin.",
+      "analysis_text": "AAOI has 63/64 factors available. Current displayed price is $105.65. Projected Price by 2026-09-15 is $98.95. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, revenue growth. Risk checks: relative strength, FCF margin.",
       "factors": [
         {
           "key": "price",
@@ -906,8 +906,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -2025,7 +2025,7 @@
       "current_price_display": "$105.65",
       "predicted_price": 98.9532882421469,
       "predicted_price_display": "$98.95",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 63 to 63.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -2081,7 +2081,7 @@
         "max_drawdown_1y": -0.1382298375943204,
         "downside_vol_60d": 0.2750934952108861,
         "atr_14_pct": 0.023225386672506246,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 322.3844670228735,
         "prediction_low": 312.7747342049514,
         "prediction_high": 332.2894505587494,
@@ -2151,7 +2151,7 @@
         "relative strength"
       ],
       "missing_count": 0,
-      "analysis_text": "AAPL has 64/64 factors available. Current displayed price is $320.01. Projected Price by 2026-09-14 is $322.38. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, revenue growth, FCF margin. Risk checks: relative strength.",
+      "analysis_text": "AAPL has 64/64 factors available. Current displayed price is $320.01. Projected Price by 2026-09-15 is $322.38. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, revenue growth, FCF margin. Risk checks: relative strength.",
       "factors": [
         {
           "key": "price",
@@ -2946,8 +2946,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -4065,7 +4065,7 @@
       "current_price_display": "$320.01",
       "predicted_price": 322.3844670228735,
       "predicted_price_display": "$322.38",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 64 to 64.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -4121,7 +4121,7 @@
         "max_drawdown_1y": -0.2173622311569574,
         "downside_vol_60d": 0.19365799289948585,
         "atr_14_pct": 0.02268494386602049,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 254.58967035551223,
         "prediction_low": 245.25948270659825,
         "prediction_high": 264.2747980075742,
@@ -4188,7 +4188,7 @@
       ],
       "risks": [],
       "missing_count": 4,
-      "analysis_text": "AMZN has 60/64 factors available. Current displayed price is $258.26. Projected Price by 2026-09-14 is $254.59. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
+      "analysis_text": "AMZN has 60/64 factors available. Current displayed price is $258.26. Projected Price by 2026-09-15 is $254.59. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -4983,8 +4983,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -6102,7 +6102,7 @@
       "current_price_display": "$258.26",
       "predicted_price": 254.58967035551223,
       "predicted_price_display": "$254.59",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 60 to 60.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -6158,7 +6158,7 @@
         "max_drawdown_1y": -0.5929798169644127,
         "downside_vol_60d": 0.6644833583915511,
         "atr_14_pct": 0.04040763227781452,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 313.6161157561373,
         "prediction_low": 296.36997873791626,
         "prediction_high": 331.8658268992337,
@@ -6226,7 +6226,7 @@
         "relative strength"
       ],
       "missing_count": 4,
-      "analysis_text": "APP has 60/64 factors available. Current displayed price is $320.45. Projected Price by 2026-09-14 is $313.62. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: revenue growth, FCF margin. Risk checks: 200DMA trend, relative strength.",
+      "analysis_text": "APP has 60/64 factors available. Current displayed price is $320.45. Projected Price by 2026-09-15 is $313.62. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: revenue growth, FCF margin. Risk checks: 200DMA trend, relative strength.",
       "factors": [
         {
           "key": "price",
@@ -7021,8 +7021,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -8140,7 +8140,7 @@
       "current_price_display": "$320.45",
       "predicted_price": 313.6161157561373,
       "predicted_price_display": "$313.62",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 60 to 60.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -8196,7 +8196,7 @@
         "max_drawdown_1y": -0.28951254862383435,
         "downside_vol_60d": 0.27597542770188693,
         "atr_14_pct": 0.03225961310122465,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 340.921464810493,
         "prediction_low": 324.23090655401796,
         "prediction_high": 358.47120931134407,
@@ -8266,7 +8266,7 @@
         "relative strength"
       ],
       "missing_count": 0,
-      "analysis_text": "AVGO has 64/64 factors available. Current displayed price is $357.07. Projected Price by 2026-09-14 is $340.92. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: revenue growth, FCF margin. Risk checks: 200DMA trend, relative strength.",
+      "analysis_text": "AVGO has 64/64 factors available. Current displayed price is $357.07. Projected Price by 2026-09-15 is $340.92. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: revenue growth, FCF margin. Risk checks: 200DMA trend, relative strength.",
       "factors": [
         {
           "key": "price",
@@ -9061,8 +9061,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -10180,7 +10180,7 @@
       "current_price_display": "$357.07",
       "predicted_price": 340.921464810493,
       "predicted_price_display": "$340.92",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 64 to 64.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -10236,7 +10236,7 @@
         "max_drawdown_1y": -0.2707122325224284,
         "downside_vol_60d": 0.19623769397697147,
         "atr_14_pct": 0.015740737713203227,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 26.839394031599877,
         "prediction_low": 26.163060029882896,
         "prediction_high": 27.533211755838458,
@@ -10300,7 +10300,7 @@
       ],
       "risks": [],
       "missing_count": 37,
-      "analysis_text": "BCS has 43/64 factors available. Current displayed price is $27.00. Projected Price by 2026-09-14 is $26.84. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength. Risk checks: none shown.",
+      "analysis_text": "BCS has 43/64 factors available. Current displayed price is $27.00. Projected Price by 2026-09-15 is $26.84. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -11095,8 +11095,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -12214,7 +12214,7 @@
       "current_price_display": "$27.00",
       "predicted_price": 26.839394031599877,
       "predicted_price_display": "$26.84",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 27 to 43.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -12270,7 +12270,7 @@
         "max_drawdown_1y": -0.2610063348115035,
         "downside_vol_60d": 0.4233915051687533,
         "atr_14_pct": 0.025627034390464546,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 2.62838490024556,
         "prediction_low": 2.4490026720460767,
         "prediction_high": 2.820906347998008,
@@ -12334,7 +12334,7 @@
         "relative strength"
       ],
       "missing_count": 37,
-      "analysis_text": "BTGOF has 41/64 factors available. Current displayed price is $2.62. Projected Price by 2026-09-14 is $2.63. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: none shown. Risk checks: 200DMA trend, relative strength.",
+      "analysis_text": "BTGOF has 41/64 factors available. Current displayed price is $2.62. Projected Price by 2026-09-15 is $2.63. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: none shown. Risk checks: 200DMA trend, relative strength.",
       "factors": [
         {
           "key": "price",
@@ -13129,8 +13129,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -14248,7 +14248,7 @@
       "current_price_display": "$2.62",
       "predicted_price": 2.62838490024556,
       "predicted_price_display": "$2.63",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 27 to 41.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -14304,7 +14304,7 @@
         "max_drawdown_1y": -0.5358634366221902,
         "downside_vol_60d": 0.7571726667691422,
         "atr_14_pct": 0.1049992158399512,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 153.66557040320066,
         "prediction_low": 130.88592692145124,
         "prediction_high": 180.40982772358703,
@@ -14371,7 +14371,7 @@
         "relative strength"
       ],
       "missing_count": 3,
-      "analysis_text": "CRDO has 61/64 factors available. Current displayed price is $169.54. Projected Price by 2026-09-14 is $153.67. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: revenue growth, FCF margin. Risk checks: 200DMA trend, relative strength.",
+      "analysis_text": "CRDO has 61/64 factors available. Current displayed price is $169.54. Projected Price by 2026-09-15 is $153.67. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: revenue growth, FCF margin. Risk checks: 200DMA trend, relative strength.",
       "factors": [
         {
           "key": "price",
@@ -15166,8 +15166,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -16285,7 +16285,7 @@
       "current_price_display": "$169.54",
       "predicted_price": 153.66557040320066,
       "predicted_price_display": "$153.67",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 61 to 61.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -16341,7 +16341,7 @@
         "max_drawdown_1y": -0.42153452131765445,
         "downside_vol_60d": 0.4150874737964824,
         "atr_14_pct": 0.06575909766210213,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 109.67680876552775,
         "prediction_low": 98.12121046902806,
         "prediction_high": 122.59329377909678,
@@ -16410,7 +16410,7 @@
         "relative strength"
       ],
       "missing_count": 1,
-      "analysis_text": "DOCN has 63/64 factors available. Current displayed price is $112.40. Projected Price by 2026-09-14 is $109.68. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, revenue growth, FCF margin. Risk checks: relative strength.",
+      "analysis_text": "DOCN has 63/64 factors available. Current displayed price is $112.40. Projected Price by 2026-09-15 is $109.68. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, revenue growth, FCF margin. Risk checks: relative strength.",
       "factors": [
         {
           "key": "price",
@@ -17205,8 +17205,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -18324,7 +18324,7 @@
       "current_price_display": "$112.40",
       "predicted_price": 109.67680876552775,
       "predicted_price_display": "$109.68",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 63 to 63.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -18380,7 +18380,7 @@
         "max_drawdown_1y": -0.2109433056126816,
         "downside_vol_60d": 0.2668750960737156,
         "atr_14_pct": 0.01950221318203756,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 335.7382525612501,
         "prediction_low": 325.6260089578727,
         "prediction_high": 346.16452965053145,
@@ -18449,7 +18449,7 @@
         "relative strength"
       ],
       "missing_count": 3,
-      "analysis_text": "GOOGL has 61/64 factors available. Current displayed price is $338.79. Projected Price by 2026-09-14 is $335.74. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, revenue growth, FCF margin. Risk checks: relative strength.",
+      "analysis_text": "GOOGL has 61/64 factors available. Current displayed price is $338.79. Projected Price by 2026-09-15 is $335.74. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, revenue growth, FCF margin. Risk checks: relative strength.",
       "factors": [
         {
           "key": "price",
@@ -19244,8 +19244,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -20363,7 +20363,7 @@
       "current_price_display": "$338.79",
       "predicted_price": 335.7382525612501,
       "predicted_price_display": "$335.74",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 61 to 61.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -20419,7 +20419,7 @@
         "max_drawdown_1y": -0.2657168580265509,
         "downside_vol_60d": 0.2963336301866447,
         "atr_14_pct": 0.05738323337429173,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 51.89950364494326,
         "prediction_low": 48.22513055687464,
         "prediction_high": 55.85383486758655,
@@ -20488,7 +20488,7 @@
       ],
       "risks": [],
       "missing_count": 2,
-      "analysis_text": "HPE has 62/64 factors available. Current displayed price is $52.11. Projected Price by 2026-09-14 is $51.90. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
+      "analysis_text": "HPE has 62/64 factors available. Current displayed price is $52.11. Projected Price by 2026-09-15 is $51.90. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -21283,8 +21283,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -22402,7 +22402,7 @@
       "current_price_display": "$52.11",
       "predicted_price": 51.89950364494326,
       "predicted_price_display": "$51.90",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 62 to 62.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -22458,7 +22458,7 @@
         "max_drawdown_1y": -0.15471740617447216,
         "downside_vol_60d": 0.14541394763404883,
         "atr_14_pct": 0.015967068081250996,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 360.1711776513837,
         "prediction_low": 353.07792113186736,
         "prediction_high": 367.4069361089719,
@@ -22524,7 +22524,7 @@
       ],
       "risks": [],
       "missing_count": 12,
-      "analysis_text": "JPM has 52/64 factors available. Current displayed price is $358.69. Projected Price by 2026-09-14 is $360.17. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth. Risk checks: none shown.",
+      "analysis_text": "JPM has 52/64 factors available. Current displayed price is $358.69. Projected Price by 2026-09-15 is $360.17. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -23319,8 +23319,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -24438,7 +24438,7 @@
       "current_price_display": "$358.69",
       "predicted_price": 360.1711776513837,
       "predicted_price_display": "$360.17",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 52 to 52.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -24494,7 +24494,7 @@
         "max_drawdown_1y": -0.42801660338988,
         "downside_vol_60d": 0.4454587088675455,
         "atr_14_pct": 0.07057111583574269,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 875.4096199253241,
         "prediction_low": 764.6631885540413,
         "prediction_high": 1002.1954948647831,
@@ -24564,7 +24564,7 @@
         "relative strength"
       ],
       "missing_count": 0,
-      "analysis_text": "LITE has 64/64 factors available. Current displayed price is $879.90. Projected Price by 2026-09-14 is $875.41. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, revenue growth, FCF margin. Risk checks: relative strength.",
+      "analysis_text": "LITE has 64/64 factors available. Current displayed price is $879.90. Projected Price by 2026-09-15 is $875.41. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, revenue growth, FCF margin. Risk checks: relative strength.",
       "factors": [
         {
           "key": "price",
@@ -25359,8 +25359,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -26478,7 +26478,7 @@
       "current_price_display": "$879.90",
       "predicted_price": 875.4096199253241,
       "predicted_price_display": "$875.41",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 64 to 64.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -26534,7 +26534,7 @@
         "max_drawdown_1y": -0.2331026299547282,
         "downside_vol_60d": 0.17306003123881944,
         "atr_14_pct": 0.030602111863528476,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 1138.9231419746022,
         "prediction_low": 1086.9731513749389,
         "prediction_high": 1193.3559919897823,
@@ -26603,7 +26603,7 @@
         "relative strength"
       ],
       "missing_count": 12,
-      "analysis_text": "LLY has 56/64 factors available. Current displayed price is $1,146.59. Projected Price by 2026-09-14 is $1,138.92. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, revenue growth. Risk checks: relative strength.",
+      "analysis_text": "LLY has 56/64 factors available. Current displayed price is $1,146.59. Projected Price by 2026-09-15 is $1,138.92. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, revenue growth. Risk checks: relative strength.",
       "factors": [
         {
           "key": "price",
@@ -27398,8 +27398,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -28517,7 +28517,7 @@
       "current_price_display": "$1,146.59",
       "predicted_price": 1138.9231419746022,
       "predicted_price_display": "$1,138.92",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 52 to 56.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -28573,7 +28573,7 @@
         "max_drawdown_1y": -0.7507658609809147,
         "downside_vol_60d": 0.49780687310278954,
         "atr_14_pct": 0.0634850864594929,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 14.415818050947495,
         "prediction_low": 13.063782898502565,
         "prediction_high": 15.90778197193131,
@@ -28640,7 +28640,7 @@
         "FCF margin"
       ],
       "missing_count": 5,
-      "analysis_text": "LUNR has 60/64 factors available. Current displayed price is $14.84. Projected Price by 2026-09-14 is $14.42. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: none shown. Risk checks: 200DMA trend, relative strength, revenue growth, FCF margin.",
+      "analysis_text": "LUNR has 60/64 factors available. Current displayed price is $14.84. Projected Price by 2026-09-15 is $14.42. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: none shown. Risk checks: 200DMA trend, relative strength, revenue growth, FCF margin.",
       "factors": [
         {
           "key": "price",
@@ -29435,8 +29435,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -30554,7 +30554,7 @@
       "current_price_display": "$14.84",
       "predicted_price": 14.415818050947495,
       "predicted_price_display": "$14.42",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 59 to 60.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -30610,7 +30610,7 @@
         "max_drawdown_1y": -0.22720001220703123,
         "downside_vol_60d": 0.12715811869178834,
         "atr_14_pct": 0.015742477591230174,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 6.044158524389369,
         "prediction_low": 5.872087082270123,
         "prediction_high": 6.221272225040916,
@@ -30673,7 +30673,7 @@
       ],
       "risks": [],
       "missing_count": 37,
-      "analysis_text": "LYG has 45/64 factors available. Current displayed price is $6.07. Projected Price by 2026-09-14 is $6.04. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength. Risk checks: none shown.",
+      "analysis_text": "LYG has 45/64 factors available. Current displayed price is $6.07. Projected Price by 2026-09-15 is $6.04. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -31468,8 +31468,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -32587,7 +32587,7 @@
       "current_price_display": "$6.07",
       "predicted_price": 6.044158524389369,
       "predicted_price_display": "$6.04",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 27 to 45.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -32643,7 +32643,7 @@
         "max_drawdown_1y": -0.3262159939722845,
         "downside_vol_60d": 0.3152601167834116,
         "atr_14_pct": 0.030315770783017216,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 622.6118998557969,
         "prediction_low": 594.3189552396376,
         "prediction_high": 652.2517487024132,
@@ -32711,7 +32711,7 @@
         "relative strength"
       ],
       "missing_count": 3,
-      "analysis_text": "META has 61/64 factors available. Current displayed price is $615.20. Projected Price by 2026-09-14 is $622.61. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: revenue growth, FCF margin. Risk checks: 200DMA trend, relative strength.",
+      "analysis_text": "META has 61/64 factors available. Current displayed price is $615.20. Projected Price by 2026-09-15 is $622.61. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: revenue growth, FCF margin. Risk checks: 200DMA trend, relative strength.",
       "factors": [
         {
           "key": "price",
@@ -33506,8 +33506,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -34625,7 +34625,7 @@
       "current_price_display": "$615.20",
       "predicted_price": 622.6118998557969,
       "predicted_price_display": "$622.61",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 61 to 61.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -34681,7 +34681,7 @@
         "max_drawdown_1y": -0.3491062375616114,
         "downside_vol_60d": 0.1514490363063288,
         "atr_14_pct": 0.02020070548395954,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 501.2237335466118,
         "prediction_low": 484.9395345224708,
         "prediction_high": 518.0547536050885,
@@ -34749,7 +34749,7 @@
       ],
       "risks": [],
       "missing_count": 1,
-      "analysis_text": "MSFT has 63/64 factors available. Current displayed price is $499.62. Projected Price by 2026-09-14 is $501.22. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
+      "analysis_text": "MSFT has 63/64 factors available. Current displayed price is $499.62. Projected Price by 2026-09-15 is $501.22. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -35544,8 +35544,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -36663,7 +36663,7 @@
       "current_price_display": "$499.62",
       "predicted_price": 501.2237335466118,
       "predicted_price_display": "$501.22",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 63 to 63.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -36719,7 +36719,7 @@
         "max_drawdown_1y": -0.4829955702728198,
         "downside_vol_60d": 0.8233007189655043,
         "atr_14_pct": 0.06837252405028786,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 236.47725860002953,
         "prediction_low": 196.68591601013594,
         "prediction_high": 284.3187502663048,
@@ -36787,7 +36787,7 @@
         "relative strength"
       ],
       "missing_count": 37,
-      "analysis_text": "NBIS has 52/64 factors available. Current displayed price is $225.30. Projected Price by 2026-09-14 is $236.48. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend. Risk checks: relative strength.",
+      "analysis_text": "NBIS has 52/64 factors available. Current displayed price is $225.30. Projected Price by 2026-09-15 is $236.48. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend. Risk checks: relative strength.",
       "factors": [
         {
           "key": "price",
@@ -37582,8 +37582,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -38701,7 +38701,7 @@
       "current_price_display": "$225.30",
       "predicted_price": 236.47725860002953,
       "predicted_price_display": "$236.48",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 27 to 52.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -38757,7 +38757,7 @@
         "max_drawdown_1y": -0.20223143583337766,
         "downside_vol_60d": 0.2211433713022236,
         "atr_14_pct": 0.033075548634664755,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 231.83988492289856,
         "prediction_low": 217.660969534171,
         "prediction_high": 246.94244611744497,
@@ -38826,7 +38826,7 @@
       ],
       "risks": [],
       "missing_count": 0,
-      "analysis_text": "NVDA has 64/64 factors available. Current displayed price is $229.50. Projected Price by 2026-09-14 is $231.84. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
+      "analysis_text": "NVDA has 64/64 factors available. Current displayed price is $229.50. Projected Price by 2026-09-15 is $231.84. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -39621,8 +39621,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -40740,7 +40740,7 @@
       "current_price_display": "$229.50",
       "predicted_price": 231.83988492289856,
       "predicted_price_display": "$231.84",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 64 to 64.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -40796,7 +40796,7 @@
         "max_drawdown_1y": -0.5171339246538698,
         "downside_vol_60d": 0.3566488787880651,
         "atr_14_pct": 0.051599124473326756,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 33.349250311892085,
         "prediction_low": 31.132373199140414,
         "prediction_high": 35.723987029551026,
@@ -40863,7 +40863,7 @@
       ],
       "risks": [],
       "missing_count": 3,
-      "analysis_text": "OSCR has 61/64 factors available. Current displayed price is $32.15. Projected Price by 2026-09-14 is $33.35. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
+      "analysis_text": "OSCR has 61/64 factors available. Current displayed price is $32.15. Projected Price by 2026-09-15 is $33.35. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -41658,8 +41658,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -42777,7 +42777,7 @@
       "current_price_display": "$32.15",
       "predicted_price": 33.349250311892085,
       "predicted_price_display": "$33.35",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 61 to 61.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -42833,7 +42833,7 @@
         "max_drawdown_1y": -0.5552284124538983,
         "downside_vol_60d": 0.4804652765473484,
         "atr_14_pct": 0.0672444356406354,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 94.75271182041769,
         "prediction_low": 83.71743122466812,
         "prediction_high": 107.2426168121323,
@@ -42899,7 +42899,7 @@
       ],
       "risks": [],
       "missing_count": 2,
-      "analysis_text": "RBRK has 62/64 factors available. Current displayed price is $93.85. Projected Price by 2026-09-14 is $94.75. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
+      "analysis_text": "RBRK has 62/64 factors available. Current displayed price is $93.85. Projected Price by 2026-09-15 is $94.75. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -43694,8 +43694,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -44813,7 +44813,7 @@
       "current_price_display": "$93.85",
       "predicted_price": 94.75271182041769,
       "predicted_price_display": "$94.75",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 62 to 62.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -44869,7 +44869,7 @@
         "max_drawdown_1y": -0.48733192785734825,
         "downside_vol_60d": 0.51904237406783,
         "atr_14_pct": 0.06172342174926015,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 596.5639913967598,
         "prediction_low": 537.4848265194576,
         "prediction_high": 662.1370097753816,
@@ -44938,7 +44938,7 @@
         "relative strength"
       ],
       "missing_count": 0,
-      "analysis_text": "SITM has 64/64 factors available. Current displayed price is $623.91. Projected Price by 2026-09-14 is $596.56. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, revenue growth, FCF margin. Risk checks: relative strength.",
+      "analysis_text": "SITM has 64/64 factors available. Current displayed price is $623.91. Projected Price by 2026-09-15 is $596.56. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, revenue growth, FCF margin. Risk checks: relative strength.",
       "factors": [
         {
           "key": "price",
@@ -45733,8 +45733,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -46852,7 +46852,7 @@
       "current_price_display": "$623.91",
       "predicted_price": 596.5639913967598,
       "predicted_price_display": "$596.56",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 64 to 64.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -46908,7 +46908,7 @@
         "max_drawdown_1y": -0.5630006703868291,
         "downside_vol_60d": 0.2083350879586156,
         "atr_14_pct": 0.05352481357946791,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 339.7141679770647,
         "prediction_low": 308.33320447297325,
         "prediction_high": 374.28896482819493,
@@ -46973,7 +46973,7 @@
       ],
       "risks": [],
       "missing_count": 4,
-      "analysis_text": "SNOW has 60/64 factors available. Current displayed price is $338.16. Projected Price by 2026-09-14 is $339.71. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
+      "analysis_text": "SNOW has 60/64 factors available. Current displayed price is $338.16. Projected Price by 2026-09-15 is $339.71. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -47768,8 +47768,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -48887,7 +48887,7 @@
       "current_price_display": "$338.16",
       "predicted_price": 339.7141679770647,
       "predicted_price_display": "$339.71",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 60 to 60.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -48943,7 +48943,7 @@
         "max_drawdown_1y": -0.39103453018952694,
         "downside_vol_60d": 0.48055687862719976,
         "atr_14_pct": 0.04331545692070538,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 358.19123816111284,
         "prediction_low": 333.56745752384336,
         "prediction_high": 384.63273380383674,
@@ -49013,7 +49013,7 @@
         "revenue growth"
       ],
       "missing_count": 0,
-      "analysis_text": "TSLA has 64/64 factors available. Current displayed price is $352.89. Projected Price by 2026-09-14 is $358.19. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: FCF margin. Risk checks: 200DMA trend, relative strength, revenue growth.",
+      "analysis_text": "TSLA has 64/64 factors available. Current displayed price is $352.89. Projected Price by 2026-09-15 is $358.19. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: FCF margin. Risk checks: 200DMA trend, relative strength, revenue growth.",
       "factors": [
         {
           "key": "price",
@@ -49808,8 +49808,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -50927,7 +50927,7 @@
       "current_price_display": "$352.89",
       "predicted_price": 358.19123816111284,
       "predicted_price_display": "$358.19",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 64 to 64.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
@@ -50983,7 +50983,7 @@
         "max_drawdown_1y": -0.4036885074504244,
         "downside_vol_60d": 0.27625225502206224,
         "atr_14_pct": 0.04635907488525293,
-        "forecast_date": "2026-09-14",
+        "forecast_date": "2026-09-15",
         "predicted_price": 32.61282947711412,
         "prediction_low": 30.151352794948004,
         "prediction_high": 35.27525460421576,
@@ -51050,7 +51050,7 @@
       ],
       "risks": [],
       "missing_count": 3,
-      "analysis_text": "ZETA has 61/64 factors available. Current displayed price is $31.28. Projected Price by 2026-09-14 is $32.61. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
+      "analysis_text": "ZETA has 61/64 factors available. Current displayed price is $31.28. Projected Price by 2026-09-15 is $32.61. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -51845,8 +51845,8 @@
           "key": "forecast_date",
           "label": "Prediction date",
           "category": "Forecast",
-          "value": "2026-09-14",
-          "display": "2026-09-14",
+          "value": "2026-09-15",
+          "display": "2026-09-15",
           "definition": "Seven calendar days ahead.",
           "available": true,
           "source_type": "calculated",
@@ -52964,7 +52964,7 @@
       "current_price_display": "$31.28",
       "predicted_price": 32.61282947711412,
       "predicted_price_display": "$32.61",
-      "prediction_date": "2026-09-14",
+      "prediction_date": "2026-09-15",
       "enrichment_note": "Available factors changed from 61 to 61.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
