@@ -1,7 +1,7 @@
 {
   "summary": {
     "name": "IvySets X-Theory Analysis",
-    "updated_at_london": "2026-09-23T01:50:05+01:00",
+    "updated_at_london": "2026-09-23T06:30:16+01:00",
     "timezone": "Europe/London",
     "stock_count": 26,
     "factor_count": 64,
@@ -12245,7 +12245,7 @@
       "name": "BT Group plc",
       "cik": "0000756620",
       "values": {
-        "price": 2.6,
+        "price": 2.5,
         "market_cap": null,
         "enterprise_value": null,
         "avg_dollar_volume_20d": 34124.99874830246,
@@ -12271,9 +12271,9 @@
         "downside_vol_60d": 0.42497119415152634,
         "atr_14_pct": 0.03681319235546168,
         "forecast_date": "2026-09-30",
-        "predicted_price": 2.5470923884682803,
-        "prediction_low": 2.344332100848154,
-        "prediction_high": 2.767389327239889,
+        "predicted_price": 2.4491272966041158,
+        "prediction_low": 2.2541654815847636,
+        "prediction_high": 2.6609512761922014,
         "revenue": 23723000000.0,
         "revenue_growth_yoy": null,
         "gross_profit": null,
@@ -12305,7 +12305,7 @@
         "shares": null,
         "ebitda": null,
         "interest_coverage": null,
-        "pe": 12.745098039215687,
+        "pe": 12.254901960784315,
         "ps": null,
         "pb": null,
         "p_fcf": null,
@@ -12334,14 +12334,14 @@
         "relative strength"
       ],
       "missing_count": 37,
-      "analysis_text": "BTGOF has 41/64 factors available. Current displayed price is $2.60. Projected Price by 2026-09-30 is $2.55. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: none shown. Risk checks: 200DMA trend, relative strength.",
+      "analysis_text": "BTGOF has 41/64 factors available. Current displayed price is $2.50. Projected Price by 2026-09-30 is $2.45. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: none shown. Risk checks: 200DMA trend, relative strength.",
       "factors": [
         {
           "key": "price",
           "label": "Current price",
           "category": "Market",
-          "value": 2.6,
-          "display": "$2.60",
+          "value": 2.5,
+          "display": "$2.50",
           "definition": "Latest daily adjusted/regular close from Yahoo chart data.",
           "available": true,
           "source_type": "yahoo",
@@ -12355,7 +12355,7 @@
               "url": "https://query1.finance.yahoo.com/v8/finance/chart/BTGOF?range=1d&interval=1m&includePrePost=true"
             }
           ],
-          "source_time_london": "2026-09-21T21:00:00+01:00"
+          "source_time_london": "2026-09-22T21:00:00+01:00"
         },
         {
           "key": "market_cap",
@@ -13161,8 +13161,8 @@
           "key": "predicted_price",
           "label": "Predicted price center",
           "category": "Forecast",
-          "value": 2.5470923884682803,
-          "display": "$2.55",
+          "value": 2.4491272966041158,
+          "display": "$2.45",
           "definition": "Factor-adjusted statistical center from recent drift, volatility and peer factor rank.",
           "available": true,
           "source_type": "calculated",
@@ -13193,8 +13193,8 @@
           "key": "prediction_low",
           "label": "68% prediction low",
           "category": "Forecast",
-          "value": 2.344332100848154,
-          "display": "$2.34",
+          "value": 2.2541654815847636,
+          "display": "$2.25",
           "definition": "Center minus one recent-volatility standard deviation over five trading days.",
           "available": true,
           "source_type": "calculated",
@@ -13225,8 +13225,8 @@
           "key": "prediction_high",
           "label": "68% prediction high",
           "category": "Forecast",
-          "value": 2.767389327239889,
-          "display": "$2.77",
+          "value": 2.6609512761922014,
+          "display": "$2.66",
           "definition": "Center plus one recent-volatility standard deviation over five trading days.",
           "available": true,
           "source_type": "calculated",
@@ -13925,8 +13925,8 @@
           "key": "pe",
           "label": "P/E",
           "category": "Valuation",
-          "value": 12.745098039215687,
-          "display": "12.75",
+          "value": 12.254901960784315,
+          "display": "12.25",
           "definition": "Price divided by diluted EPS.",
           "available": true,
           "source_type": "calculated",
@@ -14244,17 +14244,17 @@
       ],
       "available_factor_count": 41,
       "total_factor_count": 64,
-      "current_price": 2.6,
-      "current_price_display": "$2.60",
-      "predicted_price": 2.5470923884682803,
-      "predicted_price_display": "$2.55",
+      "current_price": 2.5,
+      "current_price_display": "$2.50",
+      "predicted_price": 2.4491272966041158,
+      "predicted_price_display": "$2.45",
       "prediction_date": "2026-09-30",
       "enrichment_note": "Available factors changed from 27 to 41.",
       "price_source": {
         "provider": "Yahoo Finance intraday chart",
         "quote_page": "https://finance.yahoo.com/quote/BTGOF",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/BTGOF?range=1d&interval=1m&includePrePost=true",
-        "source_time_london": "2026-09-21T21:00:00+01:00",
+        "source_time_london": "2026-09-22T21:00:00+01:00",
         "status": "Yahoo intraday chart",
         "note": "Used for current displayed price. Other technical factors use daily history; SEC factors use company filings or companyfacts."
       },
@@ -14262,15 +14262,15 @@
         "status": "Calculated",
         "formula": "Projected Price = current price x drift multiplier x factor multiplier",
         "lines": [
-          "1. Current intraday price = $2.60.",
+          "1. Current intraday price = $2.50.",
           "2. 20 trading-day return = -6.137%.",
           "3. Daily drift = ln(1 + 20D return) / 20 = -0.317%.",
           "4. 5-day drift multiplier = exp(daily drift x 5) = 0.984291.",
           "5. Overall factor score = 31.1/100.",
           "6. Factor tilt = ((score - 50) / 50) x 0.0025 = -0.094%.",
           "7. Factor multiplier = exp(factor tilt x 5) = 0.995286.",
-          "8. Projected Price = $2.60 x 0.984291 x 0.995286 = $2.55.",
-          "9. One-volatility range uses 20D annualized volatility 58.890%: $2.34 to $2.77."
+          "8. Projected Price = $2.50 x 0.984291 x 0.995286 = $2.45.",
+          "9. One-volatility range uses 20D annualized volatility 58.890%: $2.25 to $2.66."
         ]
       }
     },
