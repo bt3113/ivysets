@@ -1,7 +1,7 @@
 {
   "summary": {
     "name": "IvySets X-Theory Analysis",
-    "updated_at_london": "2026-11-12T04:08:51+00:00",
+    "updated_at_london": "2026-11-12T04:19:56+00:00",
     "timezone": "Europe/London",
     "stock_count": 26,
     "factor_count": 64,
@@ -4121,9 +4121,9 @@
         "downside_vol_60d": 0.17699726886274228,
         "atr_14_pct": 0.0387373142419687,
         "forecast_date": "2026-11-19",
-        "predicted_price": 270.8947494927778,
-        "prediction_low": 255.18071047833627,
-        "prediction_high": 287.5764596986841,
+        "predicted_price": 270.90829456887656,
+        "prediction_low": 255.1934698328414,
+        "prediction_high": 287.59083888114566,
         "revenue": 716924000000.0,
         "revenue_growth_yoy": 0.12377754683294695,
         "gross_profit": 5531000000.0,
@@ -4176,9 +4176,9 @@
         "quality_score": 45.5,
         "growth_score": 42.4,
         "momentum_score": 64.3,
-        "risk_score": 74.4
+        "risk_score": 75.0
       },
-      "overall_score": 56.5,
+      "overall_score": 56.7,
       "positives": [
         "200DMA trend",
         "relative strength",
@@ -4187,7 +4187,7 @@
       ],
       "risks": [],
       "missing_count": 4,
-      "analysis_text": "AMZN has 60/64 factors available. Current displayed price is $267.33. Projected Price by 2026-11-19 is $270.89. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
+      "analysis_text": "AMZN has 60/64 factors available. Current displayed price is $267.33. Projected Price by 2026-11-19 is $270.91. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth, FCF margin. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -5014,8 +5014,8 @@
           "key": "predicted_price",
           "label": "Predicted price center",
           "category": "Forecast",
-          "value": 270.8947494927778,
-          "display": "$270.89",
+          "value": 270.90829456887656,
+          "display": "$270.91",
           "definition": "Factor-adjusted statistical center from recent drift, volatility and peer factor rank.",
           "available": true,
           "source_type": "calculated",
@@ -5046,8 +5046,8 @@
           "key": "prediction_low",
           "label": "68% prediction low",
           "category": "Forecast",
-          "value": 255.18071047833627,
-          "display": "$255.18",
+          "value": 255.1934698328414,
+          "display": "$255.19",
           "definition": "Center minus one recent-volatility standard deviation over five trading days.",
           "available": true,
           "source_type": "calculated",
@@ -5078,8 +5078,8 @@
           "key": "prediction_high",
           "label": "68% prediction high",
           "category": "Forecast",
-          "value": 287.5764596986841,
-          "display": "$287.58",
+          "value": 287.59083888114566,
+          "display": "$287.59",
           "definition": "Center plus one recent-volatility standard deviation over five trading days.",
           "available": true,
           "source_type": "calculated",
@@ -6099,8 +6099,8 @@
       "total_factor_count": 64,
       "current_price": 267.33,
       "current_price_display": "$267.33",
-      "predicted_price": 270.8947494927778,
-      "predicted_price_display": "$270.89",
+      "predicted_price": 270.90829456887656,
+      "predicted_price_display": "$270.91",
       "prediction_date": "2026-11-19",
       "enrichment_note": "Available factors changed from 60 to 60.",
       "price_source": {
@@ -6119,11 +6119,11 @@
           "2. 20 trading-day return = 4.758%.",
           "3. Daily drift = ln(1 + 20D return) / 20 = 0.232%.",
           "4. 5-day drift multiplier = exp(daily drift x 5) = 1.011689.",
-          "5. Overall factor score = 56.5/100.",
-          "6. Factor tilt = ((score - 50) / 50) x 0.0025 = 0.033%.",
-          "7. Factor multiplier = exp(factor tilt x 5) = 1.001626.",
-          "8. Projected Price = $267.33 x 1.011689 x 1.001626 = $270.89.",
-          "9. One-volatility range uses 20D annualized volatility 42.424%: $255.18 to $287.58."
+          "5. Overall factor score = 56.7/100.",
+          "6. Factor tilt = ((score - 50) / 50) x 0.0025 = 0.034%.",
+          "7. Factor multiplier = exp(factor tilt x 5) = 1.001676.",
+          "8. Projected Price = $267.33 x 1.011689 x 1.001676 = $270.91.",
+          "9. One-volatility range uses 20D annualized volatility 42.424%: $255.19 to $287.59."
         ]
       }
     },
@@ -12247,7 +12247,7 @@
         "price": 2.82,
         "market_cap": null,
         "enterprise_value": null,
-        "avg_dollar_volume_20d": 124517.09705233574,
+        "avg_dollar_volume_20d": 125560.49702763557,
         "return_1d": 0.0,
         "return_5d": -0.09615383439750558,
         "return_20d": 0.1279999732971191,
@@ -12268,11 +12268,11 @@
         "correlation_spy_1y": -0.07956332741725701,
         "max_drawdown_1y": -0.2610063348115035,
         "downside_vol_60d": 0.31677623989029635,
-        "atr_14_pct": 0.03394122262040649,
+        "atr_14_pct": 0.03976695779057425,
         "forecast_date": "2026-11-19",
-        "predicted_price": 2.9169058594723096,
-        "prediction_low": 2.7178662330656804,
-        "prediction_high": 3.130521910722116,
+        "predicted_price": 2.916395445609418,
+        "prediction_low": 2.7173906480897934,
+        "prediction_high": 3.1299741173210602,
         "revenue": 23723000000.0,
         "revenue_growth_yoy": null,
         "gross_profit": null,
@@ -12324,9 +12324,9 @@
         "quality_score": null,
         "growth_score": 53.8,
         "momentum_score": 70.3,
-        "risk_score": 69.9
+        "risk_score": 67.9
       },
-      "overall_score": 64.7,
+      "overall_score": 64.0,
       "positives": [
         "200DMA trend",
         "relative strength"
@@ -12354,7 +12354,7 @@
               "url": "https://query1.finance.yahoo.com/v8/finance/chart/BTGOF?range=1d&interval=1m&includePrePost=true"
             }
           ],
-          "source_time_london": "2026-11-10T21:00:00+00:00"
+          "source_time_london": "2026-11-11T21:00:00+00:00"
         },
         {
           "key": "market_cap",
@@ -12424,8 +12424,8 @@
           "key": "avg_dollar_volume_20d",
           "label": "20D avg dollar volume",
           "category": "Liquidity",
-          "value": 124517.09705233574,
-          "display": "$124,517.10",
+          "value": 125560.49702763557,
+          "display": "$125,560.50",
           "definition": "Average 20D volume multiplied by latest price.",
           "available": true,
           "source_type": "calculated",
@@ -13096,8 +13096,8 @@
           "key": "atr_14_pct",
           "label": "ATR 14 as % price",
           "category": "Risk",
-          "value": 0.03394122262040649,
-          "display": "3.4%",
+          "value": 0.03976695779057425,
+          "display": "4.0%",
           "definition": "Average true range over 14 days divided by price.",
           "available": true,
           "source_type": "calculated",
@@ -13160,7 +13160,7 @@
           "key": "predicted_price",
           "label": "Predicted price center",
           "category": "Forecast",
-          "value": 2.9169058594723096,
+          "value": 2.916395445609418,
           "display": "$2.92",
           "definition": "Factor-adjusted statistical center from recent drift, volatility and peer factor rank.",
           "available": true,
@@ -13192,7 +13192,7 @@
           "key": "prediction_low",
           "label": "68% prediction low",
           "category": "Forecast",
-          "value": 2.7178662330656804,
+          "value": 2.7173906480897934,
           "display": "$2.72",
           "definition": "Center minus one recent-volatility standard deviation over five trading days.",
           "available": true,
@@ -13224,7 +13224,7 @@
           "key": "prediction_high",
           "label": "68% prediction high",
           "category": "Forecast",
-          "value": 3.130521910722116,
+          "value": 3.1299741173210602,
           "display": "$3.13",
           "definition": "Center plus one recent-volatility standard deviation over five trading days.",
           "available": true,
@@ -14245,7 +14245,7 @@
       "total_factor_count": 64,
       "current_price": 2.82,
       "current_price_display": "$2.82",
-      "predicted_price": 2.9169058594723096,
+      "predicted_price": 2.916395445609418,
       "predicted_price_display": "$2.92",
       "prediction_date": "2026-11-19",
       "enrichment_note": "Available factors changed from 27 to 41.",
@@ -14253,7 +14253,7 @@
         "provider": "Yahoo Finance intraday chart",
         "quote_page": "https://finance.yahoo.com/quote/BTGOF",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/BTGOF?range=1d&interval=1m&includePrePost=true",
-        "source_time_london": "2026-11-10T21:00:00+00:00",
+        "source_time_london": "2026-11-11T21:00:00+00:00",
         "status": "Yahoo intraday chart",
         "note": "Used for current displayed price. Other technical factors use daily history; SEC factors use company filings or companyfacts."
       },
@@ -14265,10 +14265,10 @@
           "2. 20 trading-day return = 12.800%.",
           "3. Daily drift = ln(1 + 20D return) / 20 = 0.602%.",
           "4. 5-day drift multiplier = exp(daily drift x 5) = 1.030569.",
-          "5. Overall factor score = 64.7/100.",
-          "6. Factor tilt = ((score - 50) / 50) x 0.0025 = 0.074%.",
-          "7. Factor multiplier = exp(factor tilt x 5) = 1.003682.",
-          "8. Projected Price = $2.82 x 1.030569 x 1.003682 = $2.92.",
+          "5. Overall factor score = 64.0/100.",
+          "6. Factor tilt = ((score - 50) / 50) x 0.0025 = 0.070%.",
+          "7. Factor multiplier = exp(factor tilt x 5) = 1.003506.",
+          "8. Projected Price = $2.82 x 1.030569 x 1.003506 = $2.92.",
           "9. One-volatility range uses 20D annualized volatility 50.175%: $2.72 to $3.13."
         ]
       }
@@ -18380,9 +18380,9 @@
         "downside_vol_60d": 0.38678828509282764,
         "atr_14_pct": 0.037811257667649825,
         "forecast_date": "2026-11-19",
-        "predicted_price": 282.51078220674367,
-        "prediction_low": 261.8419417899184,
-        "prediction_high": 304.81114491238145,
+        "predicted_price": 282.51784506458415,
+        "prediction_low": 261.84848792028936,
+        "prediction_high": 304.81876528625844,
         "revenue": 402836000000.0,
         "revenue_growth_yoy": 0.1509008108154437,
         "gross_profit": null,
@@ -18436,9 +18436,9 @@
         "quality_score": 68.4,
         "growth_score": 54.5,
         "momentum_score": 35.7,
-        "risk_score": 62.2
+        "risk_score": 62.8
       },
-      "overall_score": 55.2,
+      "overall_score": 55.3,
       "positives": [
         "revenue growth",
         "FCF margin"
@@ -18448,7 +18448,7 @@
         "relative strength"
       ],
       "missing_count": 3,
-      "analysis_text": "GOOGL has 61/64 factors available. Current displayed price is $294.35. Projected Price by 2026-11-19 is $282.51. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: revenue growth, FCF margin. Risk checks: 200DMA trend, relative strength.",
+      "analysis_text": "GOOGL has 61/64 factors available. Current displayed price is $294.35. Projected Price by 2026-11-19 is $282.52. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: revenue growth, FCF margin. Risk checks: 200DMA trend, relative strength.",
       "factors": [
         {
           "key": "price",
@@ -19275,8 +19275,8 @@
           "key": "predicted_price",
           "label": "Predicted price center",
           "category": "Forecast",
-          "value": 282.51078220674367,
-          "display": "$282.51",
+          "value": 282.51784506458415,
+          "display": "$282.52",
           "definition": "Factor-adjusted statistical center from recent drift, volatility and peer factor rank.",
           "available": true,
           "source_type": "calculated",
@@ -19307,8 +19307,8 @@
           "key": "prediction_low",
           "label": "68% prediction low",
           "category": "Forecast",
-          "value": 261.8419417899184,
-          "display": "$261.84",
+          "value": 261.84848792028936,
+          "display": "$261.85",
           "definition": "Center minus one recent-volatility standard deviation over five trading days.",
           "available": true,
           "source_type": "calculated",
@@ -19339,8 +19339,8 @@
           "key": "prediction_high",
           "label": "68% prediction high",
           "category": "Forecast",
-          "value": 304.81114491238145,
-          "display": "$304.81",
+          "value": 304.81876528625844,
+          "display": "$304.82",
           "definition": "Center plus one recent-volatility standard deviation over five trading days.",
           "available": true,
           "source_type": "calculated",
@@ -20360,8 +20360,8 @@
       "total_factor_count": 64,
       "current_price": 294.3536,
       "current_price_display": "$294.35",
-      "predicted_price": 282.51078220674367,
-      "predicted_price_display": "$282.51",
+      "predicted_price": 282.51784506458415,
+      "predicted_price_display": "$282.52",
       "prediction_date": "2026-11-19",
       "enrichment_note": "Available factors changed from 61 to 61.",
       "price_source": {
@@ -20380,11 +20380,11 @@
           "2. 20 trading-day return = -15.588%.",
           "3. Daily drift = ln(1 + 20D return) / 20 = -0.847%.",
           "4. 5-day drift multiplier = exp(daily drift x 5) = 0.958520.",
-          "5. Overall factor score = 55.2/100.",
+          "5. Overall factor score = 55.3/100.",
           "6. Factor tilt = ((score - 50) / 50) x 0.0025 = 0.026%.",
-          "7. Factor multiplier = exp(factor tilt x 5) = 1.001301.",
-          "8. Projected Price = $294.35 x 0.958520 x 1.001301 = $282.51.",
-          "9. One-volatility range uses 20D annualized volatility 53.937%: $261.84 to $304.81."
+          "7. Factor multiplier = exp(factor tilt x 5) = 1.001326.",
+          "8. Projected Price = $294.35 x 0.958520 x 1.001326 = $282.52.",
+          "9. One-volatility range uses 20D annualized volatility 53.937%: $261.85 to $304.82."
         ]
       }
     },
@@ -26536,9 +26536,9 @@
         "downside_vol_60d": 0.17008256266618305,
         "atr_14_pct": 0.03605945089029405,
         "forecast_date": "2026-11-19",
-        "predicted_price": 1516.947256670156,
-        "prediction_low": 1436.26386726126,
-        "prediction_high": 1602.163106635148,
+        "predicted_price": 1516.9851808256228,
+        "prediction_low": 1436.2997743067776,
+        "prediction_high": 1602.2031612134942,
         "revenue": 65179000000.0,
         "revenue_growth_yoy": 0.44704913337788366,
         "gross_profit": null,
@@ -26593,9 +26593,9 @@
         "quality_score": 57.4,
         "growth_score": 71.5,
         "momentum_score": 89.0,
-        "risk_score": 81.4
+        "risk_score": 82.1
       },
-      "overall_score": 63.3,
+      "overall_score": 63.4,
       "positives": [
         "200DMA trend",
         "relative strength",
@@ -26603,7 +26603,7 @@
       ],
       "risks": [],
       "missing_count": 12,
-      "analysis_text": "LLY has 56/64 factors available. Current displayed price is $1,447.85. Projected Price by 2026-11-19 is $1,516.95. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth. Risk checks: none shown.",
+      "analysis_text": "LLY has 56/64 factors available. Current displayed price is $1,447.85. Projected Price by 2026-11-19 is $1,516.99. The calculation uses current price, 20-day return drift, and factor-score tilt. Exact lines are shown below. Positive checks: 200DMA trend, relative strength, revenue growth. Risk checks: none shown.",
       "factors": [
         {
           "key": "price",
@@ -27430,8 +27430,8 @@
           "key": "predicted_price",
           "label": "Predicted price center",
           "category": "Forecast",
-          "value": 1516.947256670156,
-          "display": "$1,516.95",
+          "value": 1516.9851808256228,
+          "display": "$1,516.99",
           "definition": "Factor-adjusted statistical center from recent drift, volatility and peer factor rank.",
           "available": true,
           "source_type": "calculated",
@@ -27462,8 +27462,8 @@
           "key": "prediction_low",
           "label": "68% prediction low",
           "category": "Forecast",
-          "value": 1436.26386726126,
-          "display": "$1,436.26",
+          "value": 1436.2997743067776,
+          "display": "$1,436.30",
           "definition": "Center minus one recent-volatility standard deviation over five trading days.",
           "available": true,
           "source_type": "calculated",
@@ -27494,8 +27494,8 @@
           "key": "prediction_high",
           "label": "68% prediction high",
           "category": "Forecast",
-          "value": 1602.163106635148,
-          "display": "$1,602.16",
+          "value": 1602.2031612134942,
+          "display": "$1,602.20",
           "definition": "Center plus one recent-volatility standard deviation over five trading days.",
           "available": true,
           "source_type": "calculated",
@@ -28515,8 +28515,8 @@
       "total_factor_count": 64,
       "current_price": 1447.85,
       "current_price_display": "$1,447.85",
-      "predicted_price": 1516.947256670156,
-      "predicted_price_display": "$1,516.95",
+      "predicted_price": 1516.9851808256228,
+      "predicted_price_display": "$1,516.99",
       "prediction_date": "2026-11-19",
       "enrichment_note": "Available factors changed from 52 to 56.",
       "price_source": {
@@ -28535,11 +28535,11 @@
           "2. 20 trading-day return = 18.908%.",
           "3. Daily drift = ln(1 + 20D return) / 20 = 0.866%.",
           "4. 5-day drift multiplier = exp(daily drift x 5) = 1.044246.",
-          "5. Overall factor score = 63.3/100.",
-          "6. Factor tilt = ((score - 50) / 50) x 0.0025 = 0.066%.",
-          "7. Factor multiplier = exp(factor tilt x 5) = 1.003331.",
-          "8. Projected Price = $1,447.85 x 1.044246 x 1.003331 = $1,516.95.",
-          "9. One-volatility range uses 20D annualized volatility 38.801%: $1,436.26 to $1,602.16."
+          "5. Overall factor score = 63.4/100.",
+          "6. Factor tilt = ((score - 50) / 50) x 0.0025 = 0.067%.",
+          "7. Factor multiplier = exp(factor tilt x 5) = 1.003356.",
+          "8. Projected Price = $1,447.85 x 1.044246 x 1.003356 = $1,516.99.",
+          "9. One-volatility range uses 20D annualized volatility 38.801%: $1,436.30 to $1,602.20."
         ]
       }
     },
